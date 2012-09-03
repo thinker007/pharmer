@@ -1,0 +1,5 @@
+#summary One-sentence summary of this page.
+
+= LODD-related datasets that the LODD group already made available as Linked Data  =
+
+http://www.w3.org/wiki/HCLSIG/LODD/Data
