@@ -1,0 +1,264 @@
+http://www.iaria.org/conferences2013/CfPeTELEMED13.html
+The Fifth International Conference on eHealth, Telemedicine, and Social Medicine
+
+eTELEMED 2013
+
+February 24 - March 1, 2013 - Nice, France
+
+Call for Papers
+
+We are facing the generalization of digital society across multiple social areas. The globalization imposes the revision of the health costs a society can support. The progress in difference domains, such as image processing, wireless communications, computer vision, cardiology, and information storage and management assure a virtual team to access online to the latest achievements.
+
+Processing medical data benefits now from advanced techniques for color imaging, visualization of multi-dimensional projections, Internet imaging localization archiving as well as from a higher resolution of medical devices.
+
+Collecting, storing, and handling patient data requires robust processing systems, safe communications and storage, and easy and authenticated online access.
+
+We assist to a unprecedented and rapid deployment of use of electronic imagery, navigation portals, positive attitude on telemedicine, distributed surgery teams, tele-cardiology, and remote medicine. Development of wireless homecare, of special types of communications with patient data, of videoconferencing and telepresence, and the progress in image processing and date protection increased the eHealth applications and services, and extended Internet-based patient coverage areas. Social and economic aspects as well as the integration of classical systems with the telemedicine systems are still challenging issues.
+
+There are several dedicated events on these topics, usually concentrated on local problems (national), or geographical areas (Europe, Americas), as social and governmental rules may differ; eTELEMED 2013 considers advances in techniques, services, and applications dedicated to a global approach of eHealth, including a regard on federated aspects considering the mobility of population, the cross-nations agreements, and the new information technology tools.
+
+We solicit both academic, research, and industrial contributions. We welcome technical papers presenting research and practical results, position papers addressing the pros and cons of specific proposals, such as those being discussed in the standard fora or in industry consortia, survey papers addressing the key problems and solutions on any of the above topics short papers on work in progress, and panel proposals.
+
+Industrial presentations are not subject to the format and content constraints of regular submissions. We expect short and long presentations that express industrial position and status.
+
+Tutorials on specific related topics and panels on challenging areas are encouraged.
+
+The topics suggested by the conference can be discussed in term of concepts, state of the art, research, standards, implementations, running experiments, applications, and industrial case studies. Authors are invited to submit complete unpublished papers, which are not under review in any other conference or journal in the following, but not limited to, topic areas.
+
+All topics and submission formats are open to both research and industry contributions.
+
+eHealth technology and devices
+Telemedicine software and devices
+Diagnostic/monitoring systems and devices
+Electronic health cards
+Home monitoring services and equipment
+Telemedicine equipments
+Online instruments supporting independent living
+eHealth telecommunication services
+eHealth wireless data communications
+IPTV and/or phone portal clients
+Standardised biomarker analysis for intrinsic linkage to disease outcomes
+
+eHealth data records
+eHealth medical records
+Reengineering of care plans in electronic format
+Digital imagery and films
+Internet imaging localization and archiving
+Personal, adaptive, and content-based image retrieval imaging
+Privacy and accuracy communications of patient records
+Secure patient data storage
+Secure communications of patient data
+Authenticated access to patient records
+Patient privacy-enhancing technologies (PETs)
+Robust approaches to algorithmic modeling of outcomes 
+Dynamic graphing of individual’s data trends
+Data aggregation technologies
+Delivery of information governance policies
+Tools/systems for automatic document metadata tagging
+Dataset harmonization across multiple sites
+Standard/symbolic representations of multiple physiological trends and clinical/life events
+
+eHealth information processing
+Web technology in medicine and eHealth
+Web-enabled consumer-driven eHealth
+Electronic imagery and visualization frameworks
+Color imaging and multidimensional projections
+Imaging interfaces and navigation
+Medical image processing
+Video techniques for medical images
+Computer vision and resolution
+Rapid evaluation of patient's status
+Anticipative processing of patient's status
+Videoconferencing
+Telepresence
+
+eHealth systems and communications
+Hospital information systems
+Internet/intranet services
+Surgical systems
+Sensor-based systems
+Satellite eHealth communications
+Secure data transmissions
+Body-sensor networks
+Separation of concerns between domain problems and technological choices
+Service-Oriented Architecture (SOA) approaches to maximize translation of clinical evidence
+Cross-border eHealth systems
+HealthGrid
+Wireless 'flooding' technology providing cheap e-health platform support to whole towns/cities
+
+eHealth systems and emergency situations
+Medical emergencies and communications
+Detection emergencies situations
+Medical resource allocation, optimization, and simulation
+Real-time emergency situations management
+Security and accuracy of emergency communications
+Geolocalisation and optimization technology services for emergency fleet vehicles
+
+Telemedicine/eHealth applications
+Virtual telemedicine
+Mobile eHealth services
+Home monitoring and homecare applications
+Wireless homecare
+User-generated eHealth care
+Personalized medicine
+Wireless telemedicine
+Telehomecare technologies for the elderly
+Automatic detection of infectious diseases
+
+Telemedicine/eHealth services
+Clinical telemedicine
+Distributed surgery
+Telemedicine and telehealth
+Telepathology
+Telecardiology
+Telerehabilitation
+Elderly and impaired patient services
+Remote operational medicine
+Remote consulting services
+Telemedicare monitoring
+Vital signs monitoring
+Computer generated self care advice
+Telemedicine handbag
+Workflow approaches to improve healthcare intervention outcomes
+Workflow to improve patient safety, decision support, and  objective measurement of service quality
+Support for evidence-driven integrated care pathways (ICP’s) 
+
+Social and financial aspects
+Safety in telemedicine
+Business models
+Cost-benefit studies
+Legal and ethical aspects
+On-line payment and reimbursement issues
+Ambient Assisted Living
+Shared-care systems for eHealth
+Privacy in the eHealth systems
+Multi-lingual eHealth systems
+Continuity in eHealth care
+System simulations for business case development and risk reduction
+Problem-independent (generic application) eHealth architecture
+'Lean' e-health workflows
+‘Relative risk' dashboards - how the patient's condition 'sits' within population risk
+
+Classical medicine and eHealth integration
+Wide-area integration of eHealth systems
+Current eHealth realizations and projects
+Innovation in eHealth
+Telemedicine portals
+Standardization and interconnectivity of eHealth systems
+Implementation of cross-border eHealth services
+eHealth integration into routine medical practice
+Affordable approaches to e-Health
+eHealth acceptance with medical professionals and patients
+Developing countries and eHealth
+Distance education for eHealth
+xHR standardization
+Impact of ‘global’ integration standards and interoperability projects (e.g. CDA, IHE/XDS, SNOMED-CT, Continua Healthcare Alliance, IEEE11073, Common User Interface (CUI)
+
+Preventive eHealth systems
+Systematic risk analysis technologies for disease early detection and prevention
+'Patient path' hubs, mobile devices and/or dedicated home-based network computers
+Information models for evaluation of disease progression risk/disease processes
+Systems supporting quantitative healthcare (predictive outcomes) modeling
+Health risk factor data collation and multiple longitudinal trend analyses
+Support for disease prevention aimed at healthy individuals
+Data aggregation and visualisation technologies for population-based reporting
+'Risk signature’ discovery to indicate optimal preventative or screening actions
+Mapping SNOMED-CT terminologies to disease model archetypes
+Quantitative individualized outcome risk analysis
+Services for longitudinal data analysis/visualisation
+Continuous workflow management across clinic, home and mobile locations
+
+Challenges of  large-scale, cost-effective eHealth systems
+Integrated technology, social/behavioral and business modelling research for large-scale deployments Total operational cost-effectiveness modelling
+Lessons from large-scale telehealth/telecare demonstrators in different parts of the world
+Standardised data collation infrastructures (data service layers)
+Impact of grid and service-oriented computing
+Roles of global/international interoperability organisations (e.g. IHE and Continua)
+Scaleable multi-data trend management
+Robust data collection along the ‘patient path’ for improved decision support
+Delivery of ‘composite’ process functions (e.g. contributed by multiple vendor systems)
+Paths to semantically-harmonised eHealth systems
+Semantic interoperability and openEHR archetypes
+Applications of harmonised (standardised) datasets across multiple sites
+Keeping technology simple and affordable
+
+Nurse team applications
+ePatient and eNurse tools that are simple to adopt and use
+Public eHealth education & information
+Life time health records
+Primary care centers and home monitoring
+Monitoring for signs and progression of complications
+eHealth awareness, education and adoption
+Mapping to individualized care plans
+Continuous ‘closed loop’ outcomes analysis
+Intervention measurement technologies
+Personal target setting
+
+Personalized eHealth
+eHealth Systems in Mental Health
+Preventive Systems and mobile activity monitoring
+eHealth and life
+Fundamentals in eHealth personalization
+Wearable and implantable systems
+Micro and nano eHealth sensors
+Diagnostics using biosensors and textiles
+Interacting with organic semiconductors
+Personalized eHealth market
+Personalized eHealth business models
+Ubiquitous monitoring
+Personalized eHealth and classical health networks
+Trends in personalized eHealth
+ICT solutions for patient self-management
+
+Clinical telemedicine
+Stroke (Acute stroke, Thrombolytic therapy, Transient ischemic attacks, Telestroke)
+Eplilepsy (Acute management of seizures, Follow-up strategies, management of complications)
+ICU (remote intubation, Management of acute respiratory distress)
+Cardiaology (EKG interpretation, Tele-Echo, Management of acute coronary syndromes)
+Pediatrics (Epilepsy, Cardiology-echo interpretation, Pediatrics emergencies)
+
+Rural and wilderness eHealth
+Rural health and eHealth programs
+Rural medical practice
+Healthcare challenges in rural areas
+Provincial standards of emergency care
+Diagnosing in rural areas
+Wilderness emergency medicine
+Developing and nurturing online communities for health
+Rural self-health care
+
+Environmental and travel telemedicine
+Disease control and prevention
+Geo-medical surveillance
+Travel health-related products, drugs and vaccines
+Altitude medicine
+Oceanic medicine
+Continuous monitoring of travelers' health
+Self-health care
+
+ 
+
+INSTRUCTION FOR THE AUTHORS
+
+Authors of selected papers will be invited to submit extended versions to one of the IARIA Journals.
+
+Publisher: XPS (Xpert Publishing Services)
+Archived: ThinkMindTM Digital Library (free access)
+Prints available at Curran Associates, Inc.
+Articles will be submitted to major indexes.
+
+Important deadlines:
+Submission (full paper) 	September 29, 2012
+Notification 	November 17, 2012
+Registration 	December 1, 2012
+Camera ready 	December 1, 2012
+
+Only .pdf or .doc files will be accepted for paper submission. All received submissions will be acknowledged via an automated system.
+
+Regular Papers (up to 6-10 page article)
+
+Final author manuscripts will be 8.5" x 11", not exceeding 6 pages; max 4 extra pages allowed at additional cost. The formatting instructions can be found on the Instructions page. Helpful information for paper formatting can be found on the here.
+
+Your paper should also comply with the additional editorial rules.
+
+Once you receive the notification of paper acceptance, you will be provided by the publisher an online author kit with all the steps an author needs to follow to submit the final version. The author kits URL will be included in the letter of acceptance.
