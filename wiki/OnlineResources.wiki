@@ -6,3 +6,6 @@ http://www.w3.org/wiki/HCLSIG/LODD/Data
 
 =E-Prescription=
 http://en.wikipedia.org/wiki/Electronic_prescribing
+
+=Similar software=
+http://www.practicefusion.com/pages/ePrescribing.html
