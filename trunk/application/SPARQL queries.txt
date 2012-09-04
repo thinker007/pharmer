@@ -1,7 +1,47 @@
-//search for a drug name e.g "acetaminophen"
+//search for a drug name e.g "Amoxicillin"
 
-SELECT DISTINCT ?s ?name
+PREFIX d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#>
+PREFIX dailymed: <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/>
+PREFIX vocabClass: <http://www4.wiwiss.fu-berlin.de/dailymed/vocab/resource/class/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX diseasome: <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX vocabProperty: <http://www4.wiwiss.fu-berlin.de/dailymed/vocab/resource/property/>
+PREFIX db: <http://www4.wiwiss.fu-berlin.de/dailymed/resource/>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX map: <file:/C:/apps/dailymed/dailymed.n3#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?s ?name ?fullName
 WHERE {
- ?s dailymed:fullName ?name
-FILTER (REGEX(?name, "acetaminophen", "i"))
+ ?s dailymed:genericMedicine ?name .
+ ?s dailymed:fullName ?fullName .
+ ?s rdf:type dailymed:drugs .
+ FILTER (REGEX(?name, "Amoxicillin", "i"))
 }
+//--------------------------------------------------------------------------------------------
+PREFIX d2r: <http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#>
+PREFIX dailymed: <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/>
+PREFIX vocabClass: <http://www4.wiwiss.fu-berlin.de/drugbank/vocab/resource/class/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX diseasome: <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX vocabProperty: <http://www4.wiwiss.fu-berlin.de/drugbank/vocab/resource/property/>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX map: <file:/C:/apps/drugbank/drugbank.n3#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?s ?name ?description
+WHERE {
+ ?s drugbank:genericName ?name .
+ ?s drugbank:description ?description .
+ ?s rdf:type drugbank:drugs .
+ FILTER (REGEX(?name, "Amoxicillin", "i"))
+}
+//--------------------------------------------------------------------------------------------
