@@ -8,9 +8,10 @@ else
 	$drug_name=trim($drug_name);
 $sq = new SQLQuery ();
 //first check it in local db
-$db_recs = $sq->dbQuery ( 'SELECT drug.uri,drug.name,drug.description FROM searched_terms,drug WHERE searched_terms.drug_id=drug.id AND searched_terms.term=:term',array('term'=>$drug_name) );    
+$db_recs_check = $sq->dbQuery ( 'SELECT * FROM searched_terms WHERE term=:term',array('term'=>$drug_name) ); 
 $output = array ();
-if (count ( $db_recs )) {
+if (count ( $db_recs_check )) {
+	$db_recs = $sq->dbQuery ( 'SELECT drug.uri,drug.name,drug.description FROM searched_terms,drug WHERE searched_terms.drug_id=drug.id AND searched_terms.term=:term',array('term'=>$drug_name) );    
 	foreach ( $db_recs as $v ) {
 		$output_part = array ();
 		$output_part ['s'] = $v ['uri'];
@@ -82,6 +83,8 @@ if (count ( $db_recs )) {
 				$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
 				$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 			}
+		}else{
+			$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>null));
 		}
 	}
 }
