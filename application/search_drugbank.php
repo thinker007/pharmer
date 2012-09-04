@@ -4,6 +4,8 @@ require_once ("libs/sparqllib.php");
 $drug_name = @$_GET ['name'];
 if (! isset ( $drug_name ))
 	$drug_name = 'acetaminophen';
+else
+	$drug_name=trim($drug_name);
 $sq = new SQLQuery ();
 
 //first check it in local db
@@ -48,7 +50,8 @@ if (count ( $db_recs )) {
 	}
 	if (count ( $output )) {
 		foreach ( $output as $v ) {
-			$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
+			$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
+			$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 		}
 	} else {
 		//not found in drugbank check dailymed
@@ -78,7 +81,8 @@ if (count ( $db_recs )) {
 		}
 		if (count ( $output )) {
 			foreach ( $output as $v ) {
-				$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
+				$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
+				$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 			}
 		}
 	}
