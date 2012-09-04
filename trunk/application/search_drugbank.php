@@ -7,10 +7,8 @@ if (! isset ( $drug_name ))
 else
 	$drug_name=trim($drug_name);
 $sq = new SQLQuery ();
-
 //first check it in local db
-$db_recs = $sq->dbQuery ( 'SELECT * FROM drug WHERE name LIKE "%' . $drug_name . '%"' );
-//var_dump($db_recs);
+$db_recs = $sq->dbQuery ( 'SELECT drug.uri,drug.name,drug.description FROM searched_terms,drug WHERE searched_terms.drug_id=drug.id AND searched_terms.term=:term',array('term'=>$drug_name) );    
 $output = array ();
 if (count ( $db_recs )) {
 	foreach ( $db_recs as $v ) {
