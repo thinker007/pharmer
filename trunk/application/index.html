@@ -5,32 +5,34 @@
 	<title>Pharmer -- Smart Medical Prescription Writer</title>
 	
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" media="all" />
+	<link rel="stylesheet" href="css/index.css" media="all" />
+	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="libs/jquery.min.js"></script>
 	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="content span4">
 
-<div class="btn-group">
+<br /><br /><br />
+<div class="btn-group" id="id1">
 <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-Warning
+dexa
 <span class="caret"></span>
 </button>
 <ul class="dropdown-menu">
 <li>
-<a href="#">Action</a>
-</li>
-<li>
-<a href="#">Another action</a>
-</li>
-<li>
-<a href="#">Something else here</a>
+<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Dexamethasone</span><br/><small>An anti-inflammatory 9-fluoro-glucocorticoid.</small></a>
 </li>
 <li class="divider"></li>
 <li>
-<a href="#">Separated link</a>
+<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Lisdexamfetamine</span><br/><small>Lisdexamfetamine (L-lysine-d-amphetamine) is a prodrug of the psychostimulant d-amphetamine coupled with the essential amino ...</small></a>
 </li>
+
 </ul>
 </div>
 
+<br>
+
+</div>
 </body>
 	
