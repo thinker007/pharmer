@@ -1,0 +1,7 @@
+//search for a drug name e.g "acetaminophen"
+
+SELECT DISTINCT ?s ?name
+WHERE {
+ ?s dailymed:fullName ?name
+FILTER (REGEX(?name, "acetaminophen", "i"))
+}
