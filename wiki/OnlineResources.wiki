@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Useful Links.
 
 = LODD-related datasets that the LODD group already made available as Linked Data  =
 
