@@ -13,6 +13,5 @@ http://www.practicefusion.com/pages/ePrescribing.html
 =patient keeper=
 http://www.patientkeeper.com/products/clinical_applications/eprescription.html
 
-=Australian government=
+=Australian medicare=
 http://www.medicareaustralia.gov.au/provider/pbs/pharmacists/dispense.jsp
-
