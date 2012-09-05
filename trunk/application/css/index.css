@@ -1,3 +1,12 @@
 .already-selected{
 	background-color:#e7e7e7;
 }
+.bg{
+	background-color:#fff;
+}
+#presc_edit{
+	background-color:#e7e7e7;
+	padding: 10px 10px 10px 10px;
+	min-height:300px;
+	margin-left:0;
+}

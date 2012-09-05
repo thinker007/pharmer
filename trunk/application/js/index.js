@@ -3,4 +3,6 @@ function selectItem(divid,item){
 	$('#'+divid+' .already-selected').removeClass('already-selected');
 	$(item).addClass('already-selected');
 	$('#'+divid).find('button').removeClass('btn-warning').addClass('btn-success');
+	$('#presc_edit').attr('contenteditable','false');
+	$('#presc_edit').attr('contenteditable','true');
 }
