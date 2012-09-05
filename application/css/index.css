@@ -10,3 +10,9 @@
 	min-height:300px;
 	margin-left:0;
 }
+#ajax_progress_indicator{
+	position:absolute;
+	top:7px;
+	left:23px;
+	z-index:9999;
+}

@@ -67,7 +67,6 @@
 					<br>
 					Acetaminophen every 8 hours.
 				</div>
-				<button class="btn" onclick="detect_drugs();">Detect drugs</button>
 			</div>
 			<div class="tab-pane span7 img-rounded" id="presc_view">
 			Here is your output!
@@ -76,6 +75,23 @@
 	</div>
 </div>
 
+<script>
+$(function() {
+	$("#presc_edit").keyup(function(event){
+		if(event.keyCode == 13){
+			console.log(event);
+			handleEnter();
+		}
+	});
+});
+$(document).ajaxStart(function(){ 
+    $('#ajax_progress_indicator').show();
+});
+$(document).ajaxStop(function(){ 
+    $('#ajax_progress_indicator').hide();
+});
+</script>
 
+<div id="ajax_progress_indicator" style="display:none;"><img src='img/ajax-loader.gif' alt=""/></div>
 </body>
 	
