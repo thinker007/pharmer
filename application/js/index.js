@@ -13,7 +13,7 @@ function selectItem(divid,item){
 function detect_drugs(data,start,end){
 	var dataReceived;
 	var data = encodeURIComponent(data);
-	var new_text;
+	var new_text=$('#presc_edit').html();;
 	data = "api=DBpedia&query=" + data;
 	dataReceived=connectEnricherAPI(proxy_url,data);
 	$.each(dataReceived['Resources'], function(key, val) {
@@ -29,7 +29,6 @@ function detect_drugs(data,start,end){
 		//console.log(check1+' '+check2+' '+check3+' '+check4);
 		if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
 			//console.log(val['@surfaceForm']);
-			new_text=$('#presc_edit').html();
 			new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
 		}
 	});

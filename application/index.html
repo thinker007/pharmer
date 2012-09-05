@@ -56,16 +56,16 @@
 <div class="container">
 	<div class="tabbable tabs-left">
 		<ul class="nav nav-tabs offset1">
-		<li class="active"><a data-toggle="tab" href="#edit">Edit</a></li>
+		<li class="active"><a data-toggle="tab" href="#edit">Write</a></li>
 		<li><a data-toggle="tab" href="#presc_view">View</a></li>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active" id="edit">
 				<div class="span7 img-rounded" id="presc_edit" contenteditable="true">
 				
-					Amoxicillin 3 times per day.
+					Amoxicillin - 1 tab tds.
 					<br>
-					Acetaminophen every 8 hours.
+					Acetaminophen - 2 caps nocte.
 				</div>
 			</div>
 			<div class="tab-pane span7 img-rounded" id="presc_view">
@@ -79,7 +79,7 @@
 $(function() {
 	$("#presc_edit").keyup(function(event){
 		if(event.keyCode == 13){
-			console.log(event);
+			//console.log(event);
 			handleEnter();
 		}
 	});
