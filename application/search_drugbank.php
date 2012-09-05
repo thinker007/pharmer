@@ -88,4 +88,5 @@ if (count ( $db_recs_check )) {
 		}
 	}
 }
-var_dump ( $output );
+header('Content-type: application/json');
+echo json_encode ( array('drugs'=>$output) );
