@@ -34,7 +34,13 @@ function detect_drugs(data,start,end){
 	});
 	$('#presc_edit').html(new_text);
 }
-
+function search_drug(){
+	var is_st_selected=0;
+	if(!is_st_selected){
+		$('#search_term').removeClass('hidden');
+		$("#result_of_search").html('');
+	}
+}
 function connectEnricherAPI(url,request_data){
 	var dataReceived;
 	$.ajax({
@@ -55,7 +61,7 @@ function connectEnricherAPI(url,request_data){
 	return dataReceived;
 }
 
-function handleEnter(){
+function realTimeTag(){
     var el = document.getElementById("presc_edit");
     var range = window.getSelection().getRangeAt(0);
 	var position=getCharacterOffsetWithin(range, el);
@@ -67,6 +73,25 @@ function handleEnter(){
 	var start=position-chunk.length;
 	var end=position;
 	detect_drugs(chunk,start,end);
+}
+function handleSearch(){
+	var term=$("#search_term").val();
+	$.ajax({
+		type : "GET",
+		async: false,
+		url : 'search_drugbank.php?',
+		data : 'name='+term,
+		success : function(data) {
+			//console.log(data);
+			data.search_term=term;
+			$("#result_of_search").html('');
+			$("#search_result").tmpl(data).appendTo("#result_of_search");	
+			$('#search_term').addClass('hidden');
+		},
+		error: function(xhr, txt, err){ 
+			alert("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+		},
+	});	
 }
 function getCharacterOffsetWithin(range, node) {
     var treeWalker = document.createTreeWalker(

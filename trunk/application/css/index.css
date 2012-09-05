@@ -13,6 +13,23 @@
 #ajax_progress_indicator{
 	position:absolute;
 	top:7px;
-	left:23px;
+	left:50%;
 	z-index:9999;
+}
+.hidden{
+	display:none;
+}
+.visible{
+	display:inline;
+}
+#search_bar{
+	position:absolute;
+	top:50px;
+	left:48%;
+	z-index:9999;
+}
+#result_of_search{
+	position:absolute;
+	top:0px;
+	left:33px;
 }
