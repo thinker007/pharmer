@@ -346,6 +346,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
@@ -528,6 +533,7 @@ This is a test \cite{Khalili2012}.
 % command of the stfloats package.
 
 \section{Semantic Content Authoring}
+\label{sec:sca}
 
 \section{E-Prescriptions}
 E-prescriptions are computer-generated prescriptions utilized by healthcare providers.
@@ -541,13 +547,16 @@ During the recent years has been spreading rapidly.To illustrate, the Australian
 \section{Semantic Authoring of Medical Prescriptions}
 
 \section{Pharmer}
+In \autoref{fig:lod}, you can see..
+We discussed sth in \autoref{sec:sca}.
 
 \subsection{Architecture}
+
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=1.0\columnwidth]{images/lod_cloud.png}
 	\caption{Available datasets related to pharmaceutical research.}
-	\label{fig:approaches}
+	\label{fig:lod}
 \end{figure}
 
 
