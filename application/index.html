@@ -10,31 +10,49 @@
 	<script type="text/javascript" src="libs/jquery.min.js"></script>
 	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div class="content span4">
-
+<body class="bg" spellcheck="false">
 <br /><br /><br />
-<div class="btn-group" id="id1">
-<button class="btn item-title-current">
-dexa
-</button>
-<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-<span class="caret"></span>
-</button>
-<ul class="dropdown-menu">
-<li>
-<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Dexamethasone</span><br/><small>An anti-inflammatory 9-fluoro-glucocorticoid.</small></a>
-</li>
-<li class="divider"></li>
-<li>
-<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Lisdexamfetamine</span><br/><small>Lisdexamfetamine (L-lysine-d-amphetamine) is a prodrug of the psychostimulant d-amphetamine coupled with the essential amino ...</small></a>
-</li>
-
-</ul>
-</div>
 
 <br>
+<div class="container">
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs offset1">
+		<li class="active"><a data-toggle="tab" href="#presc_edit">Edit</a></li>
+		<li><a data-toggle="tab" href="#presc_view">View</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active span7 img-rounded" id="presc_edit" contenteditable="true">
+			
+				&nbsp;<span class="btn-group" id="id1">
+				<button class="btn item-title-current">
+				dexa
+				</button>
+				<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+				<li>
+				<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Dexamethasone</span><br/><small>An anti-inflammatory 9-fluoro-glucocorticoid.</small></a>
+				</li>
+				<li class="divider"></li>
+				<li>
+				<a href="#" onclick="selectItem('id1',this)"><span class="item-title">Lisdexamfetamine</span><br/><small>Lisdexamfetamine (L-lysine-d-amphetamine) is a prodrug of the psychostimulant d-amphetamine coupled with the essential amino ...</small></a>
+				</li>
 
+				</ul>
+				</span>&nbsp;
+				
+				Hello this is a test.
+				<br>
+				
+			</div>
+			<div class="tab-pane span7 img-rounded" id="presc_view">
+			Here is your output!
+			</div>			
+		</div>
+	</div>
 </div>
+
+
 </body>
 	
