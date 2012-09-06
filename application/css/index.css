@@ -5,23 +5,17 @@
 	background-color:#fff;
 }
 #presc_edit{
-	background-size: 40px 40px;
-	background-color: #e7e7e7;
-	background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-	background-image: -moz-linear-gradient(rgba(255, 255, 255, .4) 50%, transparent 50%, transparent);
-	background-image: -ms-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-	background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-	background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-	-pie-background: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent) 0 0 / 50px #fff;
-	behavior: url(/PIE.htc);
-	padding: 0px 10px 10px 10px;
+	line-height:25px;
+	font-size: 12px;
+	background-color: #eeeeee;
+	padding: 5px 10px 10px 10px;
 	min-height:310px;
 	margin-left:0;
 }
 #ajax_progress_indicator{
 	position:absolute;
 	top:52px;
-	left:48.5%;
+	left:41.5%;
 	z-index:9999;
 }
 .hidden{
@@ -33,11 +27,15 @@
 #search_bar{
 	position:absolute;
 	top:50px;
-	left:48%;
+	left:41%;
 	z-index:9999;
 }
 #result_of_search{
 	position:absolute;
 	top:0px;
-	left:33px;
+	left:73px;
+}
+.ph-entity{
+
+
 }
