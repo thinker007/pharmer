@@ -85,7 +85,7 @@ function handleSearch(){
 	var term=$("#search_term").val();
 	$.ajax({
 		type : "GET",
-		async: false,
+		async: true,
 		url : 'search_drugbank.php?',
 		data : 'name='+term,
 		success : function(data) {
