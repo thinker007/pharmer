@@ -66,13 +66,13 @@
 <script>
 $(function() {
 	$("#presc_edit").keyup(function(event){
-		if(event.keyCode == 190){
+		if(event.keyCode == 190){ // when period '.' is pressed
 			//console.log(event);
 			realTimeTag();
 		}
 	});
 	$("#search_term").keyup(function(event){
-		if(event.keyCode == 13){
+		if(event.keyCode == 13){ //when enter is pressed
 			//console.log(event);
 			handleSearch();
 		}

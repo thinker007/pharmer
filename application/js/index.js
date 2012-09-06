@@ -23,23 +23,35 @@ function detect_drugs(data,start,end){
 		contentType: "application/x-www-form-urlencoded",
 		dataType: "json",
 		success : function(data) {
+			if(!data['Resources'])
+				return;
 			$.each(data['Resources'], function(key, val) {
 				var tmp=val['@types'];
-				var term1 = new RegExp("drug");
-				var term2 = new RegExp("chemical_compound");
-				var term3 = new RegExp("medicine");
-				var term4 = new RegExp("medical_treatment");
-				var check1 = term1.exec(tmp);
-				var check2 = term2.exec(tmp);
-				var check3 = term3.exec(tmp);
-				var check4 = term4.exec(tmp);
-				//console.log(check1+' '+check2+' '+check3+' '+check4);
-				if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
-					//console.log(val['@surfaceForm']);
-					new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
+				if(tmp != ""){
+					var term1 = new RegExp("drug");
+					var term2 = new RegExp("chemical_compound");
+					var term3 = new RegExp("medicine");
+					var term4 = new RegExp("medical_treatment");
+					var check1 = term1.exec(tmp);
+					var check2 = term2.exec(tmp);
+					var check3 = term3.exec(tmp);
+					var check4 = term4.exec(tmp);
+					//console.log(check1+' '+check2+' '+check3+' '+check4);
+					if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
+						//console.log(val['@surfaceForm']);
+						new_text=$('#presc_edit').html();
+						new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
+					}
 				}
 			});
-			$('#presc_edit').html(new_text);
+			//solve the problem with new <br> tag added
+			var endstr="<br>";
+			new_text=$.trim(new_text);
+			var tmp2=new_text.substring(new_text.length-endstr.length,new_text.length);
+			if(tmp2==endstr)
+				new_text=new_text.substring(0,new_text.length-endstr.length);
+						$('#presc_edit').html(new_text);
+			placeCaretAtEnd( document.getElementById("presc_edit") );
 		},
 		error: function(xhr, txt, err){ 
 			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);
@@ -109,4 +121,21 @@ function getCharacterOffsetWithin(range, node) {
         charCount += range.startOffset;
     }
     return charCount;
+}
+function placeCaretAtEnd(el) {
+    el.focus();
+    if (typeof window.getSelection != "undefined"
+            && typeof document.createRange != "undefined") {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (typeof document.body.createTextRange != "undefined") {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.collapse(false);
+        textRange.select();
+    }
 }
