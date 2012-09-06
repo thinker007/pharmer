@@ -62,9 +62,21 @@ function detect_drugs(data,start,end){
 }
 function search_drug(){
 	var is_st_selected=0;
+	var selected=getSelectionHtml();
+	if(selected!='')
+		is_st_selected=1;
 	if(!is_st_selected){
 		$('#search_term').removeClass('hidden');
 		$("#result_of_search").html('');
+	}else{
+		var search_term=$('<div>'+selected+'</div>').text();
+		$('#search_term').val(search_term);
+		$('#search_term').removeClass('hidden');
+		$("#result_of_search").html('');
+		var event = $.Event('keyup');
+		event.keyCode = 13; // enter
+		$('#search_term').trigger(event);
+		
 	}
 }
 
@@ -138,4 +150,22 @@ function placeCaretAtEnd(el) {
         textRange.collapse(false);
         textRange.select();
     }
+}
+function getSelectionHtml() {
+    var html = "";
+    if (typeof window.getSelection != "undefined") {
+        var sel = window.getSelection();
+        if (sel.rangeCount) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                container.appendChild(sel.getRangeAt(i).cloneContents());
+            }
+            html = container.innerHTML;
+        }
+    } else if (typeof document.selection != "undefined") {
+        if (document.selection.type == "Text") {
+            html = document.selection.createRange().htmlText;
+        }
+    }
+    return html;
 }
