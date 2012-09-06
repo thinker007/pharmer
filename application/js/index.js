@@ -11,28 +11,42 @@ function selectItem(divid,item){
 }
 
 function detect_drugs(data,start,end){
-	var dataReceived;
-	var data = encodeURIComponent(data);
+	var request_data = encodeURIComponent(data);
 	var new_text=$('#presc_edit').html();;
-	data = "api=DBpedia&query=" + data;
-	dataReceived=connectEnricherAPI(proxy_url,data);
-	$.each(dataReceived['Resources'], function(key, val) {
-		var tmp=val['@types'];
-		var term1 = new RegExp("drug");
-		var term2 = new RegExp("chemical_compound");
-		var term3 = new RegExp("medicine");
-		var term4 = new RegExp("medical_treatment");
-		var check1 = term1.exec(tmp);
-		var check2 = term2.exec(tmp);
-		var check3 = term3.exec(tmp);
-		var check4 = term4.exec(tmp);
-		//console.log(check1+' '+check2+' '+check3+' '+check4);
-		if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
-			//console.log(val['@surfaceForm']);
-			new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
-		}
+	request_data = "api=DBpedia&query=" + data;
+	
+	$.ajax({
+		type : "POST",
+		async: true,
+		url : proxy_url,
+		data : request_data,
+		contentType: "application/x-www-form-urlencoded",
+		dataType: "json",
+		success : function(data) {
+			$.each(data['Resources'], function(key, val) {
+				var tmp=val['@types'];
+				var term1 = new RegExp("drug");
+				var term2 = new RegExp("chemical_compound");
+				var term3 = new RegExp("medicine");
+				var term4 = new RegExp("medical_treatment");
+				var check1 = term1.exec(tmp);
+				var check2 = term2.exec(tmp);
+				var check3 = term3.exec(tmp);
+				var check4 = term4.exec(tmp);
+				//console.log(check1+' '+check2+' '+check3+' '+check4);
+				if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
+					//console.log(val['@surfaceForm']);
+					new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
+				}
+			});
+			$('#presc_edit').html(new_text);
+		},
+		error: function(xhr, txt, err){ 
+			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);
+			$('#ajax_progress_indicator').hide();
+		},
 	});
-	$('#presc_edit').html(new_text);
+	
 }
 function search_drug(){
 	var is_st_selected=0;
@@ -40,25 +54,6 @@ function search_drug(){
 		$('#search_term').removeClass('hidden');
 		$("#result_of_search").html('');
 	}
-}
-function connectEnricherAPI(url,request_data){
-	var dataReceived;
-	$.ajax({
-		type : "POST",
-		async: false,
-		url : url,
-		data : request_data,
-		contentType: "application/x-www-form-urlencoded",
-		dataType: "json",
-		success : function(data) {
-			dataReceived =  data;
-		},
-		error: function(xhr, txt, err){ 
-			//alert("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + url);
-			dataReceived=0;
-		},
-	});
-	return dataReceived;
 }
 
 function realTimeTag(){
@@ -89,7 +84,7 @@ function handleSearch(){
 			$('#search_term').addClass('hidden');
 		},
 		error: function(xhr, txt, err){ 
-			alert("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
 		},
 	});	
 }
