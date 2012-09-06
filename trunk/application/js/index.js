@@ -10,10 +10,10 @@ function selectItem(divid,item){
 	$('#presc_edit').attr('contenteditable','true');
 }
 
-function detect_drugs(data,start,end){
-	var request_data = encodeURIComponent(data);
-	var new_text=$('#presc_edit').html();;
-	request_data = "api=DBpedia&query=" + data;
+function detect_drugs(html_data,start,end){
+	var request_data = encodeURIComponent(html_data);
+	var new_text=$('#presc_edit').html();
+	request_data = "api=DBpedia&query=" + request_data;
 	
 	$.ajax({
 		type : "POST",
@@ -39,8 +39,12 @@ function detect_drugs(data,start,end){
 					//console.log(check1+' '+check2+' '+check3+' '+check4);
 					if ((check1 != null) || (check2 != null) || (check3 != null) || (check4 != null)) {
 						//console.log(val['@surfaceForm']);
-						new_text=$('#presc_edit').html();
-						new_text=new_text.replace(val['@surfaceForm'], "<b>"+val['@surfaceForm']+"</b>"); 
+						if(start==0 && end==html_data.length){ //sending the whole content
+							//do not do anything 
+						}else{
+							new_text=$('#presc_edit').html();
+						}
+						new_text=new_text.replace(val['@surfaceForm'], "<span class='btn btn-small ph-entity'>"+val['@surfaceForm']+"</span>"); 
 					}
 				}
 			});
@@ -50,8 +54,9 @@ function detect_drugs(data,start,end){
 			var tmp2=new_text.substring(new_text.length-endstr.length,new_text.length);
 			if(tmp2==endstr)
 				new_text=new_text.substring(0,new_text.length-endstr.length);
-						$('#presc_edit').html(new_text);
+			$('#presc_edit').html(new_text);
 			placeCaretAtEnd( document.getElementById("presc_edit") );
+			refreshTooltips();
 		},
 		error: function(xhr, txt, err){ 
 			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);
@@ -168,4 +173,25 @@ function getSelectionHtml() {
         }
     }
     return html;
+}
+function refreshTooltips(){
+	$.each($("#presc_edit").find('.ph-entity'), function(index, value) { 
+			$(this).click(function(e) {
+
+			});	
+			$(this).mouseover(function(e) {								
+				//e.stopPropagation();
+				$(this).popover({placement:'bottom', trigger:'hover', title: 'hello!', content: 'this is the content'});
+			});
+			$(this).mousemove(function(e) {
+
+			});										
+			$(this).mouseout(function() {
+
+			});	
+	});
+}
+function findAllDrugs(){
+	var data=$('#presc_edit').html();
+	detect_drugs(data,0,data.length);
 }

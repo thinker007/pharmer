@@ -45,7 +45,8 @@
 		<div class="tab-content">
 			<div class="tab-pane active" id="edit">
 				<div id="search_bar">
-					<a class="btn btn-small" href="#" onclick="search_drug();"><i class="icon-search"></i></a>
+					<a class="btn btn-small" href="#" title="find all drugs" onclick="findAllDrugs();"><i class="icon-magnet"></i></a>
+					<a class="btn btn-small" href="#" title="search for a specific drug" onclick="search_drug();"><i class="icon-search"></i></a>
 					<input type="text" class="input-medium search-query hidden" id="search_term" placeholder="drug name">
 					<span id="result_of_search"></span>
 				</div>
@@ -76,8 +77,8 @@ $(function() {
 			//console.log(event);
 			handleSearch();
 		}
-	});
-	
+	});	
+	refreshTooltips();
 });
 $(document).ajaxStart(function(){ 
     $('#ajax_progress_indicator').show();
@@ -85,6 +86,8 @@ $(document).ajaxStart(function(){
 $(document).ajaxStop(function(){ 
     $('#ajax_progress_indicator').hide();
 });
+
+
 </script>
 
 <div id="ajax_progress_indicator" style="display:none;"><img src='img/ajax-loader.gif' alt=""/></div>
