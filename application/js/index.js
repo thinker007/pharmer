@@ -109,6 +109,8 @@ function realTimeTag(){
 }
 function handleSearch(){
 	var term=$("#search_term").val();
+	if(term.length<4)
+		return;
 	$.ajax({
 		type : "GET",
 		async: true,
@@ -203,12 +205,9 @@ function refreshTooltips(){
 			$(this).mouseover(function(e) {								
 				//e.stopPropagation();
 				$(this).popover({placement:'bottom', trigger:'hover', title: 'hello!', content: 'this is the content'});
-			});
-			$(this).mousemove(function(e) {
-
-			});										
+			});									
 			$(this).mouseout(function() {
-
+				//$(this).popover('destroy')
 			});	
 	});
 }
