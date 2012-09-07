@@ -79,11 +79,14 @@ $(function() {
 		}
 	});	
 	$("#presc_edit").bind('paste', function(e) {
+		e.preventDefault();
+			/*
 			var el = $(this);
 			setTimeout(function() {
 				var text = $(el).val();
 				refreshTooltips();
 			}, 100);
+			*/
 	});
 
 	refreshTooltips();
