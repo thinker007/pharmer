@@ -78,6 +78,14 @@ $(function() {
 			handleSearch();
 		}
 	});	
+	$("#presc_edit").bind('paste', function(e) {
+			var el = $(this);
+			setTimeout(function() {
+				var text = $(el).val();
+				refreshTooltips();
+			}, 100);
+	});
+
 	refreshTooltips();
 });
 $(document).ajaxStart(function(){ 
