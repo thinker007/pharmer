@@ -8,6 +8,15 @@ function selectItem(divid,item){
 	$('#'+divid).find('button').removeClass('btn-warning').addClass('btn-success');
 	$('#presc_edit').attr('contenteditable','false');
 	$('#presc_edit').attr('contenteditable','true');
+	
+	//highlight in the text
+	var selected=getSelectionHtml();
+	if(selected!=''){
+		var new_text=$('#presc_edit').html();
+		new_text=new_text.replace(selected, "<span class='btn btn-small ph-entity'>"+$("#searchid .item-title-current").text()+"</span>"); 
+		$('#presc_edit').html(new_text);
+		refreshTooltips();
+	}
 }
 
 function detect_drugs(html_data,start,end){
