@@ -102,7 +102,7 @@ ${search_term}
 <ul class="dropdown-menu">
 {{each(i, d) drugs}}
 		<li>
-			<a href="#" onclick="selectItem('searchid',this)"><span class="item-title">${d.name}</span><br/><small>${d.description}</small></a>
+			<a href="#" onclick="selectItem('searchid',this)"><span class="item-title"><b>${d.name}</b></span><br/><small>{{html d.description}}</small></a>
 		</li>
 		<li class="divider"></li>
 {{/each}}	

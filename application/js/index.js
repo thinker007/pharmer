@@ -109,7 +109,11 @@ function handleSearch(){
 			//console.log(data);
 			data.search_term=term;
 			$("#result_of_search").html('');
-			$("#search_result").tmpl(data).appendTo("#result_of_search");	
+			$.each(data.drugs, function(i,v){
+				v.description=dotToLine(v.description, '.<br />');
+			});
+			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
+
 			$('#search_term').addClass('hidden');
 		},
 		error: function(xhr, txt, err){ 
@@ -194,4 +198,18 @@ function refreshTooltips(){
 function findAllDrugs(){
 	var data=$('#presc_edit').html();
 	detect_drugs(data,0,data.length);
+}
+function dotToLine(text, separator){
+	var next;
+	var tmp=text.split('\.');
+	$.each(tmp, function(i,v){
+		if (v.length>90){
+			next=v.substring(90,v.length);
+			tmp[i]=v.substring(0,90)+'<br />-'+next;
+			if(next.length>90)
+				tmp[i]=v.substring(0,90)+'<br />'+next.substring(0,90)+'<br />-'+next.substring(90,next.length);
+		}
+	});
+	var output = tmp.join(separator); 
+	return output;
 }
