@@ -32,6 +32,14 @@ function detect_drugs(html_data,start,end){
 		contentType: "application/x-www-form-urlencoded",
 		dataType: "json",
 		success : function(data) {
+			try {
+					jQuery.parseJSON( data )
+					//must be valid JSON
+			} catch(e) {
+				//must not be valid JSON  
+				$('#ajax_progress_indicator').hide();
+				console.log('Service is not available at the moment. Please try again later...');				
+			}		
 			if(!data['Resources'])
 				return;
 			$.each(data['Resources'], function(key, val) {
@@ -68,7 +76,7 @@ function detect_drugs(html_data,start,end){
 			refreshTooltips();
 		},
 		error: function(xhr, txt, err){ 
-			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);
+			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);       
 			$('#ajax_progress_indicator').hide();
 		},
 	});
@@ -117,7 +125,14 @@ function handleSearch(){
 		url : 'search_drugbank.php?',
 		data : 'name='+term,
 		success : function(data) {
-			//console.log(data);
+			try {
+					jQuery.parseJSON( data )
+					//must be valid JSON
+			} catch(e) {
+				//must not be valid JSON  
+				$('#ajax_progress_indicator').hide();
+				alert('Service is not available at the moment. Please try again later...');				
+			} 
 			data.search_term=term;
 			$("#result_of_search").html('');
 			$.each(data.drugs, function(i,v){
@@ -137,6 +152,8 @@ function handleSearch(){
 		},
 		error: function(xhr, txt, err){ 
 			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+			$('#ajax_progress_indicator').hide();
+			alert('Service is not available at the moment. Please try again later...');
 		},
 	});	
 }
@@ -202,8 +219,8 @@ function refreshTooltips(){
 			$(this).click(function(e) {
 
 			});	
-			$(this).mouseover(function(e) {								
-				//e.stopPropagation();
+			$(this).mouseover(function(e) {		
+				e.stopPropagation();
 				$(this).popover({placement:'bottom', trigger:'hover', title: 'hello!', content: 'this is the content'});
 			});									
 			$(this).mouseout(function() {
