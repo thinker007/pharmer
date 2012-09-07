@@ -100,6 +100,12 @@ ${search_term}
 <span class="caret"></span>
 </button>
 <ul class="dropdown-menu">
+{{if hint!=''}}
+	<li>
+		<span class="item-title item-hint">{{html hint}}</span>
+	</li>
+	<li class="divider"></li>
+{{/if}}
 {{each(i, d) drugs}}
 		<li>
 			<a href="#" onclick="selectItem('searchid',this)"><span class="item-title"><b>${d.name}</b></span><br/><small>{{html d.description}}</small></a>

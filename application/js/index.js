@@ -121,6 +121,14 @@ function handleSearch(){
 			$.each(data.drugs, function(i,v){
 				v.description=dotToLine(v.description, '.<br />');
 			});
+			if(data.drugs.length){
+				if(data.drugs.length>1)
+					data.hint="<b>"+data.drugs.length+"</b> drugs match your query. Please select the right one:";
+				else
+					data.hint='';
+			}else{
+				data.hint="No matches found!";
+			}
 			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
 
 			$('#search_term').addClass('hidden');

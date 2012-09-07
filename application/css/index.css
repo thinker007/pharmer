@@ -37,5 +37,9 @@
 }
 .ph-entity{
 
-
+}
+.item-hint{
+	margin-left:20px;
+	color:green;
+	text-shadow: 0 0 0.2em #eeeeee, 0 0 0.2em #eeeeee,0 0 0.2em #eeeeee;
 }
