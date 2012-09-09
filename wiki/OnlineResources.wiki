@@ -16,3 +16,6 @@ http://www.patientkeeper.com/products/clinical_applications/eprescription.html
 
 =Australian medicare=
 http://www.medicareaustralia.gov.au/provider/pbs/pharmacists/dispense.jsp
+
+=Service available for medical info=
+http://www.programmableweb.com/apis/directory/1?apicat=Medical
