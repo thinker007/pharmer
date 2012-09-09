@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 09, 2012 at 07:32 PM
+-- Generation Time: Sep 09, 2012 at 08:17 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS `drug` (
   `absorption` mediumtext,
   `affectedOrganism` mediumtext,
   `biotransformation` mediumtext,
-  `foodInteraction` mediumtext,
   `halfLife` mediumtext,
   `indication` mediumtext,
   `mechanismOfAction` mediumtext,

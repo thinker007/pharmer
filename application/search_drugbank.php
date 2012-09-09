@@ -31,7 +31,7 @@ if (count ( $db_recs_check )) {
 	sparql_ns ( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
 	sparql_ns ( "drugbank", "http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/" );
 	
-	$sparql = 'SELECT DISTINCT ?s ?name ?description ?absorption ?affectedOrganism ?biotransformation ?foodInteraction ?halfLife ?indication ?mechanismOfAction ?pharmacology ?toxicity WHERE { ?s drugbank:genericName ?name . ?s drugbank:description ?description . ?s drugbank:absorption ?absorption . ?s  drugbank:affectedOrganism ?affectedOrganism . ?s  drugbank:biotransformation ?biotransformation . ?s  drugbank:brandName ?brandName .?s  drugbank:foodInteraction ?foodInteraction . ?s drugbank:halfLife ?halfLife. ?s drugbank:indication ?indication . ?s drugbank:mechanismOfAction ?mechanismOfAction . ?s drugbank:pharmacology ?pharmacology. ?s drugbank:toxicity ?toxicity. ?s rdf:type drugbank:drugs . FILTER (REGEX(?name, "' . $drug_name . '", "i") || REGEX(?brandName, "' . $drug_name . '", "i"))}';
+	$sparql = 'SELECT DISTINCT ?s ?name ?description ?absorption ?affectedOrganism ?biotransformation ?halfLife ?indication ?mechanismOfAction ?pharmacology ?toxicity WHERE { ?s drugbank:genericName ?name . ?s drugbank:description ?description . ?s drugbank:absorption ?absorption . ?s  drugbank:affectedOrganism ?affectedOrganism . ?s  drugbank:biotransformation ?biotransformation . ?s  drugbank:brandName ?brandName .  ?s drugbank:halfLife ?halfLife. ?s drugbank:indication ?indication . ?s drugbank:mechanismOfAction ?mechanismOfAction . ?s drugbank:pharmacology ?pharmacology. ?s drugbank:toxicity ?toxicity. ?s rdf:type drugbank:drugs . FILTER (REGEX(?name, "' . $drug_name . '", "i") || REGEX(?brandName, "' . $drug_name . '", "i"))}';
 	$result = sparql_query ( $sparql );
 	if (! $result) {
 		print sparql_errno () . ": " . sparql_error () . "\n";
@@ -53,7 +53,7 @@ if (count ( $db_recs_check )) {
 	//var_dump($output);
 	if (count ( $output )) {
 		foreach ( $output as $v ) {
-			$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'], 'absorption' => $v ['absorption'], 'affectedOrganism' => $v ['affectedOrganism'], 'biotransformation' => $v ['biotransformation'], 'foodInteraction' => $v ['foodInteraction'], 'halfLife' => $v ['halfLife'], 'indication' => $v ['indication'], 'mechanismOfAction' => $v ['mechanismOfAction'], 'pharmacology' => $v ['pharmacology'], 'toxicity' => $v ['toxicity'] ) );
+			$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'], 'absorption' => $v ['absorption'], 'affectedOrganism' => $v ['affectedOrganism'], 'biotransformation' => $v ['biotransformation'], 'halfLife' => $v ['halfLife'], 'indication' => $v ['indication'], 'mechanismOfAction' => $v ['mechanismOfAction'], 'pharmacology' => $v ['pharmacology'], 'toxicity' => $v ['toxicity'] ) );
 			$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 		}
 	} else {
