@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 09, 2012 at 08:17 PM
+-- Generation Time: Sep 09, 2012 at 09:22 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -19,6 +19,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `pharmer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosage_form`
+--
+
+CREATE TABLE IF NOT EXISTS `dosage_form` (
+  `drug_id` int(11) NOT NULL,
+  `dosageForm` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -42,6 +53,83 @@ CREATE TABLE IF NOT EXISTS `drug` (
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_brandmixtures`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_brandmixtures` (
+  `drug_id` int(11) NOT NULL,
+  `brandMixture` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_brands`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_brands` (
+  `drug_id` int(11) NOT NULL,
+  `brandName` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_category`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_category` (
+  `drug_id` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_contraindication`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_contraindication` (
+  `drug_id` int(11) NOT NULL,
+  `contraindication` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_enzyme`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_enzyme` (
+  `drug_id` int(11) NOT NULL,
+  `enzyme` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_target`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_target` (
+  `drug_id` int(11) NOT NULL,
+  `target` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `food_interaction`
+--
+
+CREATE TABLE IF NOT EXISTS `food_interaction` (
+  `drug_id` int(11) NOT NULL,
+  `interaction` mediumtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
