@@ -146,6 +146,7 @@ function handleSearch(){
 			}else{
 				data.hint="No matches found!";
 			}
+			data.brands=data.brandNames;
 			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
 
 			$('#search_term').addClass('hidden');
