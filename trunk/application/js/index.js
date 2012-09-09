@@ -146,7 +146,7 @@ function handleSearch(){
 			}else{
 				data.hint="No matches found!";
 			}
-			data.brands=data.brandNames;
+			
 			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
 
 			$('#search_term').addClass('hidden');
@@ -246,4 +246,20 @@ function dotToLine(text, separator){
 	});
 	var output = tmp.join(separator); 
 	return output;
+}
+function shortenToLine(text){
+	var next,next2,tmp;
+	if (text.length>90){
+		next=text.substring(90,text.length);
+		tmp=text.substring(0,90)+'<br />-'+next;
+		if(next.length>90){
+			next2=next.substring(90,next.length);
+			tmp=text.substring(0,90)+'<br />'+next.substring(0,90)+'<br />-'+next.substring(90,next.length);
+			if(next2.length>90){
+				tmp=text.substring(0,90)+'<br />'+next.substring(0,90)+'<br />-'+next2.substring(0,90)+'<br />-'+next2.substring(90,next2.length);
+			}
+		
+		}
+	}
+	return tmp;
 }
