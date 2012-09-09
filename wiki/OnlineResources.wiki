@@ -19,3 +19,6 @@ http://www.medicareaustralia.gov.au/provider/pbs/pharmacists/dispense.jsp
 
 =Service available for medical info=
 http://www.programmableweb.com/apis/directory/1?apicat=Medical
+
+=Schema for Drugs=
+http://schema.org/Drug
