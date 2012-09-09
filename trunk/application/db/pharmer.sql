@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 04, 2012 at 01:42 PM
+-- Generation Time: Sep 09, 2012 at 07:32 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -31,6 +31,15 @@ CREATE TABLE IF NOT EXISTS `drug` (
   `uri` varchar(255) CHARACTER SET latin1 NOT NULL,
   `name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `description` mediumtext CHARACTER SET latin1 NOT NULL,
+  `absorption` mediumtext,
+  `affectedOrganism` mediumtext,
+  `biotransformation` mediumtext,
+  `foodInteraction` mediumtext,
+  `halfLife` mediumtext,
+  `indication` mediumtext,
+  `mechanismOfAction` mediumtext,
+  `pharmacology` mediumtext,
+  `toxicity` mediumtext,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
