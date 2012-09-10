@@ -50,8 +50,7 @@
 					<input type="text" class="input-medium search-query hidden" id="search_term" placeholder="drug name">
 					<span id="result_of_search"></span>
 				</div>
-				<div class="span7 img-rounded" id="presc_edit" contenteditable="true">
-				
+				<div class="span7 img-rounded" id="presc_edit" contenteditable="true" vocab="http://schema.org/" typeof="MedicalTherapy">
 					Amoxicillin - 1 tab tds.
 					<br>
 					Acetaminophen - 2 caps nocte.
@@ -63,7 +62,6 @@
 		</div>
 	</div>
 </div>
-
 <script>
 $(function() {
 	$("#presc_edit").keyup(function(event){

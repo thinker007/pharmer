@@ -13,7 +13,8 @@ function selectItem(divid,item){
 	var selected=getSelectionHtml();
 	if(selected!=''){
 		var new_text=$('#presc_edit').html();
-		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text())); 
+		var properties=new Array();
+		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), properties)); 
 		$('#presc_edit').html(new_text);
 		refreshTooltips();
 	}
@@ -61,7 +62,8 @@ function detect_drugs(html_data,start,end){
 						}else{
 							new_text=$('#presc_edit').html();
 						}
-						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'])); 
+						var properties=new Array();
+						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'],properties)); 
 					}
 				}
 			});
@@ -263,6 +265,6 @@ function shortenToLine(text){
 	}
 	return tmp;
 }
-function generateAnnotation(entity_string){
-	return "<span class='btn btn-small ph-entity'>"+entity_string+"</span>";
+function generateAnnotation(entity_string,properties){
+	return "<span class='btn btn-small ph-entity' typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>";
 }
