@@ -13,7 +13,7 @@ function selectItem(divid,item){
 	var selected=getSelectionHtml();
 	if(selected!=''){
 		var new_text=$('#presc_edit').html();
-		new_text=new_text.replace(selected, "<span class='btn btn-small ph-entity'>"+$("#searchid .item-title-current").text()+"</span>"); 
+		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text())); 
 		$('#presc_edit').html(new_text);
 		refreshTooltips();
 	}
@@ -61,7 +61,7 @@ function detect_drugs(html_data,start,end){
 						}else{
 							new_text=$('#presc_edit').html();
 						}
-						new_text=new_text.replace(val['@surfaceForm'], "<span class='btn btn-small ph-entity'>"+val['@surfaceForm']+"</span>"); 
+						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'])); 
 					}
 				}
 			});
@@ -262,4 +262,7 @@ function shortenToLine(text){
 		}
 	}
 	return tmp;
+}
+function generateAnnotation(entity_string){
+	return "<span class='btn btn-small ph-entity'>"+entity_string+"</span>";
 }
