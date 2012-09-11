@@ -17,10 +17,10 @@ function selectItem(divid, uri, item){
 		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), uri,properties,'')); 
 		$('#presc_edit').html(new_text);
 		$('#add_item').addClass('hidden');
-		refreshTooltips();
 	}else{
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
+	refreshTooltips();
 }
 
 function detect_drugs(html_data,start,end){
@@ -142,6 +142,9 @@ function handleSearch(){
 			data.search_term=term;
 			$("#result_of_search").html('');
 			$.each(data.drugs, function(i,v){
+
+				//fill the temp div
+				$('#temp_repo').append(create_meta_tags(v));
 				v.description=dotToLine(v.description, '.<br />');
 			});
 			if(data.drugs.length){
@@ -154,7 +157,6 @@ function handleSearch(){
 			}
 			
 			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
-
 			$('#search_term').addClass('hidden');
 		},
 		error: function(xhr, txt, err){ 
@@ -222,13 +224,15 @@ function getSelectionHtml() {
     return html;
 }
 function refreshTooltips(){
+	var desc='';
 	$.each($("#presc_edit").find('.ph-entity'), function(index, value) { 
 			$(this).click(function(e) {
 
 			});	
-			$(this).mouseover(function(e) {		
+			$(this).mouseover(function(e) {				
 				e.stopPropagation();
-				$(this).popover({placement:'bottom', trigger:'hover', title: 'hello!', content: 'this is the content'});
+				desc=$('#temp_repo').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
+				$(this).popover({placement:'bottom', trigger:'hover', title: $(this).text(), content: desc});
 			});									
 			$(this).mouseout(function() {
 				//$(this).popover('destroy')
@@ -281,4 +285,52 @@ function addAnnotation(annotation){
 }
 function updateSourceCode(){
 	$('#drug_instructions').val($('#presc_edit').html());		
+}
+function create_meta_tags(v){
+	var temp_s;
+	temp_s="<div id='d_"+v.name+"' about='"+v.s+"'>";
+	temp_s=temp_s+'<span property="description" content="'+v.description+'"></span>';
+	temp_s=temp_s+'<span property="absorption" content="'+v.absorption+'"></span>';
+	temp_s=temp_s+'<span property="affectedOrganism" content="'+v.affectedOrganism+'"></span>';
+	temp_s=temp_s+'<span property="biotransformation" content="'+v.biotransformation+'"></span>';
+	temp_s=temp_s+'<span property="halfLife" content="'+v.halfLife+'"></span>';
+	temp_s=temp_s+'<span property="indication" content="'+v.indication+'"></span>';
+	temp_s=temp_s+'<span property="mechanismOfAction" content="'+v.mechanismOfAction+'"></span>';
+	temp_s=temp_s+'<span property="pharmacology" content="'+v.pharmacology+'"></span>';
+	temp_s=temp_s+'<span property="toxicity" content="'+v.toxicity+'"></span>';
+	temp_s=temp_s+'<span property="dosageForms" typeOf="dosageForms">';
+	$.each(v.dosageForms,function(ind,val){
+		temp_s=temp_s+'<span property="dosageForm" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';
+	temp_s=temp_s+'<span property="brandMixtures" typeOf="brandMixtures">';
+	$.each(v.brandMixtures,function(ind,val){
+		temp_s=temp_s+'<span property="brandMixture" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';	
+	temp_s=temp_s+'<span property="brandNames" typeOf="brandNames">';
+	$.each(v.brandNames,function(ind,val){
+		temp_s=temp_s+'<span property="brandName" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';	
+	temp_s=temp_s+'<span property="drugCategories" typeOf="drugCategories">';
+	$.each(v.drugCategories,function(ind,val){
+		temp_s=temp_s+'<span property="drugCategory" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';
+	$.each(v.contraindications,function(ind,val){
+		temp_s=temp_s+'<span property="contraindication" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'<span property="drugEnzymes" typeOf="drugEnzymes">';
+	$.each(v.drugEnzymes,function(ind,val){
+		temp_s=temp_s+'<span property="drugEnzyme" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';	
+	temp_s=temp_s+'<span property="foodInteractions" typeOf="foodInteractions">';
+	$.each(v.foodInteractions,function(ind,val){
+		temp_s=temp_s+'<span property="foodInteraction" content="'+val+'"></span>';
+	});
+	temp_s=temp_s+'</span>';		
+	temp_s=temp_s+'</div>';
+	return temp_s;
 }
