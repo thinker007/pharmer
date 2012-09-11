@@ -20,6 +20,8 @@ function selectItem(divid, uri, item){
 	}else{
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
+	$('#drug_information').val($('#drug_information').val()+'<div id="d_'+$("#searchid .item-title-current").text()+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).html()+'</div>');
+	desc=$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).find('[property="description"]').attr('content');
 	refreshTooltips();
 }
 
@@ -91,6 +93,7 @@ function detect_drugs(html_data,start,end){
 function search_drug(){
 	var is_st_selected=0;
 	var selected=getSelectionHtml();
+	$('#temp_repo').html('');
 	if(selected!='')
 		is_st_selected=1;
 	if(!is_st_selected){
