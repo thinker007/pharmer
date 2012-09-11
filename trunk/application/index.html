@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="libs/jquery.min.js"></script>
 	<script type="text/javascript" src="libs/jquery-tmpl/jquery.tmpl.min.js"></script>
 	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 <body class="bg" spellcheck="false">
     <div class="navbar navbar-fixed-top">
@@ -40,7 +41,9 @@
 	<div class="tabbable tabs-left">
 		<ul class="nav nav-tabs offset1">
 		<li class="active"><a data-toggle="tab" href="#edit">WYSIWYM</a></li>
-		<li><a data-toggle="tab" href="#presc_view">Source Code</a></li>
+		<li><a data-toggle="tab" href="#presc_source" onclick="updateSourceCode();">Source Code</a></li>
+		<li><a data-toggle="tab" href="#presc_visual" onclick="">Visualization</a></li>
+		<li><a data-toggle="tab" href="#presc_facts" onclick="">Facts</a></li>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active" id="edit">
@@ -56,9 +59,19 @@
 					Acetaminophen - 2 caps nocte.
 				</div>
 			</div>
-			<div class="tab-pane span7 img-rounded" id="presc_view">
-			Here is your output!
-			</div>			
+			<div class="tab-pane span7" id="presc_source">
+				<table cellspacing="0" cellpadding="0">
+				<tr><td><textarea id="drug_instructions" name="drug_instructions"></textarea></td></tr>
+				<tr><td><textarea id="drug_information" name="drug_information"></textarea></td></tr>
+				
+				</table>
+			</div>	
+			<div class="tab-pane span7" id="presc_visual">
+				Graph view
+			</div>	
+			<div class="tab-pane span7" id="presc_facts">
+				Triples
+			</div>				
 		</div>
 	</div>
 </div>
@@ -69,6 +82,8 @@ $(function() {
 			//console.log(event);
 			realTimeTag();
 		}
+	}).live('blur keyup paste focus', function() {
+		
 	});
 	$("#search_term").keyup(function(event){
 		if(event.keyCode == 13){ //when enter is pressed
@@ -86,7 +101,6 @@ $(function() {
 			}, 100);
 			*/
 	});
-
 	refreshTooltips();
 });
 $(document).ajaxStart(function(){ 
@@ -124,5 +138,6 @@ ${search_term}
 </ul>
 </span>&nbsp;				
 </script>
+<div class="hidden" id="temp_repo"></div>
 </body>
 	

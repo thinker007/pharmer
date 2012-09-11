@@ -54,3 +54,11 @@
 	color:green;
 	text-shadow: 0 0 0.2em #eeeeee, 0 0 0.2em #eeeeee,0 0 0.2em #eeeeee;
 }
+#drug_instructions{
+	min-height:310px;
+	min-width:500px;
+}
+#drug_information{
+	min-height:100px;
+	min-width:500px;
+}

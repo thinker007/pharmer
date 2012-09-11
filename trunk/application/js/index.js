@@ -274,8 +274,11 @@ function generateAnnotation(entity_string,uri,properties,extraClasses){
 		uri=" about='"+uri+"'";
 	else
 		uri="";
-	return "<span class='btn btn-small ph-entity "+extraClasses+"'"+uri+"><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
+	return "<span class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
 }
 function addAnnotation(annotation){
 	$('#presc_edit').append('<br />'+annotation);
+}
+function updateSourceCode(){
+	$('#drug_instructions').val($('#presc_edit').html());		
 }
