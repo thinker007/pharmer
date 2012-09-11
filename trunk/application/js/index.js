@@ -1,7 +1,7 @@
 //used for connecting to NLP APIs
 var proxy_url="proxy.php?";
 
-function selectItem(divid,item){
+function selectItem(divid, uri, item){
 	$('#'+divid).find('.item-title-current').html($(item).find('.item-title').text());
 	$('#'+divid+' .already-selected').removeClass('already-selected');
 	$(item).addClass('already-selected');
@@ -14,9 +14,12 @@ function selectItem(divid,item){
 	if(selected!=''){
 		var new_text=$('#presc_edit').html();
 		var properties=new Array();
-		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), properties)); 
+		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), uri,properties,'')); 
 		$('#presc_edit').html(new_text);
+		$('#add_item').addClass('hidden');
 		refreshTooltips();
+	}else{
+		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
 }
 
@@ -63,7 +66,8 @@ function detect_drugs(html_data,start,end){
 							new_text=$('#presc_edit').html();
 						}
 						var properties=new Array();
-						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'],properties)); 
+						var uri='';
+						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'], uri, properties,'automatic')); 
 					}
 				}
 			});
@@ -265,6 +269,13 @@ function shortenToLine(text){
 	}
 	return tmp;
 }
-function generateAnnotation(entity_string,properties){
-	return "<span class='btn btn-small ph-entity' typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>";
+function generateAnnotation(entity_string,uri,properties,extraClasses){
+	if($.trim(uri)!='')
+		uri=" about='"+uri+"'";
+	else
+		uri="";
+	return "<span class='btn btn-small ph-entity "+extraClasses+"'"+uri+"><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
+}
+function addAnnotation(annotation){
+	$('#presc_edit').append('<br />'+annotation);
 }
