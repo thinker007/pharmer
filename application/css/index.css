@@ -26,7 +26,7 @@
 #ajax_progress_indicator{
 	position:absolute;
 	top:52px;
-	left:41.5%;
+	left:30.5%;
 	z-index:9999;
 }
 .hidden{
@@ -38,7 +38,7 @@
 #search_bar{
 	position:absolute;
 	top:50px;
-	left:41%;
+	left:30%;
 	z-index:9999;
 }
 #result_of_search{
@@ -58,8 +58,18 @@
 #drug_instructions{
 	min-height:310px;
 	min-width:500px;
+	font-size:12px;
 }
 #drug_information_source{
 	min-height:100px;
 	min-width:500px;
+	font-size:12px;
+}
+#graph{
+
+}
+#facts_view{
+	min-height:3100px;
+	min-width:500px;
+	font-size:12px;
 }

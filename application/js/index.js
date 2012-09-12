@@ -294,6 +294,34 @@ function updateSourceCode(){
 	$('#drug_instructions').val($('#presc_edit').html());
 	$('#drug_information_source	').val($('#drug_information').html());
 }
+function updateTurtle(){
+	var data=updateIFrame();
+	var turtle = toTurtle(data);
+	$('#facts_view').val(turtle);
+}
+function updateGraph(){
+	var data=updateIFrame();
+	var d3Nodes = toD3TreeGraph(data);
+	viz.redraw(d3Nodes);
+}
+function updateIFrame(){
+	var previewFrame = document.getElementById('preview');
+    var preview =  previewFrame.contentDocument || previewFrame.contentWindow.document;
+	preview.open();
+
+    preview.write('<div vocab="http://schema.org/">'+$('#presc_edit').html()+'</div>');
+    preview.close();
+    
+    if(!preview.data)
+    {
+       RDFa.attach(preview);
+    }
+    else
+    {
+       RDFa.attach(preview, true);       
+    }
+	return preview.data;
+}
 function create_meta_tags(v){
 	var temp_s;
 	temp_s="<div id='d_"+v.name+"' about='"+v.s+"'>";
