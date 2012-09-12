@@ -20,7 +20,7 @@ function selectItem(divid, uri, item){
 	}else{
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
-	$('#drug_information').val($('#drug_information').val()+'<div id="d_'+$("#searchid .item-title-current").text()+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).html()+'</div>');
+	$('#drug_information').append('<div id="d_'+$("#searchid .item-title-current").text()+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).html()+'</div>');
 	desc=$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).find('[property="description"]').attr('content');
 	refreshTooltips();
 }
@@ -235,7 +235,11 @@ function refreshTooltips(){
 			$(this).mouseover(function(e) {				
 				e.stopPropagation();
 				desc=$('#temp_repo').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
+				 if(typeof desc === 'undefined'){
+					desc=$('#drug_information').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
+				}
 				$(this).popover({placement:'bottom', trigger:'hover', title: $(this).text(), content: desc});
+				$(this).popover('show');
 			});									
 			$(this).mouseout(function() {
 				//$(this).popover('destroy')
@@ -287,7 +291,8 @@ function addAnnotation(annotation){
 	$('#presc_edit').append('<br />'+annotation);
 }
 function updateSourceCode(){
-	$('#drug_instructions').val($('#presc_edit').html());		
+	$('#drug_instructions').val($('#presc_edit').html());
+	$('#drug_information_source	').val($('#drug_information').html());
 }
 function create_meta_tags(v){
 	var temp_s;
