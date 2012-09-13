@@ -22,7 +22,6 @@ function selectItem(divid, uri, item){
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
 	$('#drug_information').append('<div id="d_'+$("#searchid .item-title-current").text()+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).html()+'</div>');
-	desc=$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).find('[property="description"]').attr('content');
 	refreshTooltips();
 }
 
@@ -98,6 +97,7 @@ function detect_drugs(html_data,start,end){
 											new_text=new_text.substring(0,new_text.length-endstr.length);
 										$('#presc_edit').html(new_text);
 										placeCaretAtEnd( document.getElementById("presc_edit") );
+										$('#drug_information').append('<div id="d_'+val['@surfaceForm']+'" about="'+data.drugs[0].s+'">'+$('#temp_repo').find('#d_'+val['@surfaceForm']).html()+'</div>');
 										refreshTooltips();										
 									}
 								},
