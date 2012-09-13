@@ -14,9 +14,10 @@ function selectItem(divid, uri, item){
 	if(selected!=''){
 		var new_text=$('#presc_edit').html();
 		var properties=new Array();
-		new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), uri,properties,'')); 
-		$('#presc_edit').html(new_text);
-		$('#add_item').addClass('hidden');
+		if(new_text.indexOf('<span property="nonProprietaryName">'+$("#searchid .item-title-current").text()+'</span>')==-1){
+			new_text=new_text.replace(selected, generateAnnotation($("#searchid .item-title-current").text(), uri,properties,'')); 
+			$('#presc_edit').html(new_text);
+		}
 	}else{
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
@@ -29,7 +30,6 @@ function detect_drugs(html_data,start,end){
 	var request_data = encodeURIComponent(html_data);
 	var new_text=$('#presc_edit').html();
 	request_data = "api=DBpedia&query=" + request_data;
-	
 	$.ajax({
 		type : "POST",
 		async: true,
@@ -69,19 +69,48 @@ function detect_drugs(html_data,start,end){
 						}
 						var properties=new Array();
 						var uri='';
-						new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'], uri, properties,'automatic')); 
+						if(new_text.indexOf('<span property="nonProprietaryName">'+val['@surfaceForm']+'</span>')==-1){
+							$.ajax({
+								type : "GET",
+								async: true,
+								url : 'search_drugbank.php?',
+								data : 'name='+val['@surfaceForm'],
+								success : function(data) {
+									try {
+											jQuery.parseJSON( data )
+											//must be valid JSON
+									} catch(e) {
+										//must not be valid JSON  
+										$('#ajax_progress_indicator').hide();
+										alert('Service is not available at the moment. Please try again later...');				
+									} 
+									$.each(data.drugs, function(i,v){
+										//fill the temp div
+										$('#temp_repo').append(create_meta_tags(v));
+									});
+									if(data.drugs.length==1 && val['@surfaceForm']==data.drugs[0].name){
+										new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'], data.drugs[0].s, properties,'automatic'));
+									}
+										//solve the problem with new <br> tag added
+										var endstr="<br>";
+										new_text=$.trim(new_text);
+										var tmp2=new_text.substring(new_text.length-endstr.length,new_text.length);
+										if(tmp2==endstr)
+											new_text=new_text.substring(0,new_text.length-endstr.length);
+										$('#presc_edit').html(new_text);
+										placeCaretAtEnd( document.getElementById("presc_edit") );
+										refreshTooltips();
+								},
+								error: function(xhr, txt, err){ 
+									console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+									$('#ajax_progress_indicator').hide();
+									alert('Service is not available at the moment. Please try again later...');
+								},
+							});	 
+						}
 					}
 				}
 			});
-			//solve the problem with new <br> tag added
-			var endstr="<br>";
-			new_text=$.trim(new_text);
-			var tmp2=new_text.substring(new_text.length-endstr.length,new_text.length);
-			if(tmp2==endstr)
-				new_text=new_text.substring(0,new_text.length-endstr.length);
-			$('#presc_edit').html(new_text);
-			placeCaretAtEnd( document.getElementById("presc_edit") );
-			refreshTooltips();
 		},
 		error: function(xhr, txt, err){ 
 			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n url: " + proxy_url);       
