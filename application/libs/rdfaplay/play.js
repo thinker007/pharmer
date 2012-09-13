@@ -48,7 +48,7 @@
     var bnodeNames = {};
     var bnodeCount = 1;
     var rval = {
-      'name': 'Web Page',
+      'name': 'Prescription',
       'children': []
     };
     
