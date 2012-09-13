@@ -88,9 +88,8 @@ function detect_drugs(html_data,start,end){
 										//fill the temp div
 										$('#temp_repo').append(create_meta_tags(v));
 									});
-									if(data.drugs.length==1 && val['@surfaceForm']==data.drugs[0].name){
+									if(data.drugs.length==1 && (val['@surfaceForm']==data.drugs[0].name)){
 										new_text=new_text.replace(val['@surfaceForm'], generateAnnotation(val['@surfaceForm'], data.drugs[0].s, properties,'automatic'));
-									}
 										//solve the problem with new <br> tag added
 										var endstr="<br>";
 										new_text=$.trim(new_text);
@@ -99,7 +98,8 @@ function detect_drugs(html_data,start,end){
 											new_text=new_text.substring(0,new_text.length-endstr.length);
 										$('#presc_edit').html(new_text);
 										placeCaretAtEnd( document.getElementById("presc_edit") );
-										refreshTooltips();
+										refreshTooltips();										
+									}
 								},
 								error: function(xhr, txt, err){ 
 									console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
