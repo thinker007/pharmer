@@ -126,11 +126,21 @@ function search_drug(){
 	if(selected!='')
 		is_st_selected=1;
 	if(!is_st_selected){
+		$("#result_of_search").html('');
 		if(!$('#search_term').hasClass('hidden')){
 			handleSearch();
-		}else
+		}else{
 			$('#search_term').removeClass('hidden');
-		$("#result_of_search").html('');
+			$("#search_term").typeahead({
+			  source: function(query, process) {
+				$.get('search_terms.php', { term: query }, function(data) {	
+					data = eval('(' + data + ')');
+					return process(data);
+				}); 
+			  }
+			});
+		
+		}
 	}else{
 		var search_term=$('<div>'+selected+'</div>').text();
 		$('#search_term').val(search_term);
