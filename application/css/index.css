@@ -27,7 +27,7 @@
 	position:absolute;
 	top:48px;
 	left:28.0%;
-	z-index:9999;
+	z-index:1000;
 }
 .hidden{
 	display:none;
@@ -39,7 +39,7 @@
 	position:absolute;
 	top:50px;
 	left:30%;
-	z-index:9999;
+	z-index:1000;
 }
 #result_of_search{
 	position:absolute;
@@ -72,4 +72,7 @@
 	min-height:3100px;
 	min-width:500px;
 	font-size:12px;
+}
+#drugTabContent{
+
 }
