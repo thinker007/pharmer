@@ -21,7 +21,7 @@ function selectItem(divid, uri, item){
 	}else{
 		addAnnotation(generateAnnotation($("#searchid .item-title-current").text(), uri,properties,''));
 	}
-	$('#drug_information').append('<div id="d_'+$("#searchid .item-title-current").text()+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+$("#searchid .item-title-current").text()).html()+'</div>');
+	$('#drug_information').append('<div id="d_'+makeDashSeparated($("#searchid .item-title-current").text().trim())+'" about="'+uri+'">'+$('#temp_repo').find('#d_'+makeDashSeparated($("#searchid .item-title-current").text()).trim()).html()+'</div>');
 	refreshTooltips();
 }
 
@@ -97,7 +97,7 @@ function detect_drugs(html_data,start,end){
 											new_text=new_text.substring(0,new_text.length-endstr.length);
 										$('#presc_edit').html(new_text);
 										placeCaretAtEnd( document.getElementById("presc_edit") );
-										$('#drug_information').append('<div id="d_'+val['@surfaceForm']+'" about="'+data.drugs[0].s+'">'+$('#temp_repo').find('#d_'+val['@surfaceForm']).html()+'</div>');
+										$('#drug_information').append('<div id="d_'+makeDashSeparated(val['@surfaceForm'])+'" about="'+data.drugs[0].s+'">'+$('#temp_repo').find('#d_'+makeDashSeparated(val['@surfaceForm'])).html()+'</div>');
 										refreshTooltips();										
 									}
 								},
@@ -126,7 +126,10 @@ function search_drug(){
 	if(selected!='')
 		is_st_selected=1;
 	if(!is_st_selected){
-		$('#search_term').removeClass('hidden');
+		if(!$('#search_term').hasClass('hidden')){
+			handleSearch();
+		}else
+			$('#search_term').removeClass('hidden');
 		$("#result_of_search").html('');
 	}else{
 		var search_term=$('<div>'+selected+'</div>').text();
@@ -189,6 +192,7 @@ function handleSearch(){
 			}
 			
 			$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
+			//$('#search_term').val('');
 			$('#search_term').addClass('hidden');
 		},
 		error: function(xhr, txt, err){ 
@@ -265,7 +269,7 @@ function refreshTooltips(){
 				e.stopPropagation();
 				desc=$('#temp_repo').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
 				 if(typeof desc === 'undefined'){
-					desc=$('#drug_information').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
+					desc=$('#drug_information').find('#d_'+makeDashSeparated($(this).text().trim())).find('[property="description"]').attr('content');
 				}
 				$(this).popover({placement:'bottom', trigger:'hover', title: $(this).text(), content: desc});
 				$(this).popover('show');
@@ -362,6 +366,7 @@ function showInfoModal(obj,is_selected){
 		repo="temp_repo";
 
 	var drugname=$(obj).text().trim();
+	drugname=makeDashSeparated(drugname);
 	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
 	$('#absorption').html($('#'+repo).find('#d_'+drugname).find('[property="absorption"]').attr('content'));
 	$('#affectedOrganism').html($('#'+repo).find('#d_'+drugname).find('[property="affectedOrganism"]').attr('content'));
@@ -424,7 +429,7 @@ function showInfoModal(obj,is_selected){
 }
 function create_meta_tags(v){
 	var temp_s;
-	temp_s="<div id='d_"+v.name+"' about='"+v.s+"'>";
+	temp_s="<div id='d_"+makeDashSeparated(v.name)+"' about='"+v.s+"'>";
 	temp_s=temp_s+'<span property="description" content="'+v.description+'"></span>';
 	temp_s=temp_s+'<span property="absorption" content="'+v.absorption+'"></span>';
 	temp_s=temp_s+'<span property="affectedOrganism" content="'+v.affectedOrganism+'"></span>';
@@ -476,4 +481,20 @@ function create_meta_tags(v){
 	temp_s=temp_s+'</span>';		
 	temp_s=temp_s+'</div>';
 	return temp_s;
+}
+function makeDashSeparated(word){
+	var tmp=word.split(' ');
+	if(!tmp.length)
+		return word;
+	else{
+		return tmp.join('-');
+	}	
+}
+function makeUnDashSeparated(word){
+	var tmp=word.split('-');
+	if(!tmp.length)
+		return word;
+	else{
+		return tmp.join(' ');
+	}	
 }
