@@ -373,7 +373,10 @@ function showInfoModal(obj,is_selected){
 	$('#indication').html($('#'+repo).find('#d_'+drugname).find('[property="indication"]').attr('content'));	
 	var tmp='';
 	$.each($('#'+repo).find('#d_'+drugname).find('[property="dosageForms"]')[0].children ,function(inx,val){
-		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+		tmp2=$(val).attr('content');
+		tmp2=tmp2.split('\/');
+		tmp2=tmp2[tmp2.length-1];
+		tmp=tmp+'<li>'+tmp2+'</li>';
 	});
 	$('#dosageForms').html('<ul>'+tmp+'</ul>');
 	var tmp='';
@@ -387,8 +390,12 @@ function showInfoModal(obj,is_selected){
 	});
 	$('#brandMixtures').html('<ul>'+tmp+'</ul>');	
 	var tmp='';
+	var tmp2;
 	$.each($('#'+repo).find('#d_'+drugname).find('[property="drugCategories"]')[0].children ,function(inx,val){
-		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+		tmp2=$(val).attr('content');
+		tmp2=tmp2.split('\/');
+		tmp2=tmp2[tmp2.length-1];
+		tmp=tmp+'<li>'+tmp2+'</li>';
 	});
 	$('#drugCategories').html('<ul>'+tmp+'</ul>');	
 	var tmp='';
@@ -448,7 +455,7 @@ function create_meta_tags(v){
 	});
 	temp_s=temp_s+'</span>';	
 	temp_s=temp_s+'<span property="drugTargets" typeOf="drugTargets">';
-	$.each(v.drugCategories,function(ind,val){
+	$.each(v.drugTargets,function(ind,val){
 		temp_s=temp_s+'<span property="drugTarget" content="'+val+'"></span>';
 	});	
 	temp_s=temp_s+'</span>';
