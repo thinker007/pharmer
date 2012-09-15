@@ -154,5 +154,62 @@ ${search_term}
 	</html>
 </iframe>
 
+<!-- Modal -->
+<div class="modal hide fade" id="drugModal" tabindex="-1" role="dialog" aria-labelledby="drugModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="drugModalLabel">Drug Name</h3>
+</div>
+<div class="modal-body">
+
+<ul class="nav nav-pills" id="drugTab">
+	<li class="active"><a href="#instruction" onclick="showTab('drugTab','instruction')">Instruction</a></li>
+	<li><a href="#description" onclick="showTab('drugTab','description')">Description</a></li>
+	<li><a href="#brandNames" onclick="showTab('drugTab','brandNames')">Brand Names</a></li>
+	<li><a href="#brandMixtures" onclick="showTab('drugTab','brandMixtures')">Brand Mixtures</a></li>
+	<li><a href="#absorption" onclick="showTab('drugTab','absorption')">Absorption</a></li>
+	<li><a href="#affectedOrganism" onclick="showTab('drugTab','affectedOrganism')">Affected Organism</a></li>
+	<li><a href="#biotransformation" onclick="showTab('drugTab','biotransformation')">BioTransformation</a></li>
+	<li><a href="#halfLife" onclick="showTab('drugTab','halfLife')">HalfLife</a></li>
+	<li><a href="#indication" onclick="showTab('drugTab','indication')">Indication</a></li>
+	<li><a href="#mechanismOfAction" onclick="showTab('drugTab','mechanismOfAction')">Mechanism of Action</a></li>
+	<li><a href="#pharmacology" onclick="showTab('drugTab','pharmacology')">Pharmacology</a></li>
+	<li><a href="#toxicity" onclick="showTab('drugTab','toxicity')">Toxicity</a></li>
+	<li><a href="#dosageForms" onclick="showTab('drugTab','dosageForms')">Dosage Forms</a></li>
+	<li><a href="#drugCategories" onclick="showTab('drugTab','drugCategories')">Drug Categories</a></li>
+	<li><a href="#foodInteractions" onclick="showTab('drugTab','foodInteractions')">Food Interaction</a></li>
+	<li><a href="#drugEnzymes" onclick="showTab('drugTab','drugEnzymes')">Drug Enzymes</a></li>
+	<li><a href="#drugTargets" onclick="showTab('drugTab','drugTargets')">Drug Targets</a></li>
+	<li><a href="#contraindications" onclick="showTab('drugTab','contraindications')">Contraindication</a></li>
+</ul>
+ 
+<div class="tab-content span5 img-rounded" id="drugTabContent">
+	<div class="tab-pane active" id="instruction">input data</div>
+	<div class="tab-pane" id="description">data</div>
+	<div class="tab-pane" id="brandNames">data</div>
+	<div class="tab-pane" id="brandMixtures">data</div>
+	<div class="tab-pane" id="absorption">data</div>
+	<div class="tab-pane" id="affectedOrganism">data</div>
+	<div class="tab-pane" id="biotransformation">data</div>
+	<div class="tab-pane" id="halfLife">data</div>
+	<div class="tab-pane" id="mechanismOfAction">data</div>
+	<div class="tab-pane" id="pharmacology">data</div>
+	<div class="tab-pane" id="toxicity">data</div>
+	<div class="tab-pane" id="dosageForms">data</div>
+	<div class="tab-pane" id="drugCategories">data</div>
+	<div class="tab-pane" id="foodInteractions">data</div>
+	<div class="tab-pane" id="drugEnzymes">data</div>
+	<div class="tab-pane" id="drugTargets">data</div>
+	<div class="tab-pane" id="contraindications">data</div>
+</div>
+
+
+</div>
+<div class="modal-footer">
+	<button class="btn btn-danger">Delete</button>
+	<button class="btn btn-success">Save</button>
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+</div>
+</div>
+
 </body>
-	

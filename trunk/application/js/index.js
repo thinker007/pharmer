@@ -314,7 +314,7 @@ function generateAnnotation(entity_string,uri,properties,extraClasses){
 		uri=" about='"+uri+"'";
 	else
 		uri="";
-	return "<span class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
+	return "<span onclick='showInfoModal(this,1);' class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
 }
 function addAnnotation(annotation){
 	$('#presc_edit').append('<br />'+annotation);
@@ -322,6 +322,9 @@ function addAnnotation(annotation){
 function updateSourceCode(){
 	$('#drug_instructions').val($('#presc_edit').html());
 	$('#drug_information_source	').val($('#drug_information').html());
+}
+function showTab(tabName,id){
+	$('#'+tabName+' a[href="#'+id+'"]').tab('show');
 }
 function updateTurtle(){
 	var data=updateIFrame();
@@ -350,6 +353,67 @@ function updateIFrame(){
        RDFa.attach(preview, true);       
     }
 	return preview.data;
+}
+function showInfoModal(obj,is_selected){
+	var repo;
+	if(is_selected)
+		repo="drug_information";
+	else
+		repo="temp_repo";
+
+	var drugname=$(obj).text().trim();
+	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
+	$('#absorption').html($('#'+repo).find('#d_'+drugname).find('[property="absorption"]').attr('content'));
+	$('#affectedOrganism').html($('#'+repo).find('#d_'+drugname).find('[property="affectedOrganism"]').attr('content'));
+	$('#biotransformation').html($('#'+repo).find('#d_'+drugname).find('[property="biotransformation"]').attr('content'));
+	$('#halfLife').html($('#'+repo).find('#d_'+drugname).find('[property="halfLife"]').attr('content'));
+	$('#mechanismOfAction').html($('#'+repo).find('#d_'+drugname).find('[property="mechanismOfAction"]').attr('content'));
+	$('#pharmacology').html($('#'+repo).find('#d_'+drugname).find('[property="pharmacology"]').attr('content'));
+	$('#toxicity').html($('#'+repo).find('#d_'+drugname).find('[property="toxicity"]').attr('content'));
+	$('#indication').html($('#'+repo).find('#d_'+drugname).find('[property="indication"]').attr('content'));	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="dosageForms"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#dosageForms').html('<ul>'+tmp+'</ul>');
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="brandNames"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#brandNames').html('<ul>'+tmp+'</ul>');	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="brandMixtures"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#brandMixtures').html('<ul>'+tmp+'</ul>');	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="drugCategories"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#drugCategories').html('<ul>'+tmp+'</ul>');	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="drugEnzymes"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#drugEnzymes').html('<ul>'+tmp+'</ul>');		
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="foodInteractions"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#foodInteractions').html('<ul>'+tmp+'</ul>');	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="contraindications"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#contraindications').html('<ul>'+tmp+'</ul>');	
+	var tmp='';
+	$.each($('#'+repo).find('#d_'+drugname).find('[property="drugTargets"]')[0].children ,function(inx,val){
+		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
+	});
+	$('#drugTargets').html('<ul>'+tmp+'</ul>');	
+	$('#drugModalLabel').html(drugname);	
+	//show Modal
+	$('#drugModal').modal('toggle');
 }
 function create_meta_tags(v){
 	var temp_s;
@@ -382,10 +446,17 @@ function create_meta_tags(v){
 	$.each(v.drugCategories,function(ind,val){
 		temp_s=temp_s+'<span property="drugCategory" content="'+val+'"></span>';
 	});
+	temp_s=temp_s+'</span>';	
+	temp_s=temp_s+'<span property="drugTargets" typeOf="drugTargets">';
+	$.each(v.drugCategories,function(ind,val){
+		temp_s=temp_s+'<span property="drugTarget" content="'+val+'"></span>';
+	});	
 	temp_s=temp_s+'</span>';
+	temp_s=temp_s+'<span property="contraindications" typeOf="Contraindication">';	
 	$.each(v.contraindications,function(ind,val){
 		temp_s=temp_s+'<span property="contraindication" content="'+val+'"></span>';
 	});
+	temp_s=temp_s+'</span>';
 	temp_s=temp_s+'<span property="drugEnzymes" typeOf="drugEnzymes">';
 	$.each(v.drugEnzymes,function(ind,val){
 		temp_s=temp_s+'<span property="drugEnzyme" content="'+val+'"></span>';
