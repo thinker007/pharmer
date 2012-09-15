@@ -215,7 +215,6 @@ if (count ( $db_recs_check )) {
 			$output[$i] ['contraindications'] = $tmp;	
 		}
 	} else {
-		/*
 		//not found in drugbank check dailymed
 		$db = sparql_connect ( "http://www4.wiwiss.fu-berlin.de/dailymed/sparql" );
 		if (! $db) {
@@ -225,7 +224,7 @@ if (count ( $db_recs_check )) {
 		
 		sparql_ns ( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
 		sparql_ns ( "dailymed", "http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/" );
-		$sparql = 'SELECT DISTINCT ?s ?name ?description WHERE { ?s dailymed:genericMedicine ?name . ?s dailymed:fullName ?description . ?s rdf:type dailymed:drugs . FILTER (REGEX(?name, "' . $drug_name . '", "i"))}';
+		$sparql = 'SELECT DISTINCT ?s ?name ?description ?indication ?contraindication ?pharmacology ?toxicity WHERE { ?s dailymed:genericMedicine ?name . ?s dailymed:description ?description . ?s dailymed:indication ?indication. ?s dailymed:contraindication ?contraindication. ?s dailymed:clinicalPharmacology ?pharmacology. ?s dailymed:overdosage ?toxicity. ?s rdf:type dailymed:drugs . FILTER (REGEX(?name, "' . $drug_name . '", "i"))}';
 		$result = sparql_query ( $sparql );
 		if (! $result) {
 			print sparql_errno () . ": " . sparql_error () . "\n";
@@ -243,12 +242,13 @@ if (count ( $db_recs_check )) {
 		}
 		if (count ( $output )) {
 			foreach ( $output as $v ) {
-				$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'] ) );
+				$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description'],'indication' => $v ['indication'],'pharmacology' => $v ['pharmacology'], 'toxicity' => $v ['toxicity'] ) );
+				$sq->dbInsert('drug_contraindication',array('drug_id'=>$lastid,'contraindication'=>$v ['contraindication']));
 				$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 			}
-		}else{ */
+		}else{
 			$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>null));
-		//}
+		}
 	}
 }
 header('Content-type: application/json');
