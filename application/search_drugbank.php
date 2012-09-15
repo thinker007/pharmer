@@ -178,7 +178,7 @@ if (count ( $db_recs_check )) {
 			}
 			$output[$i] ['drugCategories'] = $tmp;		
 			//get drug enzymes
-			$sparql ='SELECT DISTINCT ?enzyme WHERE {  <'.$v ['s'].'> drugbank:enzyme ?enzyme.  <'.$v ['s'].'> rdf:type drugbank:drugs . }';
+			$sparql ='SELECT DISTINCT ?enzyme WHERE {  <'.$v ['s'].'> drugbank:enzyme ?enzymeid. ?enzymeid drugbank:name ?enzyme .  <'.$v ['s'].'> rdf:type drugbank:drugs . }';
 			$result = sparql_query ( $sparql );
 			$fields = sparql_field_array ( $result );
 			$tmp = array ();
