@@ -28,3 +28,6 @@ http://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/E
 
 =Epsos=
 http://www.epsos.eu/
+
+=newyork times e prescription=
+http://www.nytimes.com/2012/04/29/business/e-prescriptions-reduce-errors-but-their-adoption-is-slow.html?_r=0
