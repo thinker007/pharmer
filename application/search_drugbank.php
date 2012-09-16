@@ -82,6 +82,17 @@ if (count ( $db_recs_check )) {
 		}
 		$output_part ['foodInteractions']=$tmp;
 		
+		$db_recssub = $sq->dbQuery ('SELECT * FROM drug_interaction WHERE drug_id=:drugid', array('drugid'=>$v[id]));
+		$tmp = array ();
+		foreach ( $db_recssub as $vt ) {
+			$comp=array();
+			$comp['drug2_uri']=$vt['drug2_uri'];
+			$comp['interaction_uri']=$vt['interaction_uri'];
+			$comp['description']=$vt['description'];
+			$tmp[]=$comp;
+		}
+		$output_part ['drugInteractions']=$tmp;		
+		
 		$output [] = $output_part;
 	}
 } else {
@@ -213,6 +224,20 @@ if (count ( $db_recs_check )) {
 				}
 			}
 			$output[$i] ['contraindications'] = $tmp;	
+			//get drug interactions
+			$sparql ='SELECT DISTINCT ?drug2 ?interactionDrug1 ?interactionType WHERE {  ?interactionDrug1 drugbank:interactionDrug1 <'.$v ['s'].'> .  <'.$v ['s'].'> rdf:type drugbank:drugs . ?interactionDrug1 drugbank:text  ?interactionType. ?interactionDrug1 drugbank:interactionDrug2 ?drug2. }';
+			$result = sparql_query ( $sparql );
+			$fields = sparql_field_array ( $result );
+			$tmp = array ();
+			while ( $row = sparql_fetch_array ( $result ) ) {
+				$output_part = array ();
+				$output_part['drug2_uri']=$row['drug2'];
+				$output_part['interaction_uri']=$row['interactionDrug1'];
+				$output_part['description']=$row['interactionType'];				
+				$sq->dbInsert('drug_interaction',array('drug_id'=>$lastid,'drug2_uri'=>$row ['drug2'],'interaction_uri'=>$row ['interactionDrug1'],'description'=>$row ['interactionType']));
+				$tmp [] = $output_part;				
+			}		
+			$output[$i] ['drugInteractions'] = $tmp;			
 		}
 	} else {
 		//not found in drugbank check dailymed
