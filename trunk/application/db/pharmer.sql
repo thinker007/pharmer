@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 09, 2012 at 09:22 PM
+-- Generation Time: Sep 16, 2012 at 08:50 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -107,6 +107,19 @@ CREATE TABLE IF NOT EXISTS `drug_contraindication` (
 CREATE TABLE IF NOT EXISTS `drug_enzyme` (
   `drug_id` int(11) NOT NULL,
   `enzyme` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_interaction`
+--
+
+CREATE TABLE IF NOT EXISTS `drug_interaction` (
+  `drug_id` int(11) NOT NULL,
+  `drug2_uri` varchar(255) NOT NULL,
+  `interaction_uri` varchar(255) NOT NULL,
+  `description` tinytext
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
