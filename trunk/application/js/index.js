@@ -68,7 +68,7 @@ function detect_drugs(html_data,start,end){
 						}
 						var properties=new Array();
 						var uri='';
-						if(new_text.indexOf('<span property="nonProprietaryName">'+val['@surfaceForm']+'</span>')==-1){
+						if((new_text.indexOf('<span property="nonProprietaryName">'+val['@surfaceForm']+'</span>')==-1) && val['@surfaceForm'].toLowerCase()!='drug' && val['@surfaceForm'].toLowerCase()!='drugs'){
 							$.ajax({
 								type : "GET",
 								async: true,
@@ -211,6 +211,13 @@ function handleSearch(){
 			alert('Service is not available at the moment. Please try again later...');
 		},
 	});	
+}
+function findDrugInteractions(){
+	//now we do it on the fly but we can add the related annotation later to the document for client-side processing
+	$.each($('#presc_edit .ph-entity'), function(i,v){
+		console.log($(v).text().trim());
+		console.log($(v).attr('about'));
+	});
 }
 function getCharacterOffsetWithin(range, node) {
     var treeWalker = document.createTreeWalker(
@@ -439,7 +446,7 @@ function showInfoModal(obj,is_selected){
 }
 function create_meta_tags(v){
 	var temp_s;
-	temp_s="<div id='d_"+makeDashSeparated(v.name)+"' about='"+v.s+"'>";
+	temp_s="<div id='d_"+makeDashSeparated(v.name)+"' about='"+v.s+"' class='ph-entity'>";
 	temp_s=temp_s+'<span property="description" content="'+v.description+'"></span>';
 	temp_s=temp_s+'<span property="absorption" content="'+v.absorption+'"></span>';
 	temp_s=temp_s+'<span property="affectedOrganism" content="'+v.affectedOrganism+'"></span>';
