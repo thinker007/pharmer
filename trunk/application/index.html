@@ -50,7 +50,7 @@
 			<div class="tab-pane active" id="edit">
 				<div id="search_bar">
 					<a class="btn btn-small" href="#" title="find all drugs" onclick="findAllDrugs();"><i class="icon-eye-open"></i></a>
-					<a class="btn btn-small" href="#" title="recognize drug interactions" onclick="findDrugInteractions();"><i class="icon-exclamation-sign"></i></a>
+					<a class="btn btn-small" href="#" title="check drug interactions" onclick="findDrugInteractions();"><i class="icon-exclamation-sign"></i></a>
 					<a class="btn btn-small" href="#" title="search for a specific drug" onclick="search_drug();"><i class="icon-search"></i></a>
 					<input type="text" class="input-medium search-query hidden" id="search_term" placeholder="drug name">
 					<span id="result_of_search"></span>
@@ -140,6 +140,16 @@ ${search_term}
 </ul>
 </span>&nbsp;				
 </script>
+<script id="interaction_template" type="text/x-jquery-tmpl">
+{{each(i, d) interactions}}
+	<table align="center" cellpadding="3" cellspacing="3" border="1">
+		<tr><td>Interaction: </td><td> <b>${d.drug_1}</b> and <b>${d.drug_2}</b></td></tr>
+		<tr><td>Description: </td><td class="text-warning"> ${d.description}</td></tr>
+		<tr><td colspan="2" align="center"><a href="${d.interaction_uri}" target="_blank">Details</a></td></tr>
+	</table>
+	<hr/>
+{{/each}}				
+</script>
 <div class="hidden" id="temp_repo"></div>
 <div class="hidden" id="drug_information" name="drug_information"></div>
 <script src="libs/rdfaplay/d3.v2.min.js" type="text/javascript"></script>
@@ -155,7 +165,7 @@ ${search_term}
 	</html>
 </iframe>
 
-<!-- Modal -->
+<!-- Modal drug info-->
 <div class="modal hide fade" id="drugModal" tabindex="-1" role="dialog" aria-labelledby="drugModalLabel" aria-hidden="true">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -210,6 +220,20 @@ ${search_term}
 <div class="modal-footer">
 	<button class="btn btn-danger">Delete</button>
 	<button class="btn btn-success">Save</button>
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+</div>
+</div>
+
+<!-- Modal drug interactions-->
+<div class="modal hide fade" id="drugInteractionsModal" tabindex="-1" role="dialog" aria-labelledby="drugInteractionsModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h3 id="drugModalLabel">Drug Interactions</h3>
+</div>
+<div class="modal-body" id="drug_interactions_list">
+
+</div>
+<div class="modal-footer">
 	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
 </div>
 </div>
