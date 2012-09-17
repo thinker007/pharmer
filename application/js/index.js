@@ -214,10 +214,41 @@ function handleSearch(){
 }
 function findDrugInteractions(){
 	//now we do it on the fly but we can add the related annotation later to the document for client-side processing
+	var drug_list=new Array();
 	$.each($('#presc_edit .ph-entity'), function(i,v){
-		console.log($(v).text().trim());
-		console.log($(v).attr('about'));
+		//.log($(v).text().trim());
+		//console.log($(v).attr('about'));
+		drug_list.push($(v).attr('about'));
 	});
+	$.ajax({
+		type : "POST",
+		async: true,
+		url : 'check_drug_interactions.php?',
+		data : 'drugs='+drug_list,
+		success : function(data) {
+			try {
+					jQuery.parseJSON( data )
+					//must be valid JSON
+			} catch(e) {
+				//must not be valid JSON  
+				$('#ajax_progress_indicator').hide();
+				alert('Service is not available at the moment. Please try again later...');				
+			} 
+			if(data.interactions.length){
+				$("#drug_interactions_list").html('');
+				$( "#interaction_template" ).tmpl( data).appendTo( "#drug_interactions_list" );
+			}else{
+				$("#drug_interactions_list").html('<br/> <center><h5>No interaction found!</h5></center><br/>');
+			}
+			//show Modal
+			$('#drugInteractionsModal').modal('toggle');
+		},
+		error: function(xhr, txt, err){ 
+			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+			$('#ajax_progress_indicator').hide();
+			alert('Service is not available at the moment. Please try again later...');
+		},
+	});		
 }
 function getCharacterOffsetWithin(range, node) {
     var treeWalker = document.createTreeWalker(
