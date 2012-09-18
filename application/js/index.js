@@ -366,7 +366,7 @@ function generateAnnotation(entity_string,uri,properties,extraClasses){
 		uri=" about='"+uri+"'";
 	else
 		uri="";
-	return "<span onclick='showInfoModal(this,1);' class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
+	return "<span onclick='showInfoModal(this,1);' class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug' id='d_"+makeDashSeparated(entity_string)+"'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
 }
 function addAnnotation(annotation){
 	$('#presc_edit').append('<br />'+annotation);
@@ -406,6 +406,11 @@ function updateIFrame(){
     }
 	return preview.data;
 }
+function deleteAnnotation(drugname){
+	var dugnameDashSeparated=makeDashSeparated(drugname);
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).replaceWith(drugname);
+	$("#drugModal").modal("hide");
+}
 function showInfoModal(obj,is_selected){
 	var repo;
 	if(is_selected)
@@ -414,6 +419,9 @@ function showInfoModal(obj,is_selected){
 		repo="temp_repo";
 
 	var drugname=$(obj).text().trim();
+	$('#deleteButton').click(function(e) {
+		deleteAnnotation(drugname);
+	});
 	drugname=makeDashSeparated(drugname);
 	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
 	$('#absorption').html($('#'+repo).find('#d_'+drugname).find('[property="absorption"]').attr('content'));
