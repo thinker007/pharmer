@@ -413,12 +413,14 @@ function deleteAnnotation(drugname){
 }
 function saveAnnotation(drugname){
 	var dugnameDashSeparated=makeDashSeparated(drugname);
-	if($('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").length)
-		$('#inputQuantity').val($('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").attr('content'));
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").remove();
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='quantity' content='"+$('#inputQuantity').val()+"'></span>");
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageForm']").remove();
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='dosageForm' content='"+$('#inputDosageForm').val()+"'></span>");
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageQuantity']").remove();
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='dosageQuantity' content='"+$('#inputDosageQuantity').val()+"'></span>");
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='usageInstruction']").remove();
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='usageInstruction' content='"+$('#inputUsageInstruction').val()+"'></span>");
 	$("#drugModal").modal("hide");
 }
 function showInfoModal(obj,is_selected){
@@ -435,7 +437,7 @@ function showInfoModal(obj,is_selected){
 	$('#saveButton').click(function(e) {
 		saveAnnotation(drugname);
 	});	
-	drugname=makeDashSeparated(drugname);
+	drugname=makeDashSeparated(drugname);	
 	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
 	$('#absorption').html($('#'+repo).find('#d_'+drugname).find('[property="absorption"]').attr('content'));
 	$('#affectedOrganism').html($('#'+repo).find('#d_'+drugname).find('[property="affectedOrganism"]').attr('content'));
@@ -452,7 +454,7 @@ function showInfoModal(obj,is_selected){
 		tmp2=tmp2.split('\/');
 		tmp2=tmp2[tmp2.length-1];
 		tmp=tmp+'<li>'+tmp2+'</li>';
-		options=options+'<option>'+tmp2+'</option>';
+		options=options+'<option value="'+tmp2+'">'+tmp2+'</option>';
 	});
 	options=options+'<option>Other</option>';
 	$('#dosageForms').html('<ul>'+tmp+'</ul>');
@@ -497,6 +499,22 @@ function showInfoModal(obj,is_selected){
 	});
 	$('#drugTargets').html('<ul>'+tmp+'</ul>');	
 	$('#drugModalLabel').html(drugname);	
+	if($('#presc_edit').find('#d_'+drugname).find("span[property='quantity']").length)
+		$('#inputQuantity').val($('#presc_edit').find('#d_'+drugname).find("span[property='quantity']").attr('content'));
+	else
+		$('#inputQuantity').val('');
+	if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").length)
+		$("#inputDosageForm").val($('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").attr('content'));
+	else
+		$('#inputDosageForm').val('');
+	if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").length)
+		$('#inputDosageQuantity').val($('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").attr('content'));
+	else
+		$('#inputDosageQuantity').val('');
+	if($('#presc_edit').find('#d_'+drugname).find("span[property='usageInstruction']").length)
+		$('#inputUsageInstruction').val($('#presc_edit').find('#d_'+drugname).find("span[property='usageInstruction']").attr('content'));
+	else
+		$('#inputUsageInstruction').val('');		
 	//show Modal
 	$('#drugModal').modal('toggle');
 }
