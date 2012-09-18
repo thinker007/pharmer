@@ -414,13 +414,16 @@ function deleteAnnotation(drugname){
 function saveAnnotation(drugname){
 	var dugnameDashSeparated=makeDashSeparated(drugname);
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").remove();
-	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='quantity' content='"+$('#inputQuantity').val()+"'></span>");
+	if($('#inputQuantity').val())
+		$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='quantity' content='"+$('#inputQuantity').val()+"'></span>");
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageForm']").remove();
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='dosageForm' content='"+$('#inputDosageForm').val()+"'></span>");
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageQuantity']").remove();
-	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='dosageQuantity' content='"+$('#inputDosageQuantity').val()+"'></span>");
+	if($('#inputDosageQuantity').val())
+		$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='dosageQuantity' content='"+$('#inputDosageQuantity').val()+"'></span>");
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='usageInstruction']").remove();
-	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='usageInstruction' content='"+$('#inputUsageInstruction').val()+"'></span>");
+	if($('#inputUsageInstruction').val())
+		$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='usageInstruction' content='"+$('#inputUsageInstruction').val()+"'></span>");
 	$("#drugModal").modal("hide");
 }
 function showInfoModal(obj,is_selected){
@@ -505,8 +508,6 @@ function showInfoModal(obj,is_selected){
 		$('#inputQuantity').val('');
 	if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").length)
 		$("#inputDosageForm").val($('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").attr('content'));
-	else
-		$('#inputDosageForm').val('');
 	if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").length)
 		$('#inputDosageQuantity').val($('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").attr('content'));
 	else
