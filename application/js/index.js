@@ -167,7 +167,7 @@ function realTimeTag(){
 	detect_drugs(chunk,start,end);
 }
 function handleSearch(){
-	var term=$("#search_term").val();
+	var term=$("#search_term").val().trim();
 	if(term.length<4)
 		return;
 	$.ajax({
@@ -411,6 +411,16 @@ function deleteAnnotation(drugname){
 	$('#presc_edit').find('#d_'+dugnameDashSeparated).replaceWith(drugname);
 	$("#drugModal").modal("hide");
 }
+function saveAnnotation(drugname){
+	var dugnameDashSeparated=makeDashSeparated(drugname);
+	if($('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").length)
+		$('#inputQuantity').val($('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").attr('content'));
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='quantity']").remove();
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).append("<span property='quantity' content='"+$('#inputQuantity').val()+"'></span>");
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageForm']").remove();
+	$('#presc_edit').find('#d_'+dugnameDashSeparated).find("span[property='dosageQuantity']").remove();
+	$("#drugModal").modal("hide");
+}
 function showInfoModal(obj,is_selected){
 	var repo;
 	if(is_selected)
@@ -422,6 +432,9 @@ function showInfoModal(obj,is_selected){
 	$('#deleteButton').click(function(e) {
 		deleteAnnotation(drugname);
 	});
+	$('#saveButton').click(function(e) {
+		saveAnnotation(drugname);
+	});	
 	drugname=makeDashSeparated(drugname);
 	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
 	$('#absorption').html($('#'+repo).find('#d_'+drugname).find('[property="absorption"]').attr('content'));
@@ -433,13 +446,17 @@ function showInfoModal(obj,is_selected){
 	$('#toxicity').html($('#'+repo).find('#d_'+drugname).find('[property="toxicity"]').attr('content'));
 	$('#indication').html($('#'+repo).find('#d_'+drugname).find('[property="indication"]').attr('content'));	
 	var tmp='';
+	var options='';
 	$.each($('#'+repo).find('#d_'+drugname).find('[property="dosageForms"]')[0].children ,function(inx,val){
 		tmp2=$(val).attr('content');
 		tmp2=tmp2.split('\/');
 		tmp2=tmp2[tmp2.length-1];
 		tmp=tmp+'<li>'+tmp2+'</li>';
+		options=options+'<option>'+tmp2+'</option>';
 	});
+	options=options+'<option>Other</option>';
 	$('#dosageForms').html('<ul>'+tmp+'</ul>');
+	$('#inputDosageForm').html(options);
 	var tmp='';
 	$.each($('#'+repo).find('#d_'+drugname).find('[property="brandNames"]')[0].children ,function(inx,val){
 		tmp=tmp+'<li>'+$(val).attr('content')+'</li>';
