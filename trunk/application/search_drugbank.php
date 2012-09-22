@@ -272,7 +272,38 @@ if (count ( $db_recs_check )) {
 				$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
 			}
 		}else{
-			$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>null));
+			//not found in dailybank check rxnorm
+			$db = sparql_connect ( "http://link.informatics.stonybrook.edu/sparql/" );
+			if (! $db) {
+				print sparql_errno () . ": " . sparql_error () . "\n";
+				exit ();
+			}
+			
+			sparql_ns ( "rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#" );
+			$sparql = 'select distinct ?s ?name ?labeler ?color where {?s rdf:type <http://link.informatics.stonybrook.edu/rxnorm/RXAUI>. ?s <http://link.informatics.stonybrook.edu/rxnorm/ATN#COLORTEXT> ?color.?s <http://link.informatics.stonybrook.edu/rxnorm/ATN#LABELER> ?labeler. ?s <http://www.w3.org/2000/01/rdf-schema#label> ?name. FILTER (REGEX(?name, "' . $drug_name . '", "i"))}';
+			$result = sparql_query ( $sparql );
+			if (! $result) {
+				print sparql_errno () . ": " . sparql_error () . "\n";
+				exit ();
+			}
+			$fields = sparql_field_array ( $result );
+			
+			while ( $row = sparql_fetch_array ( $result ) ) {
+				$output_part = array ();
+				$output_part ['s'] = $row ['s'];
+				$output_part ['name'] = $row ['name'].'_'.;
+				$output_part ['description'] = 'Color: '.$row ['color'].', Labeled by: '.$row ['labeler'];
+				$output [] = $output_part;
+			}		
+		
+			if (count ( $output )) {
+				foreach ( $output as $v ) {
+					$lastid=$sq->dbInsert ( 'drug', array ('uri' => $v ['s'], 'name' => $v ['name'], 'description' => $v ['description']) );
+					$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>$lastid));
+				}
+			}else{
+				$sq->dbInsert('searched_terms',array('term'=>$drug_name,'drug_id'=>null));
+			}
 		}
 	}
 }
