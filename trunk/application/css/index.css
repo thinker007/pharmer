@@ -76,3 +76,8 @@
 #drugTabContent{
 
 }
+#alert_bar{
+margin-left:25%;
+width:400px;
+z-index:999;
+}

@@ -120,6 +120,7 @@ function detect_drugs(html_data,start,end){
 	
 }
 function search_drug(){
+	$('#alert_bar').addClass('hidden');
 	var is_st_selected=0;
 	var selected=getSelectionHtml();
 	$('#temp_repo').html('');
@@ -167,6 +168,7 @@ function realTimeTag(){
 	detect_drugs(chunk,start,end);
 }
 function handleSearch(){
+	$('#alert_bar').addClass('hidden');
 	var term=$("#search_term").val().trim();
 	if(term.length<4)
 		return;
@@ -182,8 +184,9 @@ function handleSearch(){
 			} catch(e) {
 				//must not be valid JSON  
 				$('#ajax_progress_indicator').hide();
-				$('#ajax_progress_indicator').hide();
-				console.log('Online Service is not available at the moment. We will search our local database. For more complete results please try the service again...');	
+				$('#alert_bar').show();
+				$('#alert_bar').removeClass('hidden');
+				//console.log('Online Service is not available at the moment. We will search our local database. For more complete results please try the service again...');	
 				//try to get the value from the local database
 				//this is not complete but provides a partial results
 				$.ajax({
