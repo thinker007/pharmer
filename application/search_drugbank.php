@@ -291,7 +291,7 @@ if (count ( $db_recs_check )) {
 			while ( $row = sparql_fetch_array ( $result ) ) {
 				$output_part = array ();
 				$output_part ['s'] = $row ['s'];
-				$output_part ['name'] = $row ['name'].'_'.;
+				$output_part ['name'] = $row ['name'];
 				$output_part ['description'] = 'Color: '.$row ['color'].', Labeled by: '.$row ['labeler'];
 				$output [] = $output_part;
 			}		
