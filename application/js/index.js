@@ -81,7 +81,7 @@ function detect_drugs(html_data,start,end){
 									} catch(e) {
 										//must not be valid JSON  
 										$('#ajax_progress_indicator').hide();
-										alert('Service is not available at the moment. Please try again later...');				
+										console.log('Service is not available at the moment. Please try again later...');				
 									} 
 									$.each(data.drugs, function(i,v){
 										//fill the temp div
@@ -104,7 +104,7 @@ function detect_drugs(html_data,start,end){
 								error: function(xhr, txt, err){ 
 									console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
 									$('#ajax_progress_indicator').hide();
-									alert('Service is not available at the moment. Please try again later...');
+									console.log('Service is not available at the moment. Please try again later...');
 								},
 							});	 
 						}
@@ -182,7 +182,45 @@ function handleSearch(){
 			} catch(e) {
 				//must not be valid JSON  
 				$('#ajax_progress_indicator').hide();
-				alert('Service is not available at the moment. Please try again later...');				
+				$('#ajax_progress_indicator').hide();
+				console.log('Online Service is not available at the moment. We will search our local database. For more complete results please try the service again...');	
+				//try to get the value from the local database
+				//this is not complete but provides a partial results
+				$.ajax({
+					type : "GET",
+					async: true,
+					url : 'search_drug_local.php?',
+					data : 'drug='+term,
+					success : function(data) {
+						try {
+								jQuery.parseJSON( data )
+								//must be valid JSON
+						} catch(e) {
+							//must not be valid JSON  
+							$('#ajax_progress_indicator').hide();			
+						} 
+						data.search_term=term;
+						$("#result_of_search").html('');
+						$.each(data.drugs, function(i,v){
+
+							//fill the temp div
+							$('#temp_repo').append(create_meta_tags(v));
+							v.description=dotToLine(v.description, '.<br />');
+						});
+						if(data.drugs.length){
+							if(data.drugs.length>1)
+								data.hint="<b>"+data.drugs.length+"</b> drugs match your query. Please select the right one:";
+							else
+								data.hint='';
+						}else{
+							data.hint="No matches found!";
+						}
+						
+						$( "#search_result" ).tmpl( data).appendTo( "#result_of_search" );
+						//$('#search_term').val('');
+						$('#search_term').addClass('hidden');
+					}
+				});					
 			} 
 			data.search_term=term;
 			$("#result_of_search").html('');
@@ -206,9 +244,8 @@ function handleSearch(){
 			$('#search_term').addClass('hidden');
 		},
 		error: function(xhr, txt, err){ 
-			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
+			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );		
 			$('#ajax_progress_indicator').hide();
-			alert('Service is not available at the moment. Please try again later...');
 		},
 	});	
 }
@@ -232,7 +269,7 @@ function findDrugInteractions(){
 			} catch(e) {
 				//must not be valid JSON  
 				$('#ajax_progress_indicator').hide();
-				alert('Service is not available at the moment. Please try again later...');				
+				console.log('Service is not available at the moment. Please try again later...');				
 			} 
 			if(data.interactions.length){
 				$("#drug_interactions_list").html('');
@@ -246,7 +283,7 @@ function findDrugInteractions(){
 		error: function(xhr, txt, err){ 
 			console.log("xhr: " + xhr + "\n textStatus: " +txt + "\n errorThrown: " + err+ "\n" );
 			$('#ajax_progress_indicator').hide();
-			alert('Service is not available at the moment. Please try again later...');
+			console.log('Service is not available at the moment. Please try again later...');
 		},
 	});		
 }
@@ -309,16 +346,26 @@ function getSelectionHtml() {
 }
 function refreshTooltips(){
 	var desc='';
+	var extradesc='';
+	var drugname;
 	$.each($("#presc_edit").find('.ph-entity'), function(index, value) { 
 			$(this).click(function(e) {
 
 			});	
 			$(this).mouseover(function(e) {				
 				e.stopPropagation();
-				desc=$('#temp_repo').find('#d_'+$(this).text()).find('[property="description"]').attr('content');
+				drugname=makeDashSeparated($(this).text().trim());
+				desc=$('#temp_repo').find('#d_'+drugname).find('[property="description"]').attr('content');
 				 if(typeof desc === 'undefined'){
-					desc=$('#drug_information').find('#d_'+makeDashSeparated($(this).text().trim())).find('[property="description"]').attr('content');
+					desc=$('#drug_information').find('#d_'+drugname).find('[property="description"]').attr('content');
 				}
+				if($('#presc_edit').find('#d_'+drugname).find("span[property='quantity']").length)
+					extradesc="Quantity: "+$('#presc_edit').find('#d_'+drugname).find("span[property='quantity']").attr('content')+'<br/>';
+				if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").length)
+					extradesc=extradesc+'Form: '+$('#presc_edit').find('#d_'+drugname).find("span[property='dosageForm']").attr('content')+'<br/>';
+				if($('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").length)
+					extradesc=extradesc+'Dosage: '+$('#presc_edit').find('#d_'+drugname).find("span[property='dosageQuantity']").attr('content')+'<br/>';
+				desc=extradesc+''+desc;
 				$(this).popover({placement:'bottom', trigger:'hover', title: $(this).text(), content: desc});
 				$(this).popover('show');
 			});									
