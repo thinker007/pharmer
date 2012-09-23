@@ -352,7 +352,7 @@ function refreshTooltips(){
 	var drugname;
 	$.each($("#presc_edit").find('.ph-entity'), function(index, value) { 
 			$(this).click(function(e) {
-
+				showInfoModal(this,1);
 			});	
 			$(this).mouseover(function(e) {				
 				e.stopPropagation();
@@ -415,7 +415,7 @@ function generateAnnotation(entity_string,uri,properties,extraClasses){
 		uri=" about='"+uri+"'";
 	else
 		uri="";
-	return "<span onclick='showInfoModal(this,1);' class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug' id='d_"+makeDashSeparated(entity_string)+"'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
+	return "<span class='btn btn-small ph-entity "+extraClasses+"'"+uri+" typeof='Drug' id='d_"+makeDashSeparated(entity_string)+"'><span property='nonProprietaryName'>"+entity_string+"</span></span>&nbsp;";
 }
 function addAnnotation(annotation){
 	$('#presc_edit').append('<br />'+annotation);
