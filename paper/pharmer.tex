@@ -117,13 +117,25 @@ Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 
   \item  Link your data to other data to provide context
 \end{enumerate}
 
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/lod_cloud.png}
+	\caption{Available datasets related to pharmaceutical research.}
+	\label{fig:lod}
+\end{figure}
 
+Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF\footnote{\url{http://bio2rdf.org/}}, Chem2Bio2RDF\footnote{\url{http://chem2bio2rdf.wikispaces.com/}}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\footnote{\url{http://www.w3.org/wiki/HCLSIG/LODD}} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
 
-in \cite{lodrug}.
+There are already many interesting information on pharmaceutical research available on the Web.
+The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials (ss shown in \autoref{fig:lod}).
+LODD\cite{lodrug} has surveyed publicly available data about drugs, created Linked Data representations of the data sets, and identified interesting scientific and business questions that can be answered once the data sets are connected.
+
+One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.
 
 \section{Semantic Content Authoring}
 \label{sec:sca}
  A \emph{Semantic Document} is an intelligent document (with explicit semantic structure) which ``knows about" its own content so that it can be automatically processed in unforeseen ways.
+
 Semantic documents facilitate a number of important aspects of information management~\cite{rdface}:
 \begin{itemize}
 	\item For \emph{search and retrieval} enriching documents with semantic representations helps to create more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
@@ -205,12 +217,7 @@ We discussed sth in \autoref{sec:sca}.
 
 \subsection{Architecture}
 
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=1.0\columnwidth]{images/lod_cloud.png}
-	\caption{Available datasets related to pharmaceutical research.}
-	\label{fig:lod}
-\end{figure}
+
 
 \subsection{Features}
 Drug Detection : DBpedia spotlight
