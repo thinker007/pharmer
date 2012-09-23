@@ -352,6 +352,7 @@ function refreshTooltips(){
 	var drugname;
 	$.each($("#presc_edit").find('.ph-entity'), function(index, value) { 
 			$(this).click(function(e) {
+				e.stopPropagation();
 				showInfoModal(this,1);
 			});	
 			$(this).mouseover(function(e) {				
@@ -483,12 +484,8 @@ function showInfoModal(obj,is_selected){
 		repo="temp_repo";
 
 	var drugname=$(obj).text().trim();
-	$('#deleteButton').click(function(e) {
-		deleteAnnotation(drugname);
-	});
-	$('#saveButton').click(function(e) {
-		saveAnnotation(drugname);
-	});	
+	$('#deleteButton').attr('onclick','deleteAnnotation("'+drugname+'")');	
+	$('#saveButton').attr('onclick','saveAnnotation("'+drugname+'")');	
 	drugname=makeDashSeparated(drugname);	
 	$('#description').html('No information found!');
 	$('#description').html($('#'+repo).find('#d_'+drugname).find('[property="description"]').attr('content'));
@@ -583,7 +580,7 @@ function showInfoModal(obj,is_selected){
 	else
 		$('#inputUsageInstruction').val('');		
 	//show Modal
-	$('#drugModal').modal('toggle');
+	$('#drugModal').modal('show');
 }
 function create_meta_tags(v){
 	var temp_s;
