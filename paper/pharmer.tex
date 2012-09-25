@@ -223,6 +223,8 @@ Another challenge points
 
 \subsection{Architecture}
 
+The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers.
+
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=1.0\columnwidth]{images/architecture.pdf}
@@ -230,16 +232,27 @@ Another challenge points
 	\label{fig:arch}
 \end{figure}
 
-As shown in \autoref{fig:arch}, Pharmer system can be analyzed in the following three layers.
 \paragraph{Document Layer} This layer includes the traditional e-prescription document plus two components as \emph{Drug Detection} and \emph{Drug Information Collector}.
 Drug detection component performs the natural language processing (NLP) of the e-prescription document to detect the terms referring to a drug in the prescription.
 The component uses DBpedia spotlight\footnote{\url{http://spotlight.dbpedia.org/}} NLP service to parse and analyze the text looking for known drugs.
 It is configurable so that users can easily add other existing NLP services for drug detection.
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
+Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm\footnote{Available at \url{http://www.w3.org/wiki/HCLSIG/LODD/Data}} by sending federated SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} queries.
+
 \paragraph{Semantic Layer} 
+There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
+The \emph{annotator} component handles the automatic annotation and embeds the general information of the drugs as meta-data into the e-prescription.
+Annotator adopts the RDFa format. \emph{RDFa}\footnote{\url{http://www.w3.org/TR/rdfa-syntax/}} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
+RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability to a good extent.
+
+The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
 
 \paragraph{Application Layer} 
+This layer provides a set of applications on top of generated semantic prescriptions.
+
+The Pharmer implementation is open-source and available for download together with an explanatory video and online demo\footnote{\url{http://bitili.com/pharmer}} at \url{http://code.google.com/p/pharmer/}.
 
 \subsection{Features}
 Drug Detection : DBpedia spotlight
