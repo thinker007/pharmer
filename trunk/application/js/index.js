@@ -170,6 +170,7 @@ function realTimeTag(){
 function handleSearch(){
 	$('#alert_bar').addClass('hidden');
 	var term=$("#search_term").val().trim();
+	$('#loading_text').text(' Loading data...');
 	if(term.length<4)
 		return;
 	$.ajax({
@@ -202,6 +203,7 @@ function handleSearch(){
 							//must not be valid JSON  
 							$('#ajax_progress_indicator').hide();			
 						} 
+						$('#loading_text').text('');
 						data.search_term=term;
 						$("#result_of_search").html('');
 						$.each(data.drugs, function(i,v){

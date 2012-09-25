@@ -55,6 +55,10 @@
 	color:green;
 	text-shadow: 0 0 0.2em #eeeeee, 0 0 0.2em #eeeeee,0 0 0.2em #eeeeee;
 }
+#loading_text{
+	color:#00aacc;
+	font-size:11px;
+}
 #drug_instructions{
 	min-height:310px;
 	min-width:500px;
