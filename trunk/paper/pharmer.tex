@@ -77,29 +77,33 @@ component; formatting; style; styling;
 
 \section{Introduction}
 \label{intro}
-This is a test \cite{Khalili2012}.
 
-While even nowadays traditional paper prescriptions are commonly used, electronic prescriptions offer several advantages.
-As reported in \cite{} medication errors are the most common type of medical error in health care.
-In an E-prescription system, prescriber electronically sends an accurate, error-free and understandable prescription directly to a pharmacy from the point-of-care.
-Improved confidentiality and security of health information, better clarity and communication among health care providers as well as rapid information exchange are part of arguments for spreading this system.
-Reduction in medication error and decline in adverse drug events are more highlighted consequences of E-prescribing.
+As reported in MedicineNet\footnote{\url{http://www.medicinenet.com/}}, \emph{medication errors} are the most common type of medical errors in health care.
+Errors such as improper dose of medicine, adverse drug interactions, food interactions, etc. often stem from invalid prescriptions and unawareness of the patients.
+Electronic prescriptions which are recently gaining attention in the e-health domain, are one of the solutions proposed to solve these type of errors.
+While even nowadays traditional paper prescriptions are commonly used, e-prescriptions offer several advantages.
+In an e-prescription system, prescriber electronically sends an accurate, error-free and understandable prescription directly to a pharmacy from the point-of-care.
+Reduction in medication error and decline in adverse drug events are more highlighted consequences of e-prescribing.
 
-During the recent years, the adoption of E-prescriptions has been spreading rapidly.
-To illustrate, the Australian government started launching of e-prescription from 1 March 2007.
+During the recent years, the adoption of e-prescriptions has been spreading rapidly.
+To illustrate, the Australian government started launching of e-prescription from March 2007.
 Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage\cite{Ravichandran}.
-A system called epSOS perform the use of E-prescriptions all around Europe, is currently passing the extensive practical testing phase.
-It contains patient summery and E-Prescription Service which allows access to the cross-border eHealth services when seeking healthcare in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students.
-The E-Prescribing Incentive Program is performed in US as a reporting program that uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.
+A system called epSOS which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
+epSOS contains patient summery and an e-prescription service which allows access to the cross-border e-health services.
+This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
+The e-Prescribing incentive program performed in US is another example in this area.
+As a reporting program it uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.
 
-One of the most important advantages of E-prescribing is that the connection of physician, pharmacist, patient and pharmaceutical researchers and statision.
-Once the E-prescription is written by a physician, pharmacist has also access to the prescription.
-while the physician is aware, pharmacist can comment on the prescription content.
-The online system is also available for patients who can inquire about any necessary information.
-health care providers can follow up the patient's treatment fate.
-The data base of the patients profile in subject of many statistics researches.
-Besides, researchers are able to conveniently follow the drug in the clinical trial phase.
+One of the main challenges of using e-prescription systems is the heterogeneity of available information sources.
+There exist already different sources of information addressing different aspects of pharmaceutical research.
+Information about chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets such as proteins, gene-disease-drug associations, adverse effects of marketed drugs, etc. are some examples of these diverse information.
+Handling these information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
+On the other hand, \emph{Linked Open Data} as an effort to interlink and integrate these isolated sources of information is receiving more attention in the domain of medical and life sciences.
+Combining the best practices from Linked Open Data together with e-prescription systems can provide an opportunity for patients, researchers as well as practitioners to collaborate together in a synergic way.
+Semantic prescriptions as introduced in this paper are a proposed approach to utilize semantic web technologies in e-prescription systems.
 
+The remainder of this article is structured as follows:
+In \autoref{fig:lod}
 
 \section{Linked Open Data}
 \label{sec:lod}
@@ -160,7 +164,7 @@ Medical prescriptions are a good candidate to be enriched by semantic annotation
 Semantic prescriptions enable the traditionally written prescriptions to be utilized in novel ways as discussed above.
 In the following sections, we first describe the e-prescriptions and then discuss how they can be enriched as semantic documents.
 
-\section{E-Prescriptions}
+\section{e-prescriptions}
 \label{epresc}
 E-health has evolved and emerged recently in many forms.
 E-prescription is one of these forms and defined as a computer-generated prescription utilized by healthcare providers.
@@ -250,7 +254,11 @@ RDFa fulfills the principles of interoperable metadata such as publisher indepen
 The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
 
 \paragraph{Application Layer} 
-This layer provides a set of applications on top of generated semantic prescriptions.
+This layer provides a set of applications on top of the generated semantic prescriptions.
+\emph{Interaction Finder} checks the possible interactions between the prescribed drugs and warn the prescriber about them.
+\emph{Visualizer} is responsible for graphically representing the embedded semantics of a prescription.
+The \emph{Fact Extractor} generates the RDF/Turtle representation of the semantic prescriptions.
+
 
 The Pharmer implementation is open-source and available for download together with an explanatory video and online demo\footnote{\url{http://bitili.com/pharmer}} at \url{http://code.google.com/p/pharmer/}.
 
@@ -284,7 +292,15 @@ Different views:
 \label{evaluation}
 
 \section{Conclusion}
-The conclusion goes here. this is more of the conclusion
+Improved confidentiality and security of health information, better clarity and communication among health care providers as well as rapid information exchange are part of arguments for spreading this system.
+
+One of the most important advantages of E-prescribing is that the connection of physician, pharmacist, patient and pharmaceutical researchers and statision.
+Once the E-prescription is written by a physician, pharmacist has also access to the prescription.
+while the physician is aware, pharmacist can comment on the prescription content.
+The online system is also available for patients who can inquire about any necessary information.
+health care providers can follow up the patient's treatment fate.
+The data base of the patients profile in subject of many statistics researches.
+Besides, researchers are able to conveniently follow the drug in the clinical trial phase.
 
 % conference papers do not normally have an appendix
 
