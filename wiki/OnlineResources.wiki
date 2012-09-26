@@ -3,10 +3,13 @@
 = LODD-related datasets that the LODD group already made available as Linked Data  =
 
 http://www.w3.org/wiki/HCLSIG/LODD/Data
+
 http://www.openphacts.org/
 
 =E-Prescription=
 http://en.wikipedia.org/wiki/Electronic_prescribing
+
+http://www.medicinenet.com/script/main/art.asp?articlekey=55234
 
 =Similar software=
 http://www.practicefusion.com/pages/ePrescribing.html
