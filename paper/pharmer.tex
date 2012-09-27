@@ -222,11 +222,18 @@ Many researchers investigate the aforementioned statistical data and combine the
 Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
 The Pharmer implementation is open-source and available for download together with an explanatory video and online demo\footnote{\url{http://bitili.com/pharmer}} at \url{http://code.google.com/p/pharmer/}.
 It adopts a bottom-up approach (i.e. semantic markup~\cite{araujo2010}) for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/approaches.pdf}
+	\caption{Bottom-up enrichment of prescriptions using semantic annotations.}
+	\label{fig:botup}
+\end{figure}
+
 The basic ingredients of a semantic annotation system are ontologies, the documents and the annotations that link ontologies to documents~\cite{khalili2012}.
 Here, we need two kinds of ontologies:
 \emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
 \emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
-
 We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
   
 \subsection{Architecture}
