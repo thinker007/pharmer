@@ -61,12 +61,18 @@ bita.sedaghati@uni-leipzig.de}
 \maketitle
 
 \begin{abstract}
-The abstract goes here. DO NOT USE SPECIAL CHARACTERS, SYMBOLS, OR MATH IN YOUR TITLE OR ABSTRACT.
-
+The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources brings into the spotlight a new generation of knowledge management applications.
+Particularly in the domain of pharmaceutical research and development, many efforts have been done to create a linked open drug data.
+In this paper we present the Pharmer approach to facilitate the creation of semantic prescriptions.
+Semantic prescriptions are intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
+In an e-health system, semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and companies to collaboratively improve the quality of pharmaceutical services.
+Pharmer provides different views for the different personas involved in the process of e-prescribing.
+It employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescription and to collect multidimensional data on them.
+We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
 \end{abstract}
 
 \begin{IEEEkeywords}
-component; formatting; style; styling;
+ Semantic prescription; e-prescription; semantic annotation; e-health;
 
 \end{IEEEkeywords}
 
@@ -237,7 +243,7 @@ Here, we need two kinds of ontologies:
 \emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
 
 We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
- 
+  
 \subsection{Architecture}
 
 The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers.
