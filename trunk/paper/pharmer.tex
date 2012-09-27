@@ -61,13 +61,14 @@ bita.sedaghati@uni-leipzig.de}
 \maketitle
 
 \begin{abstract}
-The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources brings into the spotlight a new generation of knowledge management applications.
+The recent proliferation of Linked Open Data enables the integration of multiple disparate data sources to shed some light on a new generation of knowledge management applications.
 Particularly in the domain of pharmaceutical research and development, many efforts have been done to create a linked open drug data.
-In this paper we present the Pharmer approach to facilitate the creation of semantic prescriptions.
+In this paper we present the Pharmer as an approach to facilitate the creation of semantic prescriptions.
 Semantic prescriptions are intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
 In an e-health system, semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and companies to collaboratively improve the quality of pharmaceutical services.
 Pharmer provides different views for the different personas involved in the process of e-prescribing.
 It employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescription and to collect multidimensional data on them.
+Eventually it warns of the possible drug interactions in the prescription.
 We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
 \end{abstract}
 
@@ -157,7 +158,8 @@ Semantic documents facilitate a number of important aspects of information manag
 		Ultimately, users are empowered to counter the increasing information overload and gain better access to relevant documents and answers related to their information needs.
 	\item In \emph{information presentation} semantically enriched documents can be used to create more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
 	\item For \emph{information integration} semantically enriched documents can be used to provide unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
-	\item To realize \emph{personalization}, semantic documents provide customized and context-specific information which better fits user needs and will result in delivering customized applications such as personalized semantic portals~\cite{ecs2007}.
+	\item To realize \emph{personalization}, semantic documents provide customized and context-specific information which better fits user needs and will 
+result in delivering customized applications such as personalized semantic portals~\cite{ecs2007}.
 	\item For \emph{reusability} and \emph{interoperability} enriching documents with semantic representations (e.g. using the SKOS and Dublin Core vocabularies) facilitates exchanging content between disparate systems and enables building applications such as executable papers~\cite{Muller2011}. \\
 \end{itemize}
 
@@ -208,29 +210,12 @@ The physician then reviews clinical alerts, formulary, reference, prescription h
 Once the prescription is finalized, the e-script is generated and the physician routs it to the patient’s pharmacy of choice. The pharmacist fills the prescription and sends a fill notification to the physician.
 The two-way connectivity provides for the transmission of new prescriptions, refill authorizations, and denials and change requests between the pharmacy and the provider’s office.
 
-It is also evident by using the E-prescription, follow up of patient individuals is convenient.The next part of procedure occurs during the medication therapy and afterwards. The patient is supposed to report about his/her condition by returning to a physician or online contact.
+It is evident by using the E-prescription, follow up of patient individuals is convenient.The procedure oocurs during the medication therapy and afterwards. The patient is supposed to report about his/her condition by returning to a physician or online contact.
 The health care providers can access to the patient's profile and the transfer of these data can appropriately be done.
 Besides, the data of medicines consumption and the connection between diagnosed disease and the treatment regimen is recorded.
 Furthermore, patient's fate after the medication duration can be followed up by physicians and pharmacists.
 The E-prescription information is  of crucial importance as an  informative source for researchers.
 Many researchers investigate the aforementioned statistical data and combine them with the information received from the medicine producers (e.g. to compare the special drug consumption different  individual age ranges).
-
-
-Another challenge points
-
- and needs to be more carefully investigated by health care providers.
-
-1.Patient contact  physician in order to treat his  disease. By that he automatically enters To the online system.
-2.Physician based on his diagnosis writes an  E-Rx in the system.
-3.E-Rx immediately is sent to the patient’s chosen pharmacy and pharmacist verify the E-Rx and gives the medication to the patient.
-4.Patient recieves the drugd from pharmacist and inquire about drugs.
-
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=1.0\columnwidth]{images/system.pdf}
-	\caption{Pharmer ecosystem.}
-	\label{fig:system}
-\end{figure}
 
 \section{Pharmer: Semantic Authoring of Medical Prescriptions}
 \label{pharmer}
@@ -301,6 +286,29 @@ Different views:
 		\includegraphics[width=1.0\columnwidth]{images/sc2.png}
 	\caption{Graph View.}
 	\label{fig:graphview}
+\end{figure}
+
+\section{Pharmer Stakeholders}
+\label{sec:stake}
+
+As it is shown in \autoref{fig:system} pharmer's stakeholders are connected via pharmer.
+1.After Patient contact with physician, diagnosis in addition to Pharmer generated prescription passed to pharmacist. By that, patient automatically introduce to the Pharmer system.
+2.Linked Open Data applies as Pharmer's integrated information source.
+3.On the other side researcher can take the advantage of all Pharmer's statistic and informative data.
+4.Drug companies as pharmer stake holders utilize pharmer in order to balance their production to the market taste.
+5.E-Rx is immediately sent to the patient’s chosen pharmacy from point of care, pharmacist verify the E-Rx and gives the medication to the patient.
+6.Patient already is in the system, therefore he inquires about drug information.He can also contact with related physician and pharmacist via Pharmer.
+
+
+Another challenge points
+
+ and needs to be more carefully investigated by health care providers.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/system.pdf}
+	\caption{Pharmer ecosystem.}
+	\label{fig:system}
 \end{figure}
 
 
