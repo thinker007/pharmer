@@ -224,7 +224,7 @@ Many researchers investigate the aforementioned statistical data and combine the
 \label{pharmer}
 Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
 The Pharmer implementation is open-source and available for download together with an explanatory video and online demo\footnote{\url{http://bitili.com/pharmer}} at \url{http://code.google.com/p/pharmer/}.
-It adopts a bottom-up approach (i.e. semantic markup~\cite{araujo2010}) for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
+As shown in \autoref{fig:botup}, Pharmer adopts a bottom-up approach (i.e. semantic markup~\cite{araujo2010}) for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
 
 \begin{figure}[tb]
 	\centering
@@ -238,7 +238,8 @@ Here, we need two kinds of ontologies:
 \emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
 \emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
 We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
-  
+
+
 \subsection{Architecture}
 
 The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers.
@@ -328,7 +329,7 @@ He then checks for the possible drug interactions by cliking on (!) bottumn in P
 \item {Captopril} 25 mg Oral Tablet once daily
 \end{itemize}
 
-The semantic prescription is sent to the patient's pharmacy of choice. There, pharmacist is able to review the semantic prescription and give her comments on that directly in the system. It may cause minor or major changes in semantic prescription. So, patient 
+The semantic prescription is sent to the patient's pharmacy of choice. There, pharmacist is able to review the semantic prescription and give her comments on that directly in the system. It may cause minor or major changes in semantic prescription. So, patient
 
 
 
