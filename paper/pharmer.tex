@@ -325,36 +325,29 @@ As depicted in \autoref{fig:system} Pharmer approach is very versatile and can b
 \item semantic prescription is immediately sent to the pharmacy chosen by patient from the point of care. Pharmacist verifies the prescription and hands in the medication to the patient.
 \item Patient already is in the system, therefore he inquires about drug information. He can also contact the related physician and pharmacist via the Pharmer.
 \end{enumerate}
-Improved confidentiality and security of health information, better clarity and communication among health care providers as well as rapid information exchange are part of arguments for spreading this system.
-Through semantic  e-prescribing, all health care stakeholders including physicians, patients, pharmacists, researcher and drug companies benefit;
+
+The main benefit of using semantic prescriptions is the persistent connection to up-to-date drug information coming from multiple dynamic data sources.
+So, when a change occurs to a drug (e.g. change in its effects or interactions) the semantic prescription automatically adopts to this new change.
+A semantic prescription is a self-contained document which is aware of its content and is connected to the linked open data.
+In contrast to database-oriented e-prescriptions, semantic prescriptions can easily be exchanged among other e-health systems without need to changing their related infrastructure.
+
+Furthermore, semantic prescriptions increase the awareness of patients.
+They provide patients with all the related information of the prescribed drugs thereby mitigating the possible misuse of drugs.
+
+Another important advantage of semantic prescribing is the connection of physicians, pharmacists, patients, pharmaceutical researchers and drug companies.
+It brings the following benefits for its stakeholders:
 \begin{itemize}
 \item Physicians: Increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
 \item Patients: Increased information, safety, efficiency and compliance.
 \item Pharmacists: Increased efficiency, improved service quality, improved patient satisfaction,  prevention of Adverse drug reactions and speeding up the whole process.
-\item Payors/insurances: efficiency and prescription compliance, less expenses due to adverse drug reaction.
 \item Researchers: Easy accessed abundant information source and statistical data availability.
-\item Drug companies: Production efficacy, patient compliance and rate of each medicine consumption
+\item Drug companies: Production efficacy, patient compliance and rate of the consumption of each medicine. 
 \end{itemize}
-
-One of the most important advantages of E-prescribing is that the connection of physician, pharmacist, patient and pharmaceutical researchers and statision.
-Once the e-prescription is written by a physician, pharmacist has also access to the prescription.
-while the physician is aware, pharmacist can comment on the prescription content.
-The online system is also available for patients who can inquire about any necessary information.
-health care providers can follow up the patient's treatment fate.
-Drug companies can take the advantage of Pharmer data in order to regulate their product with market demand.
-
-
-Besides, Pharmer allows researchers to investigate about the patient complience of each individual medicine.
-They are able to conveniently follow the drug in the post market clinical trial phase. 
-Taking it into the consideration based on pharmer statistics, FDA decides on product release in th emarket.
-Furthermore, Pharmer will develpes to the data resouce which is of interest for all staticians or researcher conducting comparisons among different drugs effect or efficacy.
-
-
 
 
 \section{Example scenario}
 \label{sec:example}
-As a scenario; A 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test. The specialist considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl). He diagnoses high blood pressure plus sever type 2 diabetes. 
+As a scenario; A 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test. The specialist considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl). He diagnoses high blood pressure plus sever type 2 diabetes.
 Thereby, Patient profile is defined in Pharmer by patient's information besides diagnosis.
 Considering the medication that the patient took before (Metformin only), The specialist dispenses the new semantic prescription by entering the following drugs:
 
@@ -365,8 +358,8 @@ Considering the medication that the patient took before (Metformin only), The sp
 \end{itemize}
 
 He then checks for the possible drug interactions by clicking the attributed button in Pharmer software.
-As Pharmer is connected to linked open data it is capable of reconizig the most recent updated drug interactions. 
- and finds out that Sulfunyl Urea class drugs(here Glibenclamide) are not compatible to be coadministrated with beta-blockers(Atenolol). 
+As Pharmer is connected to linked open data it is capable of reconizig the most recent updated drug interactions.
+ and finds out that Sulfunyl Urea class drugs(here Glibenclamide) are not compatible to be coadministrated with beta-blockers(Atenolol).
 So, he needs to replace it with another drug.
 Using Pharmer and its connection to linked open data, the physician can find the possible alternatives.
 Then he decides to choose Captopril as replacement.
@@ -388,9 +381,9 @@ The patient's profile completes as he visits physicians or ask for refills.
 Furthermore he is followed up by the physician and the pharmacist via Pharmer.
 After 2 months the patient again visits the specialist with recurrence symptoms of diabetes and the physician require to increase the anti-diabetic drug dose.
 
-A researcher in an academy research institution investigates Captopril (as an Angiotansion II antagonist) effect on preventing diabetes recurrence. 
+A researcher in an academy research institution investigates Captopril (as an Angiotansion II antagonist) effect on preventing diabetes recurrence.
 Having the data from the aforementioned patient follow up along with other similar patients allows investigator to leads her goal.
-In this case, for example, the Captopril along with anti-diabetic drugs led to diabetes recurrence. 
+In this case, for example, the Captopril along with anti-diabetic drugs led to diabetes recurrence.
 Observing all the corresponding patient profiles will either confirm or reject the research assumption.
 
  A drug company manager requires to determine the compliance rate of Captopril in the market in order to balance the production based on market demand.
