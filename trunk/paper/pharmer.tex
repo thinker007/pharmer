@@ -271,14 +271,25 @@ The \emph{Fact Extractor} generates the RDF/Turtle representation of the semanti
 
 
 \subsection{Features}
-Drug Detection : DBpedia spotlight
-Real-time semantic annotation
-Interaction finder
-Different views:
-- Code View
-- WYSIWYM
-- Graph View
-- Fact View
+The main features of Pharmer can be summarized as:
+\begin{itemize}
+	\item \emph{Providing Different Semantic Views}.
+	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
+	Pharmer suggests two types of views: generic and domain specific views.
+	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view in \autoref{fig:graphview}).
+	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
+	\item \emph{Real-time Drug Tagging.}
+	Real-time tagging means creating drug annotations while the user is typing.
+	This will significantly increase the annotation speed~\cite{OCA,Reflect}.
+	Users are not distracted since they do not have to interrupt their current authoring task.
+	Pharmer has a client-side component which interacts with the server asynchronously to make real-time tagging possible.
+	\item \emph{Drug Suggestion.}
+		When searching for a drug, Pharmer suggests the similar drugs by taking into account the history of search terms.
+    \item \emph{Automatic Drug Annotation.}
+    Automatic annotation means the provision of facilities for automatic mark-up of prescriptions.
+    The automatic process of annotating in Pharmer is composed basically of finding drug terms in prescription using an NLP service, mapping them against an ontology, and disambiguating common terms.
+\end{itemize}
+
 
 \begin{figure}[tb]
 	\centering
@@ -292,7 +303,7 @@ Different views:
 	\centering
 		\includegraphics[width=2.0\columnwidth]{images/screenshot1.jpg}
 	\caption{A screenshot of Pharmer information view.}
-	\label{fig:wysiwym}
+	\label{fig:screenshot}
 \end{figure*}
 
 \subsection{Pharmer Stakeholders}
