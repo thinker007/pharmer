@@ -197,18 +197,6 @@ The interactions may sometimes lead to change in the drug effect.
 By applying e-prescription system, all types of drug interactions are prevented and the probability of errors in prescriptions are reduced to a great extend.
 An e-prescription simply contains drug information and precautions which are necessary to be considered from patient's side.
 
-Through electronic prescribing, all health care stakeholders including physicians, patients, pharmacists, payors, researcher and drug companies benefit;
- 
-\begin{itemize}
-\item Physicians: Increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-\item Patients: Increased information, safety, efficiency and compliance.
-\item Pharmacists: Increased efficiency, improved service quality, improved patient satisfaction,  prevention of Adverse drug reactions and speeding up the whole process.
-\item Payors/insurances: efficiency and prescription compliance, less expenses due to adverse drug reaction.
-\item Researchers: Easy accessed abundant information source and statistical data availability.
-\item Drug companies: Production efficacy, patient complian
-ce and rate of each medicine consumption
-\end{itemize}
-
 E-prescribing involves far more than an electronic connection. In order to see an increase in both quality and efficiency that can be attributed to e-prescribing, the system must be capable of performing key functions related to:
 Medication selection/decision support capabilities (e.g., diagnosis-based medication menus, evidence based information, drug interaction checking, safety-alerts, formulary checking, prescription renewal, and dosage calculation)
 Patient-specific information capabilities (e.g., current patient medication list, access to patient historical data, patient identification)
@@ -337,30 +325,38 @@ As depicted in \autoref{fig:system} Pharmer approach is very versatile and can b
 \item semantic prescription is immediately sent to the pharmacy chosen by patient from the point of care. Pharmacist verifies the prescription and hands in the medication to the patient.
 \item Patient already is in the system, therefore he inquires about drug information. He can also contact the related physician and pharmacist via the Pharmer.
 \end{enumerate}
-
-Through electronic prescribing, all health-care stakeholders including physicians, patients, pharmacists, payors, researcher and drug companies benefit;
-Physicians: Increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-Patients: Increased information, safety, efficiency and compliance.
-Pharmacists: Increased efficiency, improved service quality, improved patient satisfaction,  prevention of Adverse drug reactions and speeding up the whole process.
-Payors/insurances: efficiency and prescription compliance, less expenses due to adverse drug reaction.
-Researchers: Easy accessed abundant information source and statistical data availability
-Drug companies: Production efficacy, patient compliance and rate of each medicine consumption
-
 Improved confidentiality and security of health information, better clarity and communication among health care providers as well as rapid information exchange are part of arguments for spreading this system.
+Through semantic  e-prescribing, all health care stakeholders including physicians, patients, pharmacists, researcher and drug companies benefit;
+\begin{itemize}
+\item Physicians: Increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
+\item Patients: Increased information, safety, efficiency and compliance.
+\item Pharmacists: Increased efficiency, improved service quality, improved patient satisfaction,  prevention of Adverse drug reactions and speeding up the whole process.
+\item Payors/insurances: efficiency and prescription compliance, less expenses due to adverse drug reaction.
+\item Researchers: Easy accessed abundant information source and statistical data availability.
+\item Drug companies: Production efficacy, patient compliance and rate of each medicine consumption
+\end{itemize}
 
 One of the most important advantages of E-prescribing is that the connection of physician, pharmacist, patient and pharmaceutical researchers and statision.
 Once the e-prescription is written by a physician, pharmacist has also access to the prescription.
 while the physician is aware, pharmacist can comment on the prescription content.
 The online system is also available for patients who can inquire about any necessary information.
 health care providers can follow up the patient's treatment fate.
-The data base of the patients profile in subject of many statistics researches.
-Besides, researchers are able to conveniently follow the drug in the clinical trial phase.
+Drug companies can take the advantage of Pharmer data in order to regulate their product with market demand.
+
+
+Besides, Pharmer allows researchers to investigate about the patient complience of each individual medicine.
+They are able to conveniently follow the drug in the post market clinical trial phase. 
+Taking it into the consideration based on pharmer statistics, FDA decides on product release in th emarket.
+Furthermore, Pharmer will develpes to the data resouce which is of interest for all staticians or researcher conducting comparisons among different drugs effect or efficacy.
+
+
+
 
 \section{Example scenario}
 \label{sec:example}
 As a scenario; A 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test. The specialist considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl). He diagnoses high blood pressure plus sever type 2 diabetes. 
 Thereby, Patient profile is defined in Pharmer by patient's information besides diagnosis.
-Considering the medication that the patient took before(Metformin only), The specialist dispenses the new semantic prescription by entering the following drugs:
+Considering the medication that the patient took before (Metformin only), The specialist dispenses the new semantic prescription by entering the following drugs:
 
 \begin{itemize}
 \item {Metformin} 500 mg Oral Tablet bid
@@ -368,7 +364,9 @@ Considering the medication that the patient took before(Metformin only), The spe
 \item {Atenolol} 50 mg Oral Tablet once daily
 \end{itemize}
 
-He then checks for the possible drug interactions by clicking the attributed button in Pharmer software and finds out that Sulfunyl Urea class drugs(here Glibenclamide) are not compatible to be coadministrated with beta-blockers(Atenolol). 
+He then checks for the possible drug interactions by clicking the attributed button in Pharmer software.
+As Pharmer is connected to linked open data it is capable of reconizig the most recent updated drug interactions. 
+ and finds out that Sulfunyl Urea class drugs(here Glibenclamide) are not compatible to be coadministrated with beta-blockers(Atenolol). 
 So, he needs to replace it with another drug.
 Using Pharmer and its connection to linked open data, the physician can find the possible alternatives.
 Then he decides to choose Captopril as replacement.
@@ -381,10 +379,10 @@ Therefore the new semantic prescription is corrected as the following:
 \end{itemize}
 
 The semantic prescription is then sent to the patient's pharmacy of choice.
- There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware. Pharmacist comments may cause minor or major changes in semantic prescription.
+There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware. Pharmacist comments may cause minor or major changes in semantic prescription.
 Thereafter, patient who was referred to the pharmacy takes the prescribed drugs.
- Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
-There he is able to observe drug information about the medicines he will take besides the preferred time and drug intake instructions.
+Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
+There he is able to observe drug information embeded in the semantic prescription besides the preferred time and drug intake instructions.
 He is also informed about the possible food interactions.
 The patient's profile completes as he visits physicians or ask for refills.
 Furthermore he is followed up by the physician and the pharmacist via Pharmer.
