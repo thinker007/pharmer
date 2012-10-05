@@ -40,3 +40,6 @@ http://www.rheumatology.org/practice/office/hit/erx.asp#medicare
 
 =Mostly used drugs=
 http://prescriptionsamples.com/
+
+=Similar annotator=
+http://bioportal.bioontology.org/annotator
