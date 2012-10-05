@@ -26,7 +26,7 @@ http://www.programmableweb.com/apis/directory/1?apicat=Medical
 =Schema for Drugs=
 http://schema.org/Drug
 
- =US government e-prescription=
+=US government e-prescription=
 http://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/ERxIncentive/index.html
 
 =Epsos=
@@ -43,3 +43,4 @@ http://prescriptionsamples.com/
 
 =Similar annotator=
 http://bioportal.bioontology.org/annotator
+http://www.bioontology.org/wiki/index.php/BioPortal_REST_services
