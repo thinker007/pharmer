@@ -96,28 +96,28 @@ During the recent years, the adoption of e-prescriptions has been spreading rapi
 To illustrate, the Australian government started launching of e-prescription from March 2007.\footnote{\url{http://www.medicareaustralia.gov.au/}}
 Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage\cite{Ravichandran}.
 A system called epSOS which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
-epSOS contains patient summery and an e-prescription service which allows access to the cross-border e-health services.\footnote{\url{http://www.epsos.eu/}}
+epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.\footnote{\url{http://www.epsos.eu/}}
 This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
-The e-Prescribing incentive program performed in US is another example in this area.\footnote{\url{http://www.cms.gov/erxincentive}}
+The e-prescribing incentive program performed in US is another example in this area.\footnote{\url{http://www.cms.gov/erxincentive}}
 As a reporting program it uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.
 
 One of the main challenges of e-prescription systems is the heterogeneity of available information sources.
 There exist already different sources of information addressing different aspects of pharmaceutical research.
 Information about chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets such as proteins, gene-disease-drug associations, adverse effects of marketed drugs, etc. are some examples of these diverse information.
-Handling these information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
+Handling these dynamic information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
 On the other hand, \emph{Linked Open Data} as an effort to interlink and integrate these isolated sources of information is obtaining more attention in the domain of pharmaceutical, medical and life sciences.
 
 Combining the best practices from Linked Open Data together with e-prescription systems can provide an opportunity for patients, researchers as well as practitioners to collaborate together in a synergic way.
 A consequence of introducing linked data in health care sector is that it significantly changes the daily duties of the employees of the health care sector.
 Therefore the most challenging aspect will not be the technology but rather changing the mind-set of the employees and the training of the new technology\cite{challengesEP}.
 Furthermore, the information generated via that approach can be employed as a data source for researchers.
-Drug companies are able then to take the advantage of considering these informative statistical data.
+Drug companies are also able then to take the advantage of considering these informative statistical data.
 
 Semantic prescriptions as introduced in this paper are a proposed approach to utilize semantic web technologies in e-prescription systems.
 As intelligent prescriptions, they can automatically handle the medical errors occurring in prescriptions and increase the awareness of the patients about the prescribed drugs and drug consumption in general.
 Semantic prescriptions also enable the creation of more efficient and effective search approaches for drug discovery and consumption.
 We created a tool called \emph{Pharmer} as a showcase application to facilitate the process of semantic prescription generation.
-\emph{Pharmer} has been evaluated by it's stakeholders. Therefore, it's performance has been confirmed by related users.
+Pharmer adopts a bottom-up approach for enriching the normal e-prescriptions with semantic annotations using a set of predefined datasets from linked open data.
 
 The remainder of this article is structured as follows:
 \autoref{sec:lod}, \autoref{sec:sca} and \autoref{sec:epresc} provide a background on the basic concepts such as Linked Open Data, Semantic Content Authoring and E-prescriptions employed in this paper.
@@ -335,11 +335,11 @@ They provide patients with all the related information of the prescribed drugs t
 Another important advantage of semantic prescribing is the connection of physicians, pharmacists, patients, pharmaceutical researchers and drug companies.
 It brings the following benefits for its stakeholders:
 \begin{itemize}
-\item Physicians: Increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-\item Patients: Increased information, safety, efficiency and compliance.
-\item Pharmacists: Increased efficiency, improved service quality, improved patient satisfaction,  prevention of Adverse drug reactions and speeding up the whole process.
-\item Researchers: Easy accessed abundant information source and statistical data availability.
-\item Drug companies: Production efficacy, patient compliance and rate of the consumption of each medicine.
+\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
+\item Patients: increased information, safety, efficiency and compliance.
+\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
+\item Researchers: easy accessed abundant information source and statistical data availability.
+\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
 \end{itemize}
 
 \section{Example scenario}
@@ -355,8 +355,8 @@ Considering the medication that the patient took before (Metformin only), The sp
 \end{itemize}
 
 He then checks for the possible drug interactions by clicking the attributed button in Pharmer software.
-As Pharmer is connected to linked open data it is capable of reconizig the most recent updated drug interactions.
- and finds out that Sulfunyl Urea class drugs(here Glibenclamide) are not compatible to be coadministrated with beta-blockers(Atenolol).
+As Pharmer is connected to linked open data it is capable of recognizing the most recent updated drug interactions.
+He finds out that Sulfunyl Urea class drugs (here Glibenclamide) are not compatible to be coadministrated with beta-blockers (here Atenolol).
 So, he needs to replace it with another drug.
 Using Pharmer and its connection to linked open data, the physician can find the possible alternatives.
 Then he decides to choose Captopril as replacement.
@@ -370,26 +370,25 @@ Therefore the new semantic prescription is corrected as the following:
 
 The semantic prescription is then sent to the patient's pharmacy of choice.
 There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware of the corresponding changes.
-Pharmacist comments may cause minor or major modifications in semantic prescription.
-For instance, using the Pharmer she is able to check the appropriate dosage of each medicine or suggest cheaper alternatives (if possible).
+Pharmacist comments may cause minor or major modifications in the semantic prescription.
+For instance, using the Pharmer she is able to check the appropriate dose of each medicine or suggest cheaper alternatives (if possible).
 Thereafter, patient who was referred to the pharmacy takes the prescribed drugs.
 Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
-There he is able to observe drug information embeded in the semantic prescription besides the preferred time and drug intake instructions.
+There he is able to observe drug information embedded in the semantic prescription besides the preferred time and drug intake instructions.
 He is also informed about the possible food interactions.
 The patient's profile completes as he visits physicians or ask for refills.
-Furthermore he is followed up by the physician and the pharmacist via Pharmer.
-After 2 months the patient again visits the specialist with recurrence symptoms of diabetes and the physician require to increase the anti-diabetic drug dose.
+Furthermore he is followed up by the physician and the pharmacist via the Pharmer.
+After 2 months the patient visits another specialist for his recurrent symptoms of diabetes.
+The specialist via the Pharmer accesses to the patient's medical profile and increases the anti-diabetic drug dose.
 
 A researcher in an academy research institution investigates Captopril (as an Angiotansion II antagonist) effect on preventing diabetes recurrence.
-Having the data from the aforementioned patient follow up along with other similar patients allows investigator to leads her goal.
+Having the data from the aforementioned patient follow up along with other similar patients allows investigator to lead her goal.
 In this case, for example, the Captopril along with anti-diabetic drugs led to diabetes recurrence.
 Observing all the corresponding patient profiles will either confirm or reject the research assumption.
 
  A drug company manager requires to determine the compliance rate of Captopril in the market in order to balance the production based on market demand.
  Applying Pharmer allows him to simply access to these data and decide how to go on with this product.
  He is also able to collect the evidence which may prevent further dispense of Captopril by physicians or consumption among patients.
-
-
 
 
 \section{Evaluation}
