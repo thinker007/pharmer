@@ -106,7 +106,12 @@ There exist already different sources of information addressing different aspect
 Information about chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets such as proteins, gene-disease-drug associations, adverse effects of marketed drugs, etc. are some examples of these diverse information.
 Handling these information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
 On the other hand, \emph{Linked Open Data} as an effort to interlink and integrate these isolated sources of information is obtaining more attention in the domain of pharmaceutical, medical and life sciences.
-Combining the best practices from Linked Open Data together with e-prescription systems can provide an opportunity for patients, researchers as well as practitioners to collaborate together in a synergic way.The information generated via that approach further employs as data source of researchers.Drug companies are able then to take the advantage of consdiering these informative data.
+
+Combining the best practices from Linked Open Data together with e-prescription systems can provide an opportunity for patients, researchers as well as practitioners to collaborate together in a synergic way.
+A consequence of introducing linked data in health care sector is that it significantly changes the daily duties of the employees of the health care sector.
+Therefore the most challenging aspect will not be the technology but rather changing the mind-set of the employees and the training of the new technology\cite{challengesEP}.
+Furthermore, the information generated via that approach can be employed as a data source for researchers.
+Drug companies are able then to take the advantage of considering these informative statistical data.
 
 Semantic prescriptions as introduced in this paper are a proposed approach to utilize semantic web technologies in e-prescription systems.
 As intelligent prescriptions, they can automatically handle the medical errors occurring in prescriptions and increase the awareness of the patients about the prescribed drugs and drug consumption in general.
@@ -235,7 +240,7 @@ The Pharmer system architecture is depicted in \autoref{fig:arch} and consists o
 
 \paragraph{Document Layer} This layer includes the traditional e-prescription document plus two components as \emph{Drug Detection} and \emph{Drug Information Collector}.
 Drug detection component performs the natural language processing (NLP) of the e-prescription document to detect the terms referring to a drug in the prescription.
-The component uses DBpedia spotlight\footnote{\url{http://spotlight.dbpedia.org/}} NLP service to parse and analyze the text looking for known drugs.
+The component uses DBpedia spotlight\footnote{\url{http://spotlight.dbpedia.org/}} and BioPortal annotator\footnote{\url{http://bioportal.bioontology.org/annotator}} NLP services to parse and analyze the text looking for known drugs.
 It is configurable so that users can easily add other existing NLP services for drug detection.
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
@@ -337,7 +342,6 @@ It brings the following benefits for its stakeholders:
 \item Drug companies: Production efficacy, patient compliance and rate of the consumption of each medicine.
 \end{itemize}
 
-
 \section{Example scenario}
 \label{sec:example}
 As a scenario; A 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test. The specialist considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl). He diagnoses high blood pressure plus sever type 2 diabetes.
@@ -365,7 +369,9 @@ Therefore the new semantic prescription is corrected as the following:
 \end{itemize}
 
 The semantic prescription is then sent to the patient's pharmacy of choice.
-There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware. Pharmacist comments may cause minor or major changes in semantic prescription.
+There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware of the corresponding changes.
+Pharmacist comments may cause minor or major modifications in semantic prescription.
+For instance, using the Pharmer she is able to check the appropriate dosage of each medicine or suggest cheaper alternatives (if possible).
 Thereafter, patient who was referred to the pharmacy takes the prescribed drugs.
 Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
 There he is able to observe drug information embeded in the semantic prescription besides the preferred time and drug intake instructions.
