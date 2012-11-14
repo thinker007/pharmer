@@ -6,6 +6,7 @@ http://www.w3.org/wiki/HCLSIG/LODD/Data
 
 http://www.openphacts.org/
 
+http://srvisis01.univ-mlv.fr/selfMed
 =E-Prescription=
 http://en.wikipedia.org/wiki/Electronic_prescribing
 
