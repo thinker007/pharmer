@@ -92,7 +92,7 @@ Reduction in medication error and decline in adverse drug events are more highli
 
 During the recent years, the adoption of e-prescriptions has been spreading rapidly.
 To illustrate, the Australian government started launching of e-prescription from March 2007~\cite{medicare}.
-Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage.
+%Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage.
 A system called epSOS~\cite{epsos} which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
 epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.
 This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
@@ -155,26 +155,24 @@ One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptio
 \section{Semantic Content Authoring}
 \label{sec:sca}
  A \emph{Semantic Document} is an intelligent document (with explicit semantic structure) which ``knows about" its own content so that it can be automatically processed in unforeseen ways.
-Semantic documents facilitate a number of important aspects of information management~\cite{rdface}:
-\begin{itemize}
-	\item \emph{Search and retrieval:} more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
-		%Ultimately, users are empowered to counter the increasing information overload and gain better access to relevant documents and answers related to their information needs.
-	\item \emph{Information presentation:} more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
-	\item \emph{Information integration:} unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
-	\item \emph{Personalization:} customized and context-specific information which better fits user needs and will
+Semantic documents facilitate a number of important aspects of information management~\cite{rdface}.
+For \emph{search and retrieval}, they provide more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
+In \emph{information presentation}, they support more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
+In \emph{information integration}, they provide unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
+For \emph{personalization}, they provide customized and context-specific information which better fits user needs and will
 result in delivering customized applications such as personalized semantic portals~\cite{ecs2007}.
-	\item \emph{Reusability} and \emph{interoperability}: exchanging content between disparate systems and enabling applications such as executable papers~\cite{Muller2011}.
-\end{itemize}
+For \emph{reusability} and \emph{interoperability}, they facilitate exchanging content between disparate systems and enabling applications such as executable papers~\cite{Muller2011}.
 
-These benefits, however, come at the cost of increased authoring effort~\cite{hasida2007,uren2006}.
-\emph{Semantic Content Authoring} (SCA) is a tool-supported manual composition process aiming at the creation of semantic documents which are either:
+
+The above benefits, however, come at the cost of increased authoring effort. %~\cite{hasida2007,uren2006}
+A \emph{Semantic Authoring User Interface} is a human accessible interface with capabilities for writing and modifying semantic documents which are either.
+%\emph{Semantic Content Authoring} (SCA) is a tool-supported manual composition process aiming at the creation of semantic documents which are either:
 \begin{itemize}
 	\item fully semantic in the sense that their original data model uses a semantic knowledge representation formalism (such as RDF, RDF-Schema or OWL) or
 	\item based on a non-semantic representation form (e.g. text or hypertext), which is enriched with semantic representations during the authoring process.\\
 \end{itemize}
 
-With an ontology and a user interface appropriate for the type of content, semantic authoring can be easier than traditional composition of content and the resulting content can be of higher quality~\cite{hasida2007}.
-A \emph{Semantic Authoring User Interface} (SAUI) is a human accessible interface with capabilities for modifying and writing semantic documents.
+%With an ontology and a user interface appropriate for the type of content, semantic authoring can be easier than traditional composition of content and the resulting content can be of higher quality~\cite{hasida2007}.
 
 Medical prescriptions are a good candidate to be enriched by semantic annotations.
 Semantic prescriptions enable the traditionally written prescriptions to be utilized in novel ways as discussed above.
@@ -239,7 +237,7 @@ It is configurable so that users can easily add other existing NLP services for 
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
 Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
-To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodds}) by sending federated SPARQL queries.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodd}) by sending federated SPARQL queries.
 
 \paragraph{Semantic Layer}
 There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
