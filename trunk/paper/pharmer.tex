@@ -129,15 +129,12 @@ In computing, \emph{Linked Data} describes a method of publishing structured dat
 It builds upon standard Web technologies such as HTTP and URIs, but rather than using them to serve web pages for human readers, it extends them to share information in a way that can be read automatically by computers.
 This enables data from different sources to be connected and queried \cite{linkeddata}.
 
-Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 5 star deployment scheme for \emph{Linked Open Data}.
-
-\begin{enumerate}
-  \item  Make your stuff available on the Web (whatever format) under an open license
-  \item  Make it available as structured data (e.g., Excel instead of image scan of a table)
-  \item  Use non-proprietary formats (e.g., CSV instead of Excel)
-  \item  Use URIs to identify things, so that people can point at your stuff
-  \item  Link your data to other data to provide context
-\end{enumerate}
+Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 5 star deployment scheme for \emph{Linked Open Data}:
+1) make your stuff available on the Web (whatever format) under an open license,
+2) make it available as structured data (e.g., Excel instead of image scan of a table),
+3) use non-proprietary formats (e.g., CSV instead of Excel),
+4) use URIs to identify things, so that people can point at your stuff,
+5) link your data to other data to provide context.
 
 \begin{figure}[tb]
 	\centering
@@ -157,7 +154,6 @@ One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptio
 \section{Semantic Content Authoring}
 \label{sec:sca}
  A \emph{Semantic Document} is an intelligent document (with explicit semantic structure) which ``knows about" its own content so that it can be automatically processed in unforeseen ways.
-
 Semantic documents facilitate a number of important aspects of information management~\cite{rdface}:
 \begin{itemize}
 	\item For \emph{search and retrieval} enriching documents with semantic representations helps to create more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
@@ -248,7 +244,7 @@ To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (avai
 There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
 The \emph{annotator} component handles the automatic annotation and embeds the general information of the drugs as meta-data into the e-prescription.
 Annotator adopts the RDFa format. \emph{RDFa}~\cite{rdfa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
-RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability to a good extent.
+RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability.
 
 The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
 
@@ -257,7 +253,6 @@ This layer provides a set of applications on top of the generated semantic presc
 \emph{Interaction Finder} checks the possible interactions between the prescribed drugs and warn the prescriber about them.
 \emph{Visualizer} is responsible for graphically representing the embedded semantics of a prescription (e.g. as depicted in \autoref{fig:graphview}).
 The \emph{Fact Extractor} generates the RDF/Turtle representation of the semantic prescriptions.
-
 
 \subsection{Features}
 The main features of Pharmer can be summarized as:
@@ -283,20 +278,13 @@ The main features of Pharmer can be summarized as:
 
 \begin{figure*}[tb]
 	\centering
-		\includegraphics[width=2.0\columnwidth]{images/screenshot1.jpg}
+		\includegraphics[width=1.8\columnwidth]{images/screenshot1.jpg}
 	\caption{Screenshot of the Pharmer information view and prescription writer.}
 	\label{fig:screenshot}
 \end{figure*}
 
 \subsection{Pharmer Stakeholders}
 \label{sec:stake}
-
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=1.0\columnwidth]{images/system.pdf}
-	\caption{Pharmer ecosystem.}
-	\label{fig:system}
-\end{figure}
 
 As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders. The arrows in the figure can be summarized as the following:
 \begin{enumerate}
@@ -331,6 +319,13 @@ It brings the following benefits for its stakeholders:
 \item Researchers: easy accessed abundant information source and statistical data availability.
 \item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
 \end{itemize}
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/system.pdf}
+	\caption{Pharmer ecosystem.}
+	\label{fig:system}
+\end{figure}
 
 \section{Example scenario}
 \label{sec:example}
