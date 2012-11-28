@@ -85,7 +85,7 @@ We evaluate the feasibility of the Pharmer by conducting a usability evaluation 
 \section{Introduction}
 \label{intro}
 
-As reported in MedicineNet\footnote{\url{http://www.medicinenet.com/}}, \emph{medication errors} are the most common type of medical errors in health care.
+As reported in MedicineNet~\cite{medicationErrors}, \emph{medication errors} are the most common type of medical errors in health care.
 Errors such as improper dose of medicine, adverse drug interactions, food interactions, etc. often stem from invalid prescriptions and unawareness of the patients.
 Electronic prescriptions which are recently gaining attention in the e-health domain, are one of the solutions proposed to solve these type of errors.
 While even nowadays traditional paper prescriptions are commonly used, e-prescriptions offer several advantages.
@@ -93,12 +93,12 @@ In an e-prescription system, prescriber electronically sends an accurate, error-
 Reduction in medication error and decline in adverse drug events are more highlighted consequences of e-prescribing.
 
 During the recent years, the adoption of e-prescriptions has been spreading rapidly.
-To illustrate, the Australian government started launching of e-prescription from March 2007.\footnote{\url{http://www.medicareaustralia.gov.au/}}
+To illustrate, the Australian government started launching of e-prescription from March 2007~\cite{medicare}.
 Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage.
-A system called epSOS which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
-epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.\footnote{\url{http://www.epsos.eu/}}
+A system called epSOS~\cite{epsos} which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
+epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.
 This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
-The e-prescribing incentive program performed in US is another example in this area.\footnote{\url{http://www.cms.gov/erxincentive}}
+The e-prescribing incentive program performed in US~\cite{epincentive} is another example in this area.
 As a reporting program it uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.
 
 One of the main challenges of e-prescription systems is the heterogeneity of available information sources.
@@ -124,7 +124,7 @@ The remainder of this article is structured as follows:
 In \autoref{sec:pharmer}, we describe the Pharmer as a solution to effectively create semantic prescription.
 Then we discuss the possible benefits of Pharmer in \autoref{sec:stake}.
 To better clarify the use cases of the Pharmer system, an example scenario is drawn in \autoref{sec:example}.
-In \autoref{sec:evaluation} Pharmer usability evaluation results are reported and finally \autoref{sec:conclusion} concludes with an outlook on future work.
+In \autoref{sec:evaluation}, Pharmer usability evaluation results are reported and finally \autoref{sec:conclusion} concludes with an outlook on future work.
 
 \section{Linked Open Data}
 \label{sec:lod}
@@ -149,7 +149,7 @@ Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 
 	\label{fig:lod}
 \end{figure}
 
-Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF\footnote{\url{http://bio2rdf.org/}}, Chem2Bio2RDF\footnote{\url{http://chem2bio2rdf.wikispaces.com/}}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\footnote{\url{http://www.w3.org/wiki/HCLSIG/LODD}} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
+Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF~\cite{bio2rdf}, Chem2Bio2RDF~\cite{chembio}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\cite{lodd} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
 
 There are already many interesting information on pharmaceutical research available on the Web.
 The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials (as shown in \autoref{fig:lod}).
@@ -210,7 +210,7 @@ Handling these dynamic information within current e-prescription systems without
 \section{Pharmer: Semantic Authoring of Medical Prescriptions}
 \label{sec:pharmer}
 Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
-The Pharmer implementation is open-source and available for download together with an explanatory video and online demo\footnote{\url{http://bitili.com/pharmer}} at \url{http://code.google.com/p/pharmer/}.
+The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \cite{pharmerdemo,pharmerproject}.
 As shown in \autoref{fig:botup}, Pharmer adopts a bottom-up approach (i.e. semantic markup~\cite{araujo2010}) for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
 
 \begin{figure}[tb]
@@ -240,17 +240,17 @@ The Pharmer system architecture is depicted in \autoref{fig:arch} and consists o
 
 \paragraph{Document Layer} This layer includes the traditional e-prescription document plus two components as \emph{Drug Detection} and \emph{Drug Information Collector}.
 Drug detection component performs the natural language processing (NLP) of the e-prescription document to detect the terms referring to a drug in the prescription.
-The component uses DBpedia spotlight\footnote{\url{http://spotlight.dbpedia.org/}} and BioPortal annotator\footnote{\url{http://bioportal.bioontology.org/annotator}} NLP services to parse and analyze the text looking for known drugs.
+The component uses DBpedia spotlight~\cite{dbspotlight} and BioPortal annotator~\cite{bioportal} NLP services to parse and analyze the text looking for known drugs.
 It is configurable so that users can easily add other existing NLP services for drug detection.
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
 Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
-To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm\footnote{Available at \url{http://www.w3.org/wiki/HCLSIG/LODD/Data}} by sending federated SPARQL\footnote{\url{http://www.w3.org/TR/rdf-sparql-query/}} queries.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodds}) by sending federated SPARQL~\cite{sparql} queries.
 
 \paragraph{Semantic Layer}
 There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
 The \emph{annotator} component handles the automatic annotation and embeds the general information of the drugs as meta-data into the e-prescription.
-Annotator adopts the RDFa format. \emph{RDFa}\footnote{\url{http://www.w3.org/TR/rdfa-syntax/}} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
+Annotator adopts the RDFa format. \emph{RDFa}~\cite{rdfa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
 RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability to a good extent.
 
 The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
@@ -308,7 +308,7 @@ The main features of Pharmer can be summarized as:
 	\label{fig:system}
 \end{figure}
 
-As depicted in \autoref{fig:system} Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders. The arrows in the figure can be summarized as the following:
+As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders. The arrows in the figure can be summarized as the following:
 \begin{enumerate}
 \item After patient contacts physician, the physician diagnoses the disease and writes the corresponding semantic prescription using Pharmer. It is then immediately passed to pharmacy. By that, patient profile is automatically stored into the Pharmer system. The patient's medication history is also available to the physician.
 \item Pharmer utilizes the Linked Open Data as its integrated information source.
@@ -399,7 +399,7 @@ We first showed them a tutorial video of using different features of Pharmer the
 After finishing the task, we asked the participants to fill out a questionnaire which consisted of two parts: feature usage questions and usability experience questions.
 
 We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
-SUS is a standardized, simple, ten-item Likert scale-based questionnaire\footnote{\url{www.usabilitynet.org/trump/documents/Suschapt.doc}} giving a global view of subjective assessments of usability.
+SUS is a standardized, simple, ten-item Likert scale-based questionnaire~\cite{sus} giving a global view of subjective assessments of usability.
 It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
 The results of our survey showed a mean usability score of \textbf{75} for Pharmer which indicates a reasonable level of usability.
 Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
@@ -411,11 +411,11 @@ For instance some users suggested to provide a print-friendly document with all 
 \section{Conclusion}
 \label{sec:conclusion}
 Providing a consistent connection between patients, physicians, pharmacists, pharmaceutical researchers and drug companies is a crucial step towards enhancing the quality of knowledge management and thereby e-health services in the pharmaceutical domain.
-With Pharmer we presented in this article an approach for implementation of \emph{Semantic Prescriptions} as intelligent medical prescriptions to improve the integration and interoperability of e-prescribing systems with other e-health services.
+With Pharmer, we presented in this article an approach for implementation of \emph{Semantic Prescriptions} as intelligent medical prescriptions to improve the integration and interoperability of e-prescribing systems with other e-health services.
 Semantic prescriptions includes the important meta-data about the content of a prescription which will increase the awareness of their consumers.
 
 We see the work presented in this article as an initial step in a larger research agenda aiming at promoting the authoring and annotation of semantically enriched medical documents.
-Regarding future work we envision to extend the Pharmer application towards different modalities, such that the annotation of images and other medical objects is supported.
+Regarding future work, we envision to extend the Pharmer application towards different modalities, such that the annotation of images and other medical objects is supported.
 Furthermore, we aim to integrate the other existing linked open datasets (e.g. related to publications, laboratories or insurance documents) into the Pharmer to extend its stakeholders.
 
 
