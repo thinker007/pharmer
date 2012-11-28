@@ -28,7 +28,7 @@
 
 
 % correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor}
+%\hyphenation{op-tical net-works semi-conduc-tor}
 
 
 \begin{document}
@@ -45,14 +45,12 @@
 
 \author{\IEEEauthorblockN{Ali Khalili}
 \IEEEauthorblockA{Institute of Informatics\\
-University of Leipzig\\
-Leipzig, Germany\\
+University of Leipzig, Germany\\
 khalili@informatik.uni-leipzig.de}
 \and
 \IEEEauthorblockN{Bita Sedaghati}
 \IEEEauthorblockA{Institute of Pharmacy\\
-University of Leipzig\\
-Leipzig, Germany\\
+University of Leipzig, Germany\\
 bita.sedaghati@uni-leipzig.de}
 }
 
@@ -268,7 +266,7 @@ The main features of Pharmer can be summarized as:
 	\item \emph{Providing Different Semantic Views}.
 	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
 	Pharmer suggests two types of views: generic and domain specific views.
-	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view in \autoref{fig:graphview}).
+	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view.
 	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
 	\item \emph{Real-time Drug Tagging.}
 	Real-time tagging means creating drug annotations while the user is typing.
@@ -283,18 +281,11 @@ The main features of Pharmer can be summarized as:
 \end{itemize}
 
 
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=1.0\columnwidth]{images/sc2.png}
-	\caption{Graph View.}
-	\label{fig:graphview}
-\end{figure}
-
 
 \begin{figure*}[tb]
 	\centering
 		\includegraphics[width=2.0\columnwidth]{images/screenshot1.jpg}
-	\caption{A screenshot of Pharmer information view.}
+	\caption{Screenshot of the Pharmer information view and prescription writer.}
 	\label{fig:screenshot}
 \end{figure*}
 
@@ -426,14 +417,10 @@ We see the work presented in this article as an initial step in a larger researc
 Regarding future work, we envision to extend the Pharmer application towards different modalities, such that the annotation of images and other medical objects is supported.
 Furthermore, we aim to integrate the other existing linked open datasets (e.g. related to publications, laboratories or insurance documents) into the Pharmer to extend its stakeholders.
 
-
+\clearpage
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 \bibliography{sca_refs,refs}
-
-
-
-
 
 % that's all folks
 \end{document}
