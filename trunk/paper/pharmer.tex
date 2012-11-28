@@ -19,6 +19,7 @@
 \usepackage{makeidx}  % allows index generation
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{setspace}
 
 \newtheorem{definition}{Definition}
 \newtheorem{example}{Example}
@@ -156,13 +157,13 @@ One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptio
  A \emph{Semantic Document} is an intelligent document (with explicit semantic structure) which ``knows about" its own content so that it can be automatically processed in unforeseen ways.
 Semantic documents facilitate a number of important aspects of information management~\cite{rdface}:
 \begin{itemize}
-	\item For \emph{search and retrieval} enriching documents with semantic representations helps to create more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
-		Ultimately, users are empowered to counter the increasing information overload and gain better access to relevant documents and answers related to their information needs.
-	\item In \emph{information presentation} semantically enriched documents can be used to create more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
-	\item For \emph{information integration} semantically enriched documents can be used to provide unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
-	\item To realize \emph{personalization}, semantic documents provide customized and context-specific information which better fits user needs and will
+	\item \emph{Search and retrieval:} more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
+		%Ultimately, users are empowered to counter the increasing information overload and gain better access to relevant documents and answers related to their information needs.
+	\item \emph{Information presentation:} more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
+	\item \emph{Information integration:} unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
+	\item \emph{Personalization:} customized and context-specific information which better fits user needs and will
 result in delivering customized applications such as personalized semantic portals~\cite{ecs2007}.
-	\item For \emph{reusability} and \emph{interoperability} enriching documents with semantic representations (e.g. using the SKOS and Dublin Core vocabularies) facilitates exchanging content between disparate systems and enables building applications such as executable papers~\cite{Muller2011}. \\
+	\item \emph{Reusability} and \emph{interoperability}: exchanging content between disparate systems and enabling applications such as executable papers~\cite{Muller2011}.
 \end{itemize}
 
 These benefits, however, come at the cost of increased authoring effort~\cite{hasida2007,uren2006}.
@@ -309,16 +310,15 @@ In contrast to database-oriented e-prescriptions, semantic prescriptions can eas
 
 Furthermore, semantic prescriptions increase the awareness of patients.
 They provide patients with all the related information of the prescribed drugs thereby mitigating the possible misuse of drugs.
-
-Another important advantage of semantic prescribing is the connection of physicians, pharmacists, patients, pharmaceutical researchers and drug companies.
-It brings the following benefits for its stakeholders:
-\begin{itemize}
-\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-\item Patients: increased information, safety, efficiency and compliance.
-\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
-\item Researchers: easy accessed abundant information source and statistical data availability.
-\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
-\end{itemize}
+Another important advantage of semantic prescribing is the connection between physicians, pharmacists, patients, pharmaceutical researchers and drug companies.
+%It brings the following benefits for its stakeholders:
+%\begin{itemize}
+%%\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
+%\item Patients: increased information, safety, efficiency and compliance.
+%\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
+%\item Researchers: easy accessed abundant information source and statistical data availability.
+%\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
+%\end{itemize}
 
 \begin{figure}[tb]
 	\centering
@@ -395,8 +395,8 @@ It yields a single number in the range of 0 to 100 which represents a composite 
 The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer WYSIWYM interface which indicates a good level of usability.
 Participants particularly liked the integration of functionality and the ease of learning and use.
 The confidence in using the system was slightly lower, which we again attribute to the short learning phase and diverse functionality.
-Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
-However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
+%Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
+%However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
 In addition to quantitative results, we also collected a number of user suggestions.
 For instance some users suggested to provide a print-friendly document with all the patient's desired information.
 
@@ -411,11 +411,14 @@ We see the work presented in this article as an initial step in a larger researc
 Regarding future work, we envision to extend the Pharmer application towards different modalities, such that the annotation of images and other medical objects is supported.
 Furthermore, we aim to integrate the other existing linked open datasets (e.g. related to publications, laboratories or insurance documents) into the Pharmer to extend its stakeholders.
 
-\clearpage
-\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
+%\clearpage
 
+% argument is your BibTeX string definitions and bibliography database(s)
+\begin{spacing}{0.4}
+\bibliographystyle{IEEEtran}
 \bibliography{sca_refs,refs}
+\end{spacing}
+
 
 % that's all folks
 \end{document}
