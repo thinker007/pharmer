@@ -204,7 +204,7 @@ Handling these dynamic information within current e-prescription systems without
 \section{Pharmer: Semantic Authoring of Medical Prescriptions}
 \label{sec:pharmer}
 Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
-The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \cite{pharmerdemo,pharmerproject}.
+The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \cite{pharmerproject}.
 As shown in \autoref{fig:botup}, Pharmer adopts a bottom-up approach (i.e. semantic markup~\cite{araujo2010}) for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
 
 \begin{figure}[tb]
@@ -239,12 +239,12 @@ It is configurable so that users can easily add other existing NLP services for 
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
 Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
-To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodds}) by sending federated SPARQL~\cite{sparql} queries.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodds}) by sending federated SPARQL queries.
 
 \paragraph{Semantic Layer}
 There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
 The \emph{annotator} component handles the automatic annotation and embeds the general information of the drugs as meta-data into the e-prescription.
-Annotator adopts the RDFa format. \emph{RDFa}~\cite{rdfa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
+Annotator adopts the RDFa format. \emph{RDFa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
 RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability.
 
 The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
