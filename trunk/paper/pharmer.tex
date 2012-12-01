@@ -262,7 +262,7 @@ The main features of Pharmer can be summarized as:
 	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
 	\item \emph{Real-time Drug Tagging.}
 	Real-time tagging means creating drug annotations while the user is typing.
-	This will significantly increase the annotation speed~\cite{OCA,Reflect}.
+	This will significantly increase the annotation speed~\cite{OCA}.
 	Users are not distracted since they do not have to interrupt their current authoring task.
 	Pharmer has a client-side component which interacts with the server asynchronously to make real-time tagging possible.
 	\item \emph{Drug Suggestion.}
@@ -315,6 +315,8 @@ In contrast to database-oriented e-prescriptions, semantic prescriptions can eas
 
 Furthermore, semantic prescriptions increase the awareness of patients.
 They provide patients with all the related information of the prescribed drugs thereby mitigating the possible misuse of drugs.
+In addition, semantic prescriptions support shared decision making (SDM) by allowing patients and service providers to make health care decisions together.
+They connect the best scientific evidence available with the patient’s values and preferences.
 
 %It brings the following benefits for its stakeholders:
 %\begin{itemize}
@@ -334,51 +336,50 @@ They provide patients with all the related information of the prescribed drugs t
 
 \section{Example scenario}
 \label{sec:example}
-As a scenario; A 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test. The specialist considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl). He diagnoses high blood pressure plus sever type 2 diabetes.
-Thereby, Patient profile is defined in Pharmer by patient's information besides diagnosis.
-Considering the medication that the patient took before (Metformin only), The specialist dispenses the new semantic prescription by entering the following drugs:
+As a scenario; a 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test.
+He then considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl).
+He diagnoses high blood pressure plus severe type 2 diabetes.
+Thereby, The patient profile is defined in Pharmer by patient's information besides diagnosis.
+``no weight loss" is mentioned as a preference in the patient's profile.
+Regardless of the patient's preferences, the physician would prescribe \texttt{Metformin} as a drug of choice.
+However, since the major side effect of \texttt{Metformin} is weight loss, the physician replaces \texttt{Metformin} with \texttt{Rosiglitazone}.
+Considering the medication that the patient took before (\texttt{Glibenclamide} only), The specialist dispenses a new semantic prescription by entering the following drugs:
 
 \begin{itemize}
-\item {Metformin} 500 mg Oral Tablet bid
-\item {Glibenclamide} 5 mg Oral Tablet bid
-\item {Atenolol} 50 mg Oral Tablet once daily
+\item \texttt{Rosiglitazone} 4 mg Oral Tablet once daily
+\item \texttt{Glibenclamide} 5 mg Oral Tablet bid
+\item \texttt{Atenolol} 50 mg Oral Tablet once daily
 \end{itemize}
 
-He then checks for the possible drug interactions by clicking the attributed button in Pharmer software.
-As Pharmer is connected to linked open data it is capable of recognizing the most recent updated drug interactions.
-He finds out that Sulfunyl Urea class drugs (here Glibenclamide) are not compatible to be coadministrated with beta-blockers (here Atenolol).
+He then checks for the possible drug interactions by clicking the attributed button in the Pharmer software.
+As the Pharmer is connected to linked open data it is capable of recognizing the most recent updated drug interactions.
+He finds out that Sulfunyl Urea class drugs (here \texttt{Glibenclamide}) are not compatible to be coadministrated with beta-blockers (here \texttt{Atenolol}).
 So, he needs to replace it with another drug.
-Using Pharmer and its connection to linked open data, the physician can find the possible alternatives.
-Then he decides to choose Captopril as replacement.
-Therefore the new semantic prescription is corrected as the following:
-
-\begin{itemize}
-\item {Metformin} 500 mg Oral Tablet bid
-\item {Glibenclamide} 5 mg Oral Tablet bid
-\item {Captopril} 25 mg Oral Tablet once daily
-\end{itemize}
-
+Using the Pharmer and its connection to linked open data, the physician can find the possible alternatives.
+Then he decides to choose \texttt{Captopril} as replacement.
 The semantic prescription is then sent to the patient's pharmacy of choice.
 There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware of the corresponding changes.
 Pharmacist comments may cause minor or major modifications in the semantic prescription.
 For instance, using the Pharmer she is able to check the appropriate dose of each medicine or suggest cheaper alternatives (if possible).
+In this case, as the \texttt{Rosiglitazone} elevates cardiovascular risks, the pharmacist suggests \texttt{Rosiglitazone} to be replaced by \texttt{Pioglitazone}.
+This change happens as a realization of the shared decision making between physision, pharmacist and patient.
 Thereafter, patient who was referred to the pharmacy takes the prescribed drugs.
 Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
-There he is able to observe drug information embedded in the semantic prescription besides the preferred time and drug intake instructions.
+There, he is able to observe drug information embedded in the error free semantic prescription besides the preferred time and drug intake instructions.
 He is also informed about the possible food interactions.
 The patient's profile completes as he visits physicians or ask for refills.
 Furthermore he is followed up by the physician and the pharmacist via the Pharmer.
 After 2 months the patient visits another specialist for his recurrent symptoms of diabetes.
 The specialist via the Pharmer accesses to the patient's medical profile and increases the anti-diabetic drug dose.
 
-A researcher in an academy research institution investigates Captopril (as an Angiotansion II antagonist) effect on preventing diabetes recurrence.
+A researcher in an academy research institution investigates \texttt{Captopril} (as an Angiotansion II antagonist) effect on preventing diabetes recurrence.
 Having the data from the aforementioned patient follow up along with other similar patients allows investigator to lead her goal.
-In this case, for example, the Captopril along with anti-diabetic drugs led to diabetes recurrence.
+In this case, for example, the \texttt{Captopril} along with anti-diabetic drugs led to diabetes recurrence.
 Observing all the corresponding patient profiles will either confirm or reject the research assumption.
 
- A drug company manager requires to determine the compliance rate of Captopril in the market in order to balance the production based on market demand.
+ A drug company manager requires to determine the compliance rate of \texttt{Captopril} in the market in order to balance the production based on market demand.
  Applying Pharmer allows him to simply access to these data and decide how to go on with this product.
- He is also able to collect the evidence which may prevent further dispense of Captopril by physicians or consumption among patients.
+ He is also able to collect the evidence which may prevent further dispense of \texttt{Captopril} by physicians or consumption among patients.
 
 
 \section{Evaluation}
@@ -397,7 +398,7 @@ After finishing the task, we asked the participants to fill out a questionnaire 
 We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
 SUS is a standardized, simple, ten-item Likert scale-based questionnaire giving a global view of subjective assessments of usability.
 It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
-The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer WYSIWYM interface which indicates a good level of usability.
+The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
 Participants particularly liked the integration of functionality and the ease of learning and use.
 The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
 %Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
@@ -418,7 +419,7 @@ Furthermore, we aim to integrate the other existing linked open datasets (e.g. r
 %\clearpage
 
 % argument is your BibTeX string definitions and bibliography database(s)
-\begin{spacing}{0.5}
+\begin{spacing}{0.3}
 \bibliographystyle{IEEEtran}
 \bibliography{sca_refs,refs}
 \end{spacing}
