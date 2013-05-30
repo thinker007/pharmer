@@ -24,9 +24,8 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Pharmer -- Towards Semantic Medical Prescriptions}
-%\title{From WYSIWYG to What You See Is What You Mean}
-%\title{Design Patterns for Direct Semantic Manipulation}
+\title{Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions}
+
 
 % author names and affiliations
 % use a multiple column layout for up to three different
@@ -48,14 +47,19 @@ bita.sedaghati@uni-leipzig.de}
 
 
 \begin{abstract}
-The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources brings into the spotlight a new generation of knowledge management applications.
-Particularly in the domain of pharmaceutical research and development, many efforts have been done to create a linked open drug data.
-In this paper we present the Pharmer as an approach to facilitate the creation of semantic prescriptions.
+Medication errors are the most common type of medical errors in health-care domain.
+The use of electronic prescribing systems (e-prescribing) have resulted in significant reductions in medication errors.
+However, one of the main challenges in e-prescription systems is handling heterogeneity of available information sources.
+There exist already different sources of information addressing different aspects of pharmaceutical research (e.g. chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets. etc.).
+Handling these dynamic information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
+The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources proposes a solution to this problem.
+In the domain of pharmaceutical research, many efforts have been done to create a linked open drug data.
+In this paper we present the Pharmer as an approach to employ Linked Open Data to facilitate the creation of semantic medical prescriptions.
 Semantic prescriptions are intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
-In an e-health system, semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
-Pharmer provides different views for the different personas involved in the process of e-prescribing.
-It employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescription and to collect multidimensional data on them.
-Eventually it warns of the possible drug interactions in the prescription.
+Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
+%Pharmer provides different views for the different personas involved in the process of e-prescribing.
+Pharmer employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescriptions and to collect multidimensional data on them.
+It also warns of the possible drug interactions in the prescription.
 We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
 \end{abstract}
 
@@ -79,10 +83,10 @@ Reduction in medication error and decline in adverse drug events are more highli
 
 During the recent years, the adoption of e-prescriptions has been spreading rapidly.
 To illustrate, the Australian government started launching of e-prescription from March 2007~\cite{medicare}.
-%Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage.
+Using this system, the e-providers who effectively market themselves on the web will have a distinct advantage.
 A system called epSOS~\cite{epsos} which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
-%epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.
-%This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
+epSOS contains patient summary and an e-prescription service which allows access to the cross-border e-health services.
+This service allows people in participating epSOS pilot countries, as tourists, business travellers, commuters or exchange students to take advantage of e-health services.
 The e-prescribing incentive program performed in US~\cite{epincentive} is another example in this area.
 As a reporting program it uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.
 
@@ -123,12 +127,12 @@ Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 
 4) use URIs to identify things, so that people can point at your stuff,
 5) link your data to other data to provide context.
 
-%\begin{figure}[tb]
-	%\centering
-	%	\includegraphics[width=1.0\columnwidth]{images/lod_cloud.png}
-	%\caption{Available datasets related to pharmaceutical research.}
-	%\label{fig:lod}
-%\end{figure}
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{../images/lod_cloud.png}
+	\caption{Available datasets related to pharmaceutical research.}
+	\label{fig:lod}
+\end{figure}
 
 Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF~\cite{bio2rdf}, Chem2Bio2RDF~\cite{chembio}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\cite{lodd} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
 
@@ -152,13 +156,13 @@ For \emph{reusability} and \emph{interoperability}, they facilitate exchanging c
 
 The above benefits, however, come at the cost of increased authoring effort. %~\cite{hasida2007,uren2006}
 A \emph{Semantic Authoring User Interface} is a human accessible interface with capabilities for writing and modifying semantic documents which are either.
-%\emph{Semantic Content Authoring} (SCA) is a tool-supported manual composition process aiming at the creation of semantic documents which are either:
+\emph{Semantic Content Authoring} (SCA) is a tool-supported manual composition process aiming at the creation of semantic documents which are either:
 \begin{itemize}
 	\item fully semantic in the sense that their original data model uses a semantic knowledge representation formalism (such as RDF, RDF-Schema or OWL) or
 	\item based on a non-semantic representation form (e.g. text or hypertext), which is enriched with semantic representations during the authoring process.\\
 \end{itemize}
 
-%With an ontology and a user interface appropriate for the type of content, semantic authoring can be easier than traditional composition of content and the resulting content can be of higher quality~\cite{hasida2007}.
+With an ontology and a user interface appropriate for the type of content, semantic authoring can be easier than traditional composition of content and the resulting content can be of higher quality~\cite{hasida2007}.
 
 Medical prescriptions are a good candidate to be enriched by semantic annotations.
 Semantic prescriptions enable the traditionally written prescriptions to be utilized in novel ways as discussed above.
@@ -191,18 +195,18 @@ Pharmer is an application created as a proof of concept for the authoring of sem
 The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \cite{pharmerproject}.
 Pharmer adopts a bottom-up approach~\cite{khalili2012} for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
 
-%\begin{figure}[tb]
-%	\centering
-	%	\includegraphics[width=1.0\columnwidth]{images/approaches.pdf}
-%	\caption{Bottom-up semantic enrichment of prescriptions.}
-%	\label{fig:botup}
-%\end{figure}
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{../images/approaches.pdf}
+	\caption{Bottom-up semantic enrichment of prescriptions.}
+	\label{fig:botup}
+\end{figure}
 
-%The basic ingredients of a semantic annotation system are ontologies, the documents and the annotations that link ontologies to %documents~\cite{khalili2012}.
-%Here, we need two kinds of ontologies:
-%\emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
-%\emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
-%We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
+The basic ingredients of a semantic annotation system are ontologies, the documents and the annotations that link ontologies to documents~\cite{khalili2012}.
+Here, we need two kinds of ontologies:
+\emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
+\emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
+We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
 
 
 \subsection{Architecture}
@@ -211,7 +215,7 @@ The Pharmer system architecture is depicted in \autoref{fig:arch} and consists o
 
 \begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.95\columnwidth]{../images/architecture.pdf}
+		\includegraphics[width=1\columnwidth]{../images/architecture.pdf}
 	\caption{Architecture of the Pharmer system.}
 	\label{fig:arch}
 \end{figure}
@@ -237,7 +241,7 @@ The \emph{authoring UI} component provides users with a set of input forms to ma
 This layer provides a set of applications on top of the generated semantic prescriptions.
 \emph{Interaction Finder} checks the possible interactions between the prescribed drugs and warn the prescriber about them.
 \emph{Visualizer} is responsible for graphically representing the embedded semantics of a prescription (e.g. as depicted in \autoref{fig:graphview}).
-The \emph{Fact Extractor} generates the RDF/Turtle representation of the semantic prescriptions.
+The \emph{Fact Extractor} generates the RDF/Turtle representation of the semantic prescriptions (e.g. as depicted in \autoref{fig:factview}).
 
 \subsection{Features}
 The main features of Pharmer can be summarized as:
@@ -245,7 +249,7 @@ The main features of Pharmer can be summarized as:
 	\item \emph{Providing Different Semantic Views}.
 	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
 	Pharmer suggests two types of views: generic and domain specific views.
-	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view.
+	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view\autoref{fig:graphview}.
 	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
 	\item \emph{Real-time Drug Tagging.}
 	Real-time tagging means creating drug annotations while the user is typing.
@@ -261,25 +265,32 @@ The main features of Pharmer can be summarized as:
 
 
 
+\begin{figure*}[tb]
+	\centering
+		\includegraphics[width=1\textwidth]{../images/screenshot1.jpg}
+	\caption{Screenshot of the Pharmer applicatpion.}
+	\label{fig:screenshot}
+\end{figure*}
+
 \begin{figure}[tb]
 	\centering
-		\includegraphics[width=0.9\columnwidth]{../images/screenshot.jpg}
-	\caption{Screenshot of the Pharmer application.}
-	\label{fig:screenshot}
+		\includegraphics[width=1\columnwidth]{../images/sc2.png}
+	\caption{Graph view.}
+	\label{fig:graphview}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1\columnwidth]{../images/sc4.png}
+	\caption{Fact view.}
+	\label{fig:factview}
 \end{figure}
 
 \subsection{Pharmer Stakeholders}
 \label{sec:stake}
 
 As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders. The arrows in the figure can be summarized as the following:
-%\begin{enumerate}
-%\item After patient contacts physician, the physician diagnoses the disease and writes the corresponding semantic prescription using Pharmer. It is then immediately passed to pharmacy. By that, patient profile is automatically stored into the Pharmer system. The patient's medication history is also available to the physician.
-%\item Pharmer utilizes the Linked Open Data as its integrated information source.
-%\item On the other side, researcher can analyze the stored semantic prescriptions data.
-%\item Drug companies as Pharmer stakeholders utilize it in order to balance their production and distribution according to the market taste and demand.
-%\item semantic prescription is immediately sent to the pharmacy chosen by patient from the point of care. Pharmacist verifies the prescription and hands in the medication to the patient.
-%\item Patient already is in the system, therefore he inquires about drug information. He can also contact the related physician and pharmacist via %   the Pharmer.
-%\end{enumerate}
+
 \begin{enumerate}
 \item The physician diagnoses the disease and writes the corresponding semantic prescription using the Pharmer. The patient's medication history is available to the physician as well.
 \item Pharmer utilizes the Linked Open Data as its integrated information source.
@@ -305,14 +316,14 @@ They provide patients with all the related information of the prescribed drugs t
 In addition, semantic prescriptions support shared decision making (SDM) by allowing patients and service providers to make health care decisions together.
 They connect the best scientific evidence available with the patient’s values and preferences.
 
-%It brings the following benefits for its stakeholders:
-%\begin{itemize}
-%%\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-%\item Patients: increased information, safety, efficiency and compliance.
-%\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
-%\item Researchers: easy accessed abundant information source and statistical data availability.
-%\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
-%\end{itemize}
+It brings the following benefits for its stakeholders:
+\begin{itemize}
+\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
+\item Patients: increased information, safety, efficiency and compliance.
+\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
+\item Researchers: easy accessed abundant information source and statistical data availability.
+\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
+\end{itemize}
 
 \begin{figure}[tb]
 	\centering
@@ -388,8 +399,8 @@ It yields a single number in the range of 0 to 100 which represents a composite 
 The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
 Participants particularly liked the integration of functionality and the ease of learning and use.
 The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
-%Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
-%However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
+Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
+However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
 In addition to quantitative results, we also collected a number of user suggestions.
 For instance some users suggested to provide a print-friendly document with all the patient's desired information.
 
