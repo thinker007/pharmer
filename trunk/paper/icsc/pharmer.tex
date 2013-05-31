@@ -56,7 +56,7 @@ The recent proliferation of Linked Open Data that enables the integration of mul
 In the domain of pharmaceutical research, many efforts have been done to create a linked open drug data.
 In this paper we present Pharmer as an approach to facilitate the creation of semantic medical prescriptions.
 Semantic prescriptions are intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
-Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers, pharmaceutical companies and insurance comanies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
+Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers, pharmaceutical and insurance companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
 %Pharmer provides different views for the different personas involved in the process of e-prescribing.
 Pharmer employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescriptions and to collect multidimensional data on them.
 %It also warns of the possible drug interactions in the prescription.
@@ -83,7 +83,7 @@ During the recent years, the adoption of e-prescriptions has been spreading rela
 In the US, the so called \emph{Electronic Prescribing Incentive Program} is a reporting program that uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.~\cite{epincentive}.
 As recently published by \cite{eprescStat2013} hospitals' use of computerized prescriptions prevented 17 million drug errors in a single year in the United States.
 The \emph{Canadian Medical Association} (CMA) and the \emph{Canadian Pharmacists Association} (CPhA) have approved a joint statement on the future of e-prescribing that aims to have all prescriptions for Canadians created, signed and transmitted electronically by 2015.
-The Australian government removed Commonwealth legislative barriers to electronic prescribing started from 2007~\cite{medicare}.
+The Australian government removed commonwealth legislative barriers to electronic prescribing started from 2007~\cite{medicare}.
 A system called \emph{epSOS}~\cite{epsos} which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
 
 However, one of the main challenges in current e-prescription systems is dealing with the heterogeneity of available information sources.
@@ -107,8 +107,8 @@ Pharmer adopts a bottom-up approach for enriching the normal e-prescriptions wit
 The remainder of this article is structured as follows:
 \autoref{sec:lod}, \autoref{sec:sca} and \autoref{sec:epresc} provide a background on the basic concepts such as Linked Open Data, Semantic Content Authoring and E-prescriptions employed in this paper.
 In \autoref{sec:pharmer}, we describe the Pharmer as a solution to effectively create semantic prescription.
-Then we discuss the possible benefits of Pharmer in \autoref{sec:stake}.
-To better clarify the use cases of the Pharmer system, an example scenario is drawn in \autoref{sec:example}.
+Then we discuss the possible advantages of Pharmer in \autoref{sec:benefits}.
+To better clarify the use cases of the Pharmer system, an example scenario including Pharmer stakeholders is drawn in \autoref{sec:example}.
 In \autoref{sec:evaluation}, Pharmer usability evaluation results are reported and finally \autoref{sec:conclusion} concludes with an outlook on future work.
 
 \section{Linked Open Data}
@@ -164,7 +164,7 @@ Medical prescriptions are a good candidate to be enriched by semantic annotation
 Semantic prescriptions enable the traditionally written prescriptions to be utilized in novel ways as discussed above.
 In the following sections, we first describe the e-prescriptions and then discuss how they can be enriched as semantic documents.
 
-\section{e-prescriptions}
+\section{E-prescriptions}
 \label{sec:epresc}
 
 E-health has evolved and emerged recently in many forms.
@@ -295,20 +295,8 @@ The main features of Pharmer can be summarized as:
 	\caption{Fact view.}
 	\label{fig:factview}
 \end{figure}
-
-\subsection{Pharmer Stakeholders}
-\label{sec:stake}
-
-As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders. The arrows in the figure can be summarized as the following:
-
-\begin{enumerate}
-\item The physician diagnoses the disease and writes the corresponding semantic prescription using the Pharmer. The patient's medication history is available to the physician as well.
-\item Pharmer utilizes the Linked Open Data as its integrated information source.
-\item The researcher can analyze the stored semantic prescriptions data.
-\item Drug companies utilize the Pharmer data store in order to balance their production and distribution according to the market taste and demand.
-\item The pharmacist verifies the prescription and hands in the medication to the patient.
-\item The patient inquires drug information and can contact the related physician and pharmacist.
-\end{enumerate}
+\section{Pharmer: Advantages}
+\label{sec:benefits}
 
 The main benefit of using semantic prescriptions is the persistent connection to up-to-date drug information coming from multiple dynamic data sources.
 So, when a change occurs to a drug (e.g. change in its effects or interactions) the semantic prescription automatically adopts to this new change.
@@ -319,21 +307,16 @@ The interactions may sometimes lead to change in the drug effect.
 By applying semantic prescriptions, all types of drug interactions are prevented and the probability of errors in prescriptions are reduced to a great extend.
 
 A semantic prescription is a self-contained document which is aware of its content and is connected to the linked open data.
-In contrast to database-oriented e-prescriptions, semantic prescriptions can easily be exchanged among other e-health systems without need to changing their related infrastructure hence enabling a connection between physicians, pharmacists, patients, pharmaceutical researchers and drug companies.
+In contrast to database-oriented e-prescriptions, semantic prescriptions can easily be exchanged among other e-health systems without need to changing their related infrastructure hence enabling a connection between physicians, pharmacists, patients, pharmaceutical researchers, insurance and drug companies.
 
 Furthermore, semantic prescriptions increase the awareness of patients.
 They provide patients with all the related information of the prescribed drugs thereby mitigating the possible misuse of drugs.
 In addition, semantic prescriptions support shared decision making (SDM) by allowing patients and service providers to make health care decisions together.
 They connect the best scientific evidence available with the patient’s values and preferences.
 
-It brings the following benefits for its stakeholders:
-\begin{itemize}
-\item Physicians: increased efficiency, improved care, patient satisfaction and potential short and long-term incentives.
-\item Patients: increased information, safety, efficiency and compliance.
-\item Pharmacists: increased efficiency, improved service quality, improved patient satisfaction,  prevention of adverse drug reactions and speeding up the whole process.
-\item Researchers: easy accessed abundant information source and statistical data availability.
-\item Drug companies: production efficacy, patient compliance and rate of the consumption of each medicine.
-\end{itemize}
+%Semantic prescribing brings the following advantages over current e-prescription systems:
+% increased efficiency, improved care, patient satisfaction and potential short and long-term incentives, patient education, safety and compliance.
+%improved pharmacies service quality,  prevention of adverse drug reactions and speeding up the whole prescribing process besides Drug production efficacy are other benefits of using semantic prescription systems.
 
 \begin{figure}[tb]
 	\centering
@@ -342,11 +325,23 @@ It brings the following benefits for its stakeholders:
 	\label{fig:system}
 \end{figure}
 
-\section{Example scenario}
+\section{Pharmer Stakeholders: Example Scenario}
 \label{sec:example}
+As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders.
+The arrows in the figure can be summarized as the following:
+\begin{enumerate}
+\item The physician diagnoses the disease and writes the corresponding semantic prescription using the Pharmer, where patient's medication history is available.
+\item The patient accesses to drug information, food interactions and adverse drug reactions via Pharmer.
+\item The pharmacist verifies the prescription and considers alternative options suggested by Pharmer.
+\item Drug companies utilize the Pharmer data store in order to balance their production and distribution according to the market taste and demand
+\item The Researchesrs easily access to the abundant data source and prescription statistical data.
+\item Pharmer informs insurance companies to perform fair coverage plans according to covered drugs and patient's medication history.
+\end{enumerate}
+All the above stakeholders utilize Linked Open Data as their integrated information source.
+
 As a scenario; a 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test.
 He then considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl).
-He diagnoses high blood pressure plus severe type 2 diabetes.
+He diagnoses high blood pressure and severe type 2 diabetes.
 Thereby, The patient profile is defined in Pharmer by patient's information besides diagnosis.
 ``no weight loss" is mentioned as a preference in the patient's profile.
 Regardless of the patient's preferences, the physician would prescribe \texttt{Metformin} as a drug of choice.
@@ -388,7 +383,8 @@ Observing all the corresponding patient profiles will either confirm or reject t
  A drug company manager requires to determine the compliance rate of \texttt{Captopril} in the market in order to balance the production based on market demand.
  Applying the Pharmer allows him to simply access to these data and decide how to go on with this product.
  He is also able to collect the evidence which may prevent further dispense of \texttt{Captopril} by physicians or consumption among patients.
-
+ Pharmer allows insurance companies to customize and individualize their services based on patient's medical records. Recruiting Pharmer which contains information on insured drugs, the physician can choose the drugs accordingly.
+ In the scenario,insurance company checks the dispensed medication with the disease and patient's insurance status therefore decides to refund the patient.
 
 \section{Evaluation}
 \label{sec:evaluation}
