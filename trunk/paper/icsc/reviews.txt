@@ -1,0 +1,96 @@
+Dear Ali,
+
+Congratulations! The IEEE ICSC2013 program committee is pleased to inform you that your paper
+
+Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions
+
+has been accepted as a "regular" paper to appear in the IEEE ICSC2013 conference proceedings. The acceptance rate for regular papers is ~30% this year.
+
+Soon you will receive the camera-ready paper submission instructions from IEEE CPS Office. The deadlines for the camera-ready paper submission and the registration for the authors are July 21, 2013 (Sunday). The conference requires at least one author per accepted paper to register at the member or non-member rate on or before the deadline. Accepted papers must be presented at the conference, otherwise it will not be included in the proceedings. Please check the information on the registration page at http://ieee-icsc.org/icsc2013/ for more details. The registration information will be ready soon.
+
+Please carefully consider the reviewers' comments and thoroughly revise your paper accordingly (see details below) and use the correct IEEE format available at the conference website http://ieee-icsc.org/icsc2013/; it is very important to have your paper formatted as required by the publisher in order to guarantee that your paper will appear in the proceedings.
+
+PAGE LIMIT: Also please note that the page limit is 8 pages and there is a provision to purchase up to 2 extra pages.
+
+
+Thanks and looking forward to seeing you at the conference.
+
+IEEE ICSC2013 PC Chairs:
+Shlomo Dubnov
+Brian Harrington
+Giovanni Pilato
+Mei-Ling Shyu
+
+
+----------------------- REVIEW 1 ---------------------
+PAPER: 48
+TITLE: Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions
+AUTHORS: Ali Khalili and Bita Sedaghati
+
+
+----------- REVIEW -----------
+This paper presents Pharmer, an application created as a proof of concept for the authoring of semantic prescriptions. The paper is clear and the application is definitely of great interest. Nevertheless, from the scientific point of view, it is not clear what are the main innovations introduced by this work.
+
+Main comments:
+- I suggest the author to better introduce their work with respect to the state-of-the-art. It is clear that this is a system paper, but the authors should make more efforts to motivate their technique.
+
+- The discussion of the previous works could be improved. What are the key ideas introduced by the proposed technique?
+
+- The evaluation of Pharmer is not fully convincing. What about other similar applications? The experimental section of the paper lacks in comparisons.
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 48
+TITLE: Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions
+AUTHORS: Ali Khalili and Bita Sedaghati
+
+
+----------- REVIEW -----------
+This submission is an application paper. It is about using linked open data to facilitate semantic medical prescriptions. It's for the most part clearly written and it makes logical points about the advantages of semantic medical prescriptions. 
+
+However, the science in it comes across as being not too innovative. It uses known ideas about linking open data and semantic web ideas and makes the case that these would be useful to start implementing for the medical prescriptions domains. Some of the advantages of doing so would be fewer medication errors, better physician-patient-pharmacist-researcher-insuranceCompany communication, etc. 
+In addition there is discussing of a system called Pharmer that has been created to facilitate using semantic medical prescriptions. There is a small user evaluation of Pharmer via survey questions and the users tend to rate it positively. 
+
+While Pharmer sounds like a nice platform and there seem to be advantages to switching over to using semantic medical prescriptions linked to dynamic open data, I'm not sure that there was anything particularly creative or innovative enough about Pharmer that most scientists in the community can't already figure out how to implement it with or without this paper being available. 
+
+That said, Pharmer does seem like a clear demonstration of semantic computing ideas in an application domain of increasing importance. 
+
+Some suggested areas for improvements:
+There are some grammatical errors throughout the paper that ought to be fixed. For example, "synergic", "adopts to this new change", "to a great extend", "Handling these dynamic information within", etc.
+
+In both the abstract and the introduction, there is the same identical sentence: "Handling these dynamic information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task."
+I have trouble understanding what is meant by "blurring the border of the existing pharmaceutical information islands".  What exactly are these islands?  What is the border that would be blurred? And why do we care about not blurring said border?  
+I would suggest rephrasing that sentence to avoid the metaphors about islands and borders and spell out directly what is meant, even if it takes an extra couple of sentences.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 48
+TITLE: Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions
+AUTHORS: Ali Khalili and Bita Sedaghati
+
+
+----------- REVIEW -----------
+The paper describes a tool for editing and sharing semantic prescriptions.
+The tool is currently downloadable and an online demo is available.
+The paper presents in a clear and understandable way the motivations for developing this tool, within the general framework of medical linked data, as well as the tool architecture and scenarios of use.
+The scenarios of use presented seem to be quite plausible, and the tool is well developed and functional. 
+A case study for the usability of the tool was carried out, with good average result.
+For these reasons I believe this paper should be accepted.
+
+The NLP tools used to extract drugs and medications should be explained with more detail in the final version.
+The authors may also want add a few more words comparing their tool to similar ones, if existing.
+(Not only in the medical field, but in semantic content authoring in general).
+Finally a few more details should be given on how to evaluate a mean usability score of 75 (are there known usability thresholds for this measure?)
+
+The overall readability of the paper is good, but make sure that the paper is carefully checked before submitting, as some sentences sound awkward, e.g.:
+"In the scenario,insurance company checks the dispensed medication with the disease and patient's insurance status therefore decides to refund the patient".
+
+
+----------------------- REVIEW 4 ---------------------
+PAPER: 48
+TITLE: Semantic Medical Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions
+AUTHORS: Ali Khalili and Bita Sedaghati
+
+
+----------- REVIEW -----------
+The authors present Pharmer an approach for implementation of Semantic Prescriptions as intelligent medical prescriptions to improve the integration and interoperability of e-prescribing systems with other e-health services. Semantic prescriptions includes the important meta-data about the content of a prescription which will increase the awareness of their consumers. The work is original and interesting and deserves to be published.
