@@ -137,19 +137,19 @@ There are already many interesting information on pharmaceutical research availa
 The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials.
 LODD\cite{lodrug} has surveyed publicly available data about drugs, created Linked Data representations of the data sets, and identified interesting scientific and business questions that can be answered once the data sets are connected (cf. \autoref{fig:lod}).
 
-There has been a lack of applications with good user interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
-One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.
-
 \subsection{LODD applications in medical domain}
-There exists few approaches that address the medical and pharmaceutical applications using LODD.
-\emph{TripleMap}\footnote{\url{http://www.triplemap.com}} project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
-TripleMap is a web-based application that provides a rich, dynamic, visual interface to integrated RDF datasets such as the LODD.
-Showing an unexpected associations between entities related to researcher's interest is main advantage of TripleMap inspired  by the extensive, rich, interconnected data available in the LODD data sets.
-The goal of the project is to deliver and sustain an ‘open pharmacological space’ using and enhancing state-of-the-art semantic web standards and technologies\cite{TripleMap}.
 
-While the adoption of Linked Data is still not yet widespread, it is the topic of several large-scale cross-pharma projects.
- An European project, the Open Pharmacological Space (OPS), \emph{Open PHACTS }(Pharmacological Concept Triple Store) \footnote{\url{http://www.openphacts.org/docs}}project under the European Innovative Medicines Initiative \footnote{\url{http://www.imi.europa.eu/}} aims to deliver and sustain an ‘open pharmacological space’ using and enhancing state-of-the-art semantic web standards and technologies.
- Thus enable integration of chemical and biological data to support drug discovery. The project utilizes the Linked Data and managing the data in an RDF triple store\cite{Openphacts}.
+There exists few approaches that address the medical and pharmaceutical applications using LODD.
+\emph{TripleMap}\footnote{\url{http://www.triplemap.com}} is a project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
+TripleMap as a web-based application provides a dynamic visual interface to integrate RDF datasets such as the LODD.
+Showing an unexpected associations between entities related to researcher's interest is main advantage of TripleMap inspired  by the broad interconnected data available in the LODD data sets.
+The goal of the TripleMap project is to deliver and sustain an ‘open pharmacological space’ by using and enhancing the state-of-the-art semantic web standards and technologies\cite{TripleMap}.
+
+ Another related project is the Open Pharmacological Space (OPS), \emph{Open PHACTS} (Pharmacological Concept Triple Store) \footnote{\url{http://www.openphacts.org}} project under the European Innovative Medicines Initiative (IMI) \footnote{\url{http://www.imi.europa.eu/}}.
+ The goal of this project is integration of chemical and biological data using Linked Data standards to support drug discovery~\cite{Openphacts}.
+
+Although these projects address the backend side of creating LODD applications, there has been a clear lack of applications with user-friendly, efficient and effective interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
+One of the use cases of LODD datasets addressed in this paper is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.
 
 \section{Semantic Content Authoring}
 \label{sec:sca}
@@ -294,17 +294,17 @@ The main features of Pharmer can be summarized as:
 
 
 
-\begin{figure}[tb]
+\begin{figure*}[tb]
 	\centering
-		\includegraphics[width=1\columnwidth]{images/screenshot.jpg}
-	\caption{Screenshot of the Pharmer applicatpion.}
+		\includegraphics[width=0.95\textwidth]{images/screenshot1.jpg}
+	\caption{Screenshot of the Pharmer application (top-left: general view, top-right: drug information view, bottom-left: prescription authoring view, bottom-right: drug interaction-finder results).}
 	\label{fig:screenshot}
-\end{figure}
+\end{figure*}
 
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=1\columnwidth]{images/sc2.png}
-	\caption{Graph view.}
+	\caption{Graph view in Pharmer.}
 	\label{fig:graphview}
 \end{figure}
 
