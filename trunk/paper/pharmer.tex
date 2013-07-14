@@ -111,6 +111,7 @@ Therefore the most challenging aspect will not be the technology but rather chan
 Furthermore, the information generated via that approach can be employed as a data source for researchers.
 Drug companies are also able then to take the advantage of considering these informative statistical data.
 
+
 Semantic prescriptions as introduced in this paper are a proposed approach to utilize semantic web technologies in e-prescription systems.
 As intelligent prescriptions, they can automatically handle the medical errors occurring in prescriptions and increase the awareness of the patients about the prescribed drugs and drug consumption in general.
 Semantic prescriptions also enable the creation of more efficient and effective search approaches for drug discovery and consumption.
@@ -142,14 +143,26 @@ Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 
 	%\caption{Available datasets related to pharmaceutical research.}
 	%\label{fig:lod}
 %\end{figure}
-
+\subsection{Linked open drug data (LODD)}
 Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF~\cite{bio2rdf}, Chem2Bio2RDF~\cite{chembio}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\cite{lodd} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
-
 There are already many interesting information on pharmaceutical research available on the Web.
 The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials.
 LODD\cite{lodrug} has surveyed publicly available data about drugs, created Linked Data representations of the data sets, and identified interesting scientific and business questions that can be answered once the data sets are connected.
+One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.  there has been a lack of applications with good user interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
 
-One of the use cases of LODD datasets is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.
+\subsection{LODD applications in medical domain}
+There exists few approaches that addressed the medical and pharmaceutical applications using LODD. 
+Triplemap project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
+It is a web-based application that provides a rich, dynamic, visual interface to integrated RDF datasets such as the LODD.
+Showing a unexpected associations between entities related to researcher's interest is main advantage of TripleMap inspired  by the extensive, rich, interconnected data available in the LODD data sets.
+The goal of the project is to deliver and sustain an ‘open pharmacological space’ using and enhancing state-of-the-art semantic web standards and technologies.
+
+While the adoption of Linked Data is still not yet widespread, it is the topic of several large-scale cross-pharma projects.
+ An European project, the Open Pharmacological Space (OPS), Open PHACTS (Pharmacological Concept Triple Store) project under the European Innovative Medicines Initiative (IMI, [37]) aims to deliver and sustain an ‘open pharmacological space’ using and enhancing state-of-the-art semantic web standards and technologies.
+ Thus enable integration of chemical and biological data to support drug discovery. The project utilizes the Linked Data and managing the data in an RDF triple store.
+The European OpenTox project [40,41] uses RDF as a standard for the exchange of predictive toxicology related data. The OpenTox framework defines algorithms, models, data sets, and chemical compounds, in a distributed data storage and computing facility.
+
+
 
 \section{Semantic Content Authoring}
 \label{sec:sca}
@@ -427,5 +440,7 @@ Furthermore, we aim to integrate the other existing linked open datasets (e.g. r
 
 % that's all folks
 \end{document}
+
+
 
 
