@@ -51,16 +51,16 @@ Medication errors are the most common type of medical errors in health-care doma
 The use of electronic prescribing systems (e-prescribing) have resulted in significant reductions in such errors.
 However, dealing with the heterogeneity of available information sources is still one of the main challenges of e-prescription systems.
 There already exists different sources of information addressing different aspects of pharmaceutical research (e.g. chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets. etc.).
-Handling these dynamic information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
-The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources proposes a solution to this problem.
-In the domain of pharmaceutical research, many efforts have been done to create a linked open drug data.
-In this paper we present Pharmer as an approach to facilitate the creation of semantic medical prescriptions.
-Semantic prescriptions are intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
+Handling these dynamic information within current e-prescription systems without bridging the existing pharmaceutical information islands is a cumbersome task.
+%The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources proposes a solution to this problem.
+%In the domain of pharmaceutical research, many efforts have been done to create a linked open drug data.
+In this paper we present \emph{semantic medical prescriptions} which are intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
 Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers, pharmaceutical and insurance companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
 %Pharmer provides different views for the different personas involved in the process of e-prescribing.
+In order to showcase the applicability of semantic prescriptions we present an application called \emph{Pharmer}.
 Pharmer employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescriptions and to collect multidimensional data on them.
 %It also warns of the possible drug interactions in the prescription.
-We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
+%We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -387,29 +387,29 @@ Observing all the corresponding patient profiles will either confirm or reject t
  Pharmer allows insurance companies to customize and individualize their services based on patient's medical records. Recruiting Pharmer which contains information on insured drugs, the physician can choose the drugs accordingly.
  In the scenario,insurance company checks the dispensed medication with the disease and patient's insurance status therefore decides to refund the patient.
 
-\section{Evaluation}
-\label{sec:evaluation}
-In order to determine whether we succeeded to facilitate the creation of semantic prescriptions using Pharmer, we performed a usability user study with 13 subjects.
-Subjects were drawn from 3 physicians, 4 pharmacist, 3 pharmaceutical researchers and 3 students.
-We first showed them a tutorial video of using different features of Pharmer then asked each one to create a prescription with Pharmer.
-After finishing the task, we asked the participants to fill out a questionnaire which consisted of two parts: feature usage questions and usability experience questions.
-
-\begin{figure}[tb]
-	\centering
-		\includegraphics[width=1\columnwidth]{images/pharmer_evaluation.jpg}
-	\caption{Usability evaluation results for Pharmer (0: Strongly disagree, 1: Disagree, 2: Neutral, 3: Agree, 4: Strongly agree).}
-	\label{fig:pharmerevaluation}
-\end{figure}
-We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
-SUS is a standardized, simple, ten-item Likert scale-based questionnaire giving a global view of subjective assessments of usability.
-It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
-The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
-Participants particularly liked the integration of functionality and the ease of learning and use.
-The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
-Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
-However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
-In addition to quantitative results, we also collected a number of user suggestions.
-For instance some users suggested to provide a print-friendly document with all the patient's desired information.
+%\section{Evaluation}
+%\label{sec:evaluation}
+%In order to determine whether we succeeded to facilitate the creation of semantic prescriptions using Pharmer, we performed a usability user study with 13 subjects.
+%Subjects were drawn from 3 physicians, 4 pharmacist, 3 pharmaceutical researchers and 3 students.
+%We first showed them a tutorial video of using different features of Pharmer then asked each one to create a prescription with Pharmer.
+%After finishing the task, we asked the participants to fill out a questionnaire which consisted of two parts: feature usage questions and usability experience questions.
+%
+%\begin{figure}[tb]
+%	\centering
+%		\includegraphics[width=1\columnwidth]{images/pharmer_evaluation.jpg}
+%	\caption{Usability evaluation results for Pharmer (0: Strongly disagree, 1: Disagree, 2: Neutral, 3: Agree, 4: Strongly agree).}
+%	\label{fig:pharmerevaluation}
+%\end{figure}
+%We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
+%SUS is a standardized, simple, ten-item Likert scale-based questionnaire giving a global view of subjective assessments of usability.
+%It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
+%The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
+%Participants particularly liked the integration of functionality and the ease of learning and use.
+%The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
+%Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
+%However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
+%In addition to quantitative results, we also collected a number of user suggestions.
+%For instance some users suggested to provide a print-friendly document with all the patient's desired information.
 
 \section{Conclusion}
 \label{sec:conclusion}
