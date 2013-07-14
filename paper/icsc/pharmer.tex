@@ -203,7 +203,7 @@ Linked Open Data when combined with existing e-prescribing systems, proposes a s
 \section{Pharmer: Semantic Authoring of Medical Prescriptions}
 \label{sec:pharmer}
 Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
-The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \cite{pharmerproject}.
+The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \url{http://code.google.com/p/pharmer/}.
 As depicted in \autoref{fig:botup}, Pharmer adopts a bottom-up approach~\cite{khalili2012} for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
 
 \begin{figure}[tb]
@@ -257,6 +257,11 @@ The \emph{Fact Extractor} generates the RDF/Turtle representation of the semanti
 \subsection{Features}
 The main features of Pharmer can be summarized as:
 \begin{itemize}
+    \item \emph{WYSIWYM User Interface}.
+    Pharmer employs the WYSIWYM (What-You-See-Is-What-You-Mean) concept~\cite{wysiwym} for integrated visualization, exploration and authoring of un-structured and semantic content.
+    In Pharmer, users are able to directly manipulate the conventional e-prescriptions in order to enrich them with semantics.
+    The generated annotations can be viewed by different sets of user interfaces with are configurable by users.
+    For example, users can select specific border/background colors to distinguish the annotated drugs in a prescription.
 	\item \emph{Providing Different Semantic Views}.
 	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
 	Pharmer suggests two types of views: generic and domain specific views.
