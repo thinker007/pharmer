@@ -55,12 +55,12 @@ Handling these dynamic information within current e-prescription systems without
 %The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources proposes a solution to this problem.
 %In the domain of pharmaceutical research, many efforts have been done to create a linked open drug data.
 In this paper we present \emph{semantic medical prescriptions} which are intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
-Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers, pharmaceutical and insurance companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
+Semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers, pharmaceutical and insurance companies to collaboratively improve the quality of pharmaceutical services by faciplitating the process of shared decision making.
 %Pharmer provides different views for the different personas involved in the process of e-prescribing.
 In order to showcase the applicability of semantic prescriptions we present an application called \emph{Pharmer}.
 Pharmer employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescriptions and to collect multidimensional data on them.
 %It also warns of the possible drug interactions in the prescription.
-%We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
+We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -103,7 +103,7 @@ Semantic prescriptions as introduced in this paper are a proposed approach to ut
 As intelligent prescriptions, they can automatically handle the medical errors occurring in prescriptions and increase the awareness of the patients about the prescribed drugs and drug consumption in general.
 Semantic prescriptions also enable the creation of more efficient and effective search approaches for drug discovery and consumption.
 We created a tool called \emph{Pharmer} as a showcase application to facilitate the process of semantic prescription generation.
-Pharmer adopts a bottom-up approach for enriching the normal e-prescriptions with semantic annotations using a set of predefined datasets from linked open data.
+Pharmer adopts a bottom-up approach for enriching the normal e-prescriptions with semantic annotations using a set of predefined datasets from Linked Open Data.
 
 The remainder of this article is structured as follows:
 \autoref{sec:lod}, \autoref{sec:sca} and \autoref{sec:epresc} provide a background on the basic concepts such as Linked Open Data, Semantic Content Authoring and E-prescriptions employed in this paper.
@@ -214,18 +214,24 @@ There exist already different sources of information addressing different aspect
 Recruiting available e-prescription systems in order to connect the existing dynamic pharmaceutical information is a challenging task.
 Linked Open Data when combined with existing e-prescribing systems, proposes a solution to tackle this challenge.
 
-\section{Pharmer: Semantic Authoring of Medical Prescriptions}
-\label{sec:pharmer}
-Pharmer is an application created as a proof of concept for the authoring of semantic prescriptions.
-The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \url{http://code.google.com/p/pharmer/}.
-As depicted in \autoref{fig:botup}, Pharmer adopts a bottom-up approach~\cite{khalili2012} for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
-
 \begin{figure}[tb]
 	\centering
 		\includegraphics[width=1.0\columnwidth]{images/approaches.pdf}
 	\caption{Bottom-up semantic enrichment of prescriptions.}
 	\label{fig:botup}
 \end{figure}
+
+
+\section{Pharmer: Semantic Authoring of Medical Prescriptions}
+\label{sec:pharmer}
+\emph{Semantic Medical Prescriptions} are intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
+As depicted in \autoref{fig:botup}, semantic prescriptions are created based on a bottom-up process~\cite{khalili2012} in which normal e-prescriptions (unstructured or semi-structured with lower level of expressiveness) are enriched with semantic metadata coming from a set of predefined ontologies (with upper level of expressiveness).
+
+In order to showcase the applicability of semantic prescriptions we implemented an application called \emph{Pharmer}.
+%Pharmer is an Web-based software created as a proof of concept for the authoring of semantic prescriptions.
+The Pharmer implementation is open-source and available for download together with an explanatory video and online demo at \url{http://code.google.com/p/pharmer/}.
+%As depicted in \autoref{fig:botup}, Pharmer adopts a bottom-up approach~\cite{khalili2012} for enriching the normal e-prescriptions with semantic annotations using a set of predefined ontologies.
+Pharmer provides a platform for semantically annotation of conventional e-prescriptions.
 
 The basic ingredients of a semantic annotation system are ontologies, the documents and the annotations that link ontologies to documents~\cite{khalili2012}.
 Here, we need two kinds of ontologies:
@@ -279,7 +285,7 @@ The main features of Pharmer can be summarized as:
 	\item \emph{Providing Different Semantic Views}.
 	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
 	Pharmer suggests two types of views: generic and domain specific views.
-	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view\autoref{fig:graphview}.
+	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view in \autoref{fig:graphview}).
 	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
 	\item \emph{Real-time Drug Tagging.}
 	Real-time tagging means creating drug annotations while the user is typing.
@@ -326,7 +332,7 @@ Coadministration can either be synergistic or antagonistic which respectively in
 The interactions may sometimes lead to change in the drug effect.
 By applying semantic prescriptions, all types of drug interactions are prevented and the probability of errors in prescriptions are reduced to a great extend.
 
-A semantic prescription is a self-contained document which is aware of its content and is connected to the linked open data.
+A semantic prescription is a self-contained document which is aware of its content and is connected to the Linked Open Data.
 In contrast to database-oriented e-prescriptions, semantic prescriptions can easily be exchanged among other e-health systems without need to changing their related infrastructure hence enabling a connection between physicians, pharmacists, patients, pharmaceutical researchers, insurance and drug companies.
 
 Furthermore, semantic prescriptions increase the awareness of patients.
@@ -375,10 +381,10 @@ Considering the medication that the patient took before (\texttt{Glibenclamide} 
 \end{itemize}
 
 He then checks for the possible drug interactions by clicking the attributed button in the Pharmer software.
-As the Pharmer is connected to linked open data it is capable of recognizing the most recent updated drug interactions.
+As the Pharmer is connected to Linked Open Data it is capable of recognizing the most recent updated drug interactions.
 He finds out that Sulfunyl Urea class drugs (here \texttt{Glibenclamide}) are not compatible to be coadministrated with beta-blockers (here \texttt{Atenolol}).
 So, he needs to replace it with another drug.
-Using the Pharmer and its connection to linked open data, the physician can find the possible alternatives.
+Using the Pharmer and its connection to Linked Open Data, the physician can find the possible alternatives.
 Then he decides to choose \texttt{Captopril} as replacement.
 The semantic prescription is then sent to the patient's pharmacy of choice.
 There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware of the corresponding changes.
@@ -406,29 +412,29 @@ Observing all the corresponding patient profiles will either confirm or reject t
  Pharmer allows insurance companies to customize and individualize their services based on patient's medical records. Recruiting Pharmer which contains information on insured drugs, the physician can choose the drugs accordingly.
  In the scenario,insurance company checks the dispensed medication with the disease and patient's insurance status therefore decides to refund the patient.
 
-%\section{Evaluation}
-%\label{sec:evaluation}
-%In order to determine whether we succeeded to facilitate the creation of semantic prescriptions using Pharmer, we performed a usability user study with 13 subjects.
-%Subjects were drawn from 3 physicians, 4 pharmacist, 3 pharmaceutical researchers and 3 students.
-%We first showed them a tutorial video of using different features of Pharmer then asked each one to create a prescription with Pharmer.
-%After finishing the task, we asked the participants to fill out a questionnaire which consisted of two parts: feature usage questions and usability experience questions.
-%
-%\begin{figure}[tb]
-%	\centering
-%		\includegraphics[width=1\columnwidth]{images/pharmer_evaluation.jpg}
-%	\caption{Usability evaluation results for Pharmer (0: Strongly disagree, 1: Disagree, 2: Neutral, 3: Agree, 4: Strongly agree).}
-%	\label{fig:pharmerevaluation}
-%\end{figure}
-%We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
-%SUS is a standardized, simple, ten-item Likert scale-based questionnaire giving a global view of subjective assessments of usability.
-%It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
-%The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
-%Participants particularly liked the integration of functionality and the ease of learning and use.
-%The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
-%Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
-%However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
-%In addition to quantitative results, we also collected a number of user suggestions.
-%For instance some users suggested to provide a print-friendly document with all the patient's desired information.
+\section{Evaluation}
+\label{sec:evaluation}
+In order to determine whether we succeeded to facilitate the creation of semantic prescriptions using Pharmer, we performed a usability user study with 13 subjects.
+Subjects were drawn from 3 physicians, 4 pharmacist, 3 pharmaceutical researchers and 3 students.
+We first showed pthem a tutorial video of using different features of Pharmer then asked each one to create a prescription with Pharmer.
+After finishing the task, we asked the participants to fill out a questionnaire which consisted of two parts: feature usage questions and usability experience questions.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1\columnwidth]{images/pharmer_evaluation.jpg}
+	\caption{Usability evaluation results for Pharmer (0: Strongly disagree, 1: Disagree, 2: Neutral, 3: Agree, 4: Strongly agree).}
+	\label{fig:pharmerevaluation}
+\end{figure}
+We used the \emph{System Usability Scale} (SUS)~\cite{SUS2009} to grade the usability of Pharmer.
+SUS is a standardized, simple, ten-item Likert scale-based questionnaire giving a global view of subjective assessments of usability.
+It yields a single number in the range of 0 to 100 which represents a composite measure of the overall usability of the system.
+The results of our survey (cf. \autoref{fig:pharmerevaluation}) showed a mean usability score of \textbf{75} for Pharmer which indicates a good level of usability.
+Participants particularly liked the integration of functionality and the ease of learning and use.
+The confidence in using the system was slightly lower, which we attribute to the short learning phase and diverse functionality.
+Of course, this is a very simplified view on usability and we expect even better results could be achieved by putting more effort into the Pharmer development.
+However, our goal was to demonstrate that Pharmer implementations with good usability characteristics can be created with relatively limited effort.
+In addition to quantitative results, we also collected a number of user suggestions.
+For instance some users suggested to provide a print-friendly document with all the patient's desired information.
 
 \section{Conclusion}
 \label{sec:conclusion}
