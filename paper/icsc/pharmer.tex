@@ -76,6 +76,7 @@ Pharmer employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to autom
 
 As reported in MedicineNet~\cite{medicationErrors}, \emph{medication errors} are the most common type of medical errors in health care.
 Errors such as improper dose of medicine, adverse drug interactions, food interactions, etc. often stem from invalid prescriptions and unawareness of the patients.
+Medication-oriented errors are usually the result of failures during the medication process~\cite{SemMed}.
 Electronic prescriptions which are recently gaining attention in the e-health domain, are one of the solutions proposed to solve these type of errors.
 In an e-prescription system, prescriber electronically sends an accurate, error-free prescription directly to a pharmacy from the point-of-care.
 
@@ -130,14 +131,14 @@ Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 
 	\label{fig:lod}
 \end{figure}
 
-\subsection{Linked open drug data (LODD)}
+\subsection{Linked Open Drug Data (LODD)}
 Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF~\cite{bio2rdf}, Chem2Bio2RDF~\cite{chembio}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\cite{lodd} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
 
 There are already many interesting information on pharmaceutical research available on the Web.
 The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials.
 LODD\cite{lodrug} has surveyed publicly available data about drugs, created Linked Data representations of the data sets, and identified interesting scientific and business questions that can be answered once the data sets are connected (cf. \autoref{fig:lod}).
 
-\subsection{LODD applications in medical domain}
+\subsection{LODD Applications in Medical Domain}
 
 There exists few approaches that address the medical and pharmaceutical applications using LODD.
 \emph{TripleMap}\footnote{\url{http://www.triplemap.com}} is a project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
@@ -149,7 +150,7 @@ The goal of the TripleMap project is to deliver and sustain an ‘open pharmacol
  The goal of this project is integration of chemical and biological data using Linked Data standards to support drug discovery~\cite{Openphacts}.
 
 Although these projects address the backend side of creating LODD applications, there has been a clear lack of applications with user-friendly, efficient and effective interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
-One of the use cases of LODD datasets addressed in this paper is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by linked open data.
+One of the use cases of LODD datasets addressed in this paper is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by Linked Open Data.
 
 \section{Semantic Content Authoring}
 \label{sec:sca}
@@ -230,7 +231,7 @@ The basic ingredients of a semantic annotation system are ontologies, the docume
 Here, we need two kinds of ontologies:
 \emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
 \emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
-We use \url{Schema.org} MedicalTherapy vocabulary as our annotation ontology and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
+We use \url{Schema.org} MedicalTherapy and Drug vocabularies as our annotation ontologies and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
 
 
 \subsection{Architecture}
