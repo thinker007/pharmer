@@ -237,8 +237,7 @@ The basic ingredients of a semantic annotation system are ontologies, the docume
 Here, we need two kinds of ontologies:
 \emph{Annotation ontologies} (i.e. metadata schemata) which define what kind of properties and value types should be used for describing a resource.
 \emph{Domain ontologies} which are used to define vocabularies providing possible values for metadata properties.
-We use \url{Schema.org} MedicalTherapy and Drug vocabularies as our annotation ontologies and utilize the existing pharmaceutical linked datasets such as DBpedia, DrugBank, DailyMed and RxNorm as our domain ontology.
-
+We use \url{Schema.org} MedicalTherapy and Drug vocabularies as our annotation ontologies and utilize the existing pharmaceutical linked datasets such as DBpedia\footnote{Extracted structured information from Wikipedia available at \url{dbpedia.org}}, DrugBank\footnote{A bioinformatics and cheminformatics resource that combines detailed drug (i.e. chemical, pharmacological and pharmaceutical) data with comprehensive drug target (i.e. sequence, structure, and pathway) available at \url{http://www.drugbank.ca}}, DailyMed\footnote{Information about marketed drugs available at \url{http://dailymed.nlm.nih.gov}} and RxNorm\footnote{A normalized naming system for generic and branded drugs available at  \url{http://www.nlm.nih.gov/research/umls/rxnorm/}} as our domain ontology.
 
 \subsection{Architecture}
 
@@ -253,8 +252,12 @@ The Pharmer system architecture is depicted in \autoref{fig:arch} and consists o
 
 \paragraph{Document Layer} This layer includes the traditional e-prescription document plus two components as \emph{Drug Detection} and \emph{Drug Information Collector}.
 Drug detection component performs the natural language processing (NLP) of the e-prescription document to detect the terms referring to a drug in the prescription.
-The component uses DBpedia spotlight~\cite{dbspotlight} and BioPortal annotator~\cite{bioportal} NLP services to parse and analyze the text looking for known drugs.
-It is configurable so that users can easily add other existing NLP services for drug detection.
+The component uses \emph{DBpedia Spotlight}~\cite{dbspotlight} and \emph{BioPortal annotator}~\cite{bioportal} NLP services to parse and analyze the text looking for known drugs.
+DBpedia Spotlight is a tool for automatically annotating mentions of DBpedia resources in text (i.e. Named Entity Recognition).
+BioPortal annotator is an ontology-based Web service that annotates public datasets with biomedical ontology concepts based on their textual metadata. 
+%describing NLP APIs
+
+Automatic drug detection component is configurable so that users can easily add other existing NLP services for drug detection.
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
 Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
