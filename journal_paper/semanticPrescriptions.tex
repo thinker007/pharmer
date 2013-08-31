@@ -1,0 +1,124 @@
+
+\documentclass[journal]{IEEEtran}
+
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hhline} % easy to manage table borders
+\usepackage{colortbl} % colored cells in tables
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{slashbox} % cell with slash inside
+\usepackage{makeidx}  % allows index generation
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Semantic Prescriptions -- Towards Intelligent and Interoperable Medical Prescriptions }
+
+\author{Ali~Khalili
+        and~Bita~Sedaghati
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem A. Khalili is with the Institute of Informatics, University of Leipzig, Germany.
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+E-mail: khalili@informatik.uni-leipzig.de
+\IEEEcompsocthanksitem B. Sedaghati is with Institute of Pharmacy, University of Leipzig, Germany.
+E-mail: bita.sedaghati@uni-leipzig.de
+}
+}
+
+
+% The paper headers
+\markboth{International Journal On Advances in Life Sciences v 5 n 3\&4 2013}%
+{Khalili \MakeLowercase{\textit{et al.}}: Semantic Medical Prescriptions}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+%
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+The recent proliferation of Linked Open Data that enables the integration of multiple disparate data sources brings into the spotlight a new generation of knowledge management applications.
+Particularly in the domain of pharmaceutical research and development, many efforts have been done to create a linked open drug data.
+In this paper we present the Pharmer as an approach to facilitate the creation of semantic prescriptions.
+Semantic prescriptions are intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
+In an e-health system, semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
+Pharmer provides different views for the different personas involved in the process of e-prescribing.
+It employs datasets such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in the prescription and to collect multidimensional data on them.
+Eventually it warns of the possible drug interactions in the prescription.
+We evaluate the feasibility of the Pharmer by conducting a usability evaluation and report on the quantitative and qualitative results of our survey.
+\end{abstract}
+
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+ Semantic prescription, e-prescription, semantic annotation, e-health.
+\end{IEEEkeywords}
+
+
+
+\IEEEpeerreviewmaketitle
+
+
+\section{Introduction}
+\label{intro}
+
+\section{LODD Applications}
+\label{lod}
+
+\section{Semantic Content Authoring}
+\label{sca}
+
+
+\section{Semantic E-Prescribing}
+\label{sep}
+
+\subsection{Architecture}
+
+\subsection{Features}
+
+\section{Mobile App}
+\label{mobile}
+
+\section{Pharmer as a professional network}
+\label{pharmernet}
+
+\subsection{Shared Decision Making}
+
+\subsection{Fast Diagnostic Tool}
+
+\subsection{Privacy}
+
+\section{Example Scenario}
+\label{es}
+
+\section{Outlook}
+\label{outlook}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\begin{spacing}{0.3}
+%\bibliographystyle{IEEEtran}
+%\bibliography{refs}
+\end{spacing}
+
+% that's all folks
+\end{document}
+
+
