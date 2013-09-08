@@ -192,9 +192,30 @@ WYSIWYG text authoring is meanwhile ubiquitous on the Web and part of most conte
 It is part of content management cystems (CMS), weblogs, wikis, fora, product data management systems and online shops, just to mention a few.
 However, the WYSIWYG model has been criticized, primarily for the verbosity, poor support of semantics and low quality of the generated code and there have been voices advocating a change towards a \emph{WYSIWYM} (What-You-See-Is-What-You-Mean) model~\cite{Spiesser2004,Sauer2006}.
 
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/model.pdf}
+	\caption{WYSIWYM onceptual view.}
+	\label{fig:wysiwym}
+\end{figure}
+
 Similar to the WYSIWYG UI, the WYSIWYM term as defined in \cite{khaliliWISE2013} targets the novel aspect of integrated visualization, exploration and authoring of unstructured and semantic content.
 The rationale of our WYSIWYM concept is to enrich the existing WYSIWYG presentational view of the content with UI components revealing the \emph{semantics} embedded in the content and enable the exploration and authoring of semantic content.
 Instead of separating presentation, content and meaning, our WYSIWYM approach aims to integrate these aspects to facilitate the process of \emph{Semantic Content Authoring}.
+
+WYSIWYM model as depicted in \autoref{fig:wysiwym}, is defined by:
+\begin{itemize}
+	\item a set of semantic representation data models (e.g. RDF), where each one has an associated set of data model elements;
+	\item a set of visualization techniques (e.g. framing using borders and background) and a set of possible configurations for them;
+	\item a set of exploration techniques (e.g. faceted browsing based on the type of entities) and a set of possible configurations for them;
+	\item a set of authoring techniques (e.g. form editing, inline edit) and a set of possible configurations for them;
+	\item a set of bindings to map each element of a semantic representation model to a visualization/exploration/authoring technique;
+	\item a set of helper components (e.g. automation, real-time tagging, recommendation).
+\end{itemize}
+
+Medical prescriptions are a good candidate to be enriched by the WYSIWYM semantic annotations interface.
+Semantically enriched prescriptions enable the traditionally written prescriptions to be utilized in novel ways as discussed above.
+In the following sections, we first describe the e-prescriptions and then discuss how they can be enriched as semantic documents.
 
 \section{Semantic E-Prescribing}
 \label{sec:sep}
@@ -391,10 +412,10 @@ Furthermore, we aim to integrate the other existing linked open datasets (e.g. r
 We would like to thank our colleagues from the AKSW research group (\url{http://aksw.org}) for their helpful comments and inspiring discussions during the development of the WYSIWYM model for authoring of semantic medical prescriptions.
 This work was partially supported by a grant from the German Academic Exchange Service (DAAD).
 
-\begin{spacing}{0.3}
+%\begin{spacing}{0.3}
 \bibliographystyle{IEEEtran}
 \bibliography{refs1,refs2,refs3}
-\end{spacing}
+%\end{spacing}
 
 % that's all folks
 \end{document}
