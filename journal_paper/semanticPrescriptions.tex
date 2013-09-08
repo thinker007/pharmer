@@ -26,7 +26,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Semantic Enrichment of E-Prescriptions using Linked Open Data}
+\title{A WYSIWYM Interface for Semantic Enrichment of E-Prescriptions using Linked Open Drug Data}
 
 \author{Ali~Khalili
         and~Bita~Sedaghati
@@ -41,7 +41,7 @@ E-mail: bita.sedaghati@uni-leipzig.de
 
 
 % The paper headers
-\markboth{International Journal On Advances in Life Sciences}%
+\markboth{International Journal On Advances in Life Sciences, v 5 n 3\&4 2013}%
 {Khalili \MakeLowercase{\textit{et al.}}: Semantic Medical Prescriptions}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
@@ -52,19 +52,20 @@ E-mail: bita.sedaghati@uni-leipzig.de
 
 
 \begin{abstract}
-In this paper we present an approach to enrich electronic prescriptions using linked open data.
-As a result we define semantic medical prescriptions as intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
+In this paper we present an approach to enrich electronic prescriptions using linked open drug data.
+The proposed approach employs WYSIWYM (What-You-See-Is-What-You-Mean) interface for integrated authoring, visualization and browsing of semantic data in medical prescriptions.
+The generated semantic medical prescriptions serve as intelligent e-prescription documents enriched by drug-related meta-data thereby know about their content and the possible interactions.
 In an e-health system, semantic prescriptions provide an interoperable interface which helps patients, physicians, pharmacists, researchers and pharma companies to collaboratively improve the quality of pharmaceutical services by facilitating the process of shared decision making.
-In order to showcase semantic prescription we develop a mobile web application called Pharmer.
+In order to showcase semantic prescription we develop a mobile/web application called Pharmer.
 Pharmer provides different views for the different personas involved in the process of e-prescribing.
 It employs datasets in Linked Open Drug Data (LODD) such as DBpedia, DrugBank, DailyMed and RxNorm to automatically detect the drugs in a prescription and to collect multidimensional data on them.
-Eventually it warns of the possible drug interactions in the prescription.
+It also supports automatic prevention of possible drug interactions in a prescription.
 \end{abstract}
 
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
- Semantic prescription, e-prescription, semantic annotation, e-health.
+ Semantic prescription, e-prescription, WYSIWYM, semantic annotation, e-health.
 \end{IEEEkeywords}
 
 
@@ -75,22 +76,108 @@ Eventually it warns of the possible drug interactions in the prescription.
 \section{Introduction}
 \label{intro}
 
+As reported in MedicineNet~\cite{medicationErrors}, \emph{medication errors} are the most common type of medical errors in health care.
+Errors such as improper dose of medicine, adverse drug interactions, food interactions, etc. often stem from invalid prescriptions and unawareness of the patients.
+Medication-oriented errors are usually the result of failures during the medication process~\cite{SemMed}.
+Electronic prescriptions which are recently gaining attention in the e-health domain, are one of the solutions proposed to solve these type of errors.
+In an e-prescription system, prescriber electronically sends an accurate, error-free prescription directly to a pharmacy from the point-of-care.
+
+During the recent years, the adoption of e-prescriptions has been spreading relatively rapidly.
+In the US, the so called \emph{Electronic Prescribing Incentive Program} is a reporting program that uses a combination of incentive payments and payment adjustments to encourage electronic prescribing by eligible professionals.~\cite{epincentive}.
+As recently published by \cite{eprescStat2013} hospitals' use of computerized prescriptions prevented 17 million drug errors in a single year in the United States.
+The \emph{Canadian Medical Association} (CMA) and the \emph{Canadian Pharmacists Association} (CPhA) have approved a joint statement on the future of e-prescribing that aims to have all prescriptions for Canadians created, signed and transmitted electronically by 2015.
+The Australian government removed commonwealth legislative barriers to electronic prescribing started from 2007~\cite{medicare}.
+A system called \emph{epSOS}~\cite{epsos} which performs the use of e-prescriptions all around Europe, is currently passing the extensive practical testing phase.
+
+However, one of the main challenges in current e-prescription systems is dealing with the heterogeneity of available information sources.
+There exist already different sources of information addressing different aspects of pharmaceutical research.
+Information about chemical, pharmacological and pharmaceutical drug data, clinical trials, approved prescription drugs, drugs activity against drug targets such as proteins, gene-disease-drug associations, adverse effects of marketed drugs, etc. are some examples of these diverse information.
+Managing these dynamic pieces of information within current e-prescription systems without blurring the border of the existing pharmaceutical information islands is a cumbersome task.
+On the other hand, \emph{Linked Open Data} as an effort to interlink and integrate these isolated sources of information is obtaining more attention in the domain of pharmaceutical, medical and life sciences.
+
+Combining the best practices from Linked Open Data together with e-prescription systems can provide an opportunity for patients, researchers as well as practitioners to collaborate together in a synergetic way.
+A consequence of introducing linked data in health care sector is that it significantly changes the daily duties of the employees of the health care sector.
+Therefore the most challenging aspect will not be the technology but rather changing the mind-set of the employees and the training of the new technology\cite{challengesEP}.
+Furthermore, the information generated via that approach can be employed as a data source for researchers.
+Drug companies are also able then to take the advantage of considering these informative statistical data.
+
+Semantic prescriptions are a proposed approach to utilize semantic web technologies in e-prescription systems.
+As intelligent prescriptions, they can automatically handle the medical errors occurring in prescriptions and increase the awareness of the patients about the prescribed drugs and drug consumption in general.
+Semantic prescriptions also enable the creation of more efficient and effective search approaches for drug discovery and consumption.
+We created a tool called \emph{Pharmer} as a showcase application to facilitate the process of semantic prescription generation.
+Pharmer adopts a bottom-up approach for enriching the normal e-prescriptions with semantic annotations using a set of predefined datasets from Linked Open Data.
+
+In this article, we elaborate on the basic requirements of semantic prescriptions and will extend our previously published work\cite{pharmerOLD} to address novel user interfaces as well as novel shareholders to take advantage out of the semantic medical prescriptions.
+
+The remainder of this article is structured as follows:
+\autoref{sec:lod},\autoref{sec:sca} and \autoref{sec:wysiwym} provide a background on the basic concepts such as Linked Open Data, Semantic Content Authoring and WYSIWYM interface employed in this paper.
+In \autoref{sec:sep}, we describe the process of semantic e-prescribing and will showcase Pharmer as a WYSIWYM UI to effectively create semantic prescriptions.
+Then we discuss the possible use cases of Pharmer in \autoref{sec:usecases}.
+To better clarify the use cases of the Pharmer system, an example scenario including Pharmer stakeholders is drawn in \autoref{sec:example}.
+Finally \autoref{sec:conclusion} concludes with an outlook on future work.
+
 \section{LODD Applications}
-\label{lod}
+\label{sec:lod}
+
+In computing, \emph{Linked Data} describes a method of publishing structured data so that it can be interlinked and become more useful.
+It builds upon standard Web technologies such as HTTP and URIs, but rather than using them to serve web pages for human readers, it extends them to share information in a way that can be read automatically by computers.
+This enables data from different sources to be connected and queried \cite{linkeddata}.
+Tim Berners-Lee, the inventor of the Web and Linked Data initiator, suggested a 5 star deployment scheme for \emph{Linked Open Data}:
+1) make your stuff available on the Web (whatever format) under an open license,
+2) make it available as structured data (e.g., Excel instead of image scan of a table),
+3) use non-proprietary formats (e.g., CSV instead of Excel),
+4) use URIs to identify things, so that people can point at your stuff,
+5) link your data to other data to provide context.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/lod_cloud.png}
+	\caption{Available datasets related to life sciences and pharmaceutical research.}
+	\label{fig:lod}
+\end{figure}
+
+\subsection{Linked Open Drug Data (LODD)}
+Particularly in the areas of health care and life sciences with the wealth of available data, large scale integration projects like Bio2RDF~\cite{bio2rdf}, Chem2Bio2RDF~\cite{chembio}, and the W3C HCLS’s (Health Care and Life Sciences) Linked Open Drug Data (LODD)\cite{lodd} have not only significantly contributed to the development of the Linked Open Data effort, but have also made social and technical contributions towards data integration, knowledge management, and knowledge discovery.
+
+There are already many interesting information on pharmaceutical research available on the Web.
+The sources of data range from drugs general information, interactions and impacts of the drugs on gene expression, through to the results of clinical trials.
+LODD\cite{lodrug} has surveyed publicly available data about drugs, created Linked Data representations of the data sets, and identified interesting scientific and business questions that can be answered once the data sets are connected (cf. \autoref{fig:lod}).
+
+\subsection{LODD Applications in Medical Domain}
+
+There exists few approaches that address the medical and pharmaceutical applications using LODD.
+\emph{TripleMap}\footnote{\url{http://www.triplemap.com}} is a project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
+TripleMap as a web-based application provides a dynamic visual interface to integrate RDF datasets such as the LODD.
+Showing an unexpected associations between entities related to researcher's interest is main advantage of TripleMap inspired  by the broad interconnected data available in the LODD data sets.
+The goal of the TripleMap project is to deliver and sustain an ‘open pharmacological space’ by using and enhancing the state-of-the-art semantic web standards and technologies\cite{TripleMap}.
+
+ Another related project is the Open Pharmacological Space (OPS), \emph{Open PHACTS} (Pharmacological Concept Triple Store) \footnote{\url{http://www.openphacts.org}} project under the European Innovative Medicines Initiative (IMI) \footnote{\url{http://www.imi.europa.eu/}}.
+ The goal of this project is integration of chemical and biological data using Linked Data standards to support drug discovery~\cite{Openphacts}.
+
+\emph{Linked Cancer Genome Atlas Database}\cite{SAL13} as another Linked Data project aims to create an atlas of genetic mutations responsible for cancer.
+The project provides an infrastructure for making the cancer related data publicly accessible and to enable cancer researchers anywhere around the world to make and validate important discoveries.
+
+Although these projects address the backend side of creating LODD applications, there has been a clear lack of applications with user-friendly, efficient and effective interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
+One of the use cases of LODD datasets addressed in this paper is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by Linked Open Data.
 
 \section{Semantic Content Authoring}
-\label{sca}
+\label{sec:sca}
 
+\section{WYSIWYM Interface}
+\label{sec:wysiwym}
 
 \section{Semantic E-Prescribing}
-\label{sep}
+\label{sec:sep}
 
 \subsection{Architecture}
 
 \subsection{Features}
 
-\section{Pharmer as a Ubiquitous Computing Platform for Semantic E-Prescribing}
-\label{mobile}
+\section{Use cases}
+\label{sec:usecases}
+
+\subsection{Pharmer as a Ubiquitous Computing Platform for Semantic E-Prescribing}
+\label{sec:mobile}
 
 \begin{figure*}[tb]
  \centering
@@ -103,12 +190,12 @@ Mobile and ubiquitous computing devices are increasingly present and prevalent i
 This trend brings a number of possibilities of \emph{mobile health} (m-health) to address critical aspects of health care and health system needs, by virtue of these devices’ ubiquity, simplicity, and cost-efficiency~\cite{mHealth}.
 In particular, in the process of semantic e-prescribing, having a mobile application will facilitate the creation of semantic medical prescriptions using any device and in any location.
 
-Pharmer mobile application\footnote{ At the time of writing this paper, the Pharmer mobile application is still under development. The first beta version will be available on AppStore soon.} as shown in \autoref{fig:mobile} provides a mobile user interface for authoring of semantic prescriptions as well as accessing multi-dimensional data on medical prescriptions.
+Pharmer mobile application as shown in \autoref{fig:mobile} provides a mobile user interface for authoring of semantic prescriptions as well as accessing multi-dimensional data on medical prescriptions.
 Current ubiquitous devices are programmable and come with a growing set of facilities including multi-touch screens and cheap powerful embedded sensors, such as an accelerometer, digital compass, gyroscope, GPS, microphone, camera and other type of sensors.
 Utilizing these rich set of facilities in the context of medical prescriptions will enrich the patient medical prescription with sensor data thereby improves the quality of e-health services.
 
-\section{Pharmer as a Professional Social Network for Health-care Service Providers}
-\label{Pharmernet}
+\subsection{Pharmer as a Professional Social Network for Health-care Service Providers}
+\label{sec:Pharmernet}
 Pharmer offers couple of advantages over current e-prescribing systems:
 The main benefit of using semantic prescriptions is the persistent connection to up-to-date drug information coming from multiple dynamic data sources.
 So, when the information about a drug is updated occurs (e.g. change in its effects or interactions), the semantic prescription automatically adopts to this new change.
@@ -131,7 +218,7 @@ As information source, the network accesses LODD, where diagnostic and prescribi
 Accessing such pieces of information, Pharmer is able to be used as a tool for diagnosis and prescribing in assistance to physicians.
 Privacy of that network is also a critical point worth considerations.
 
-\subsection{Shared Decision Making}
+\subsubsection{Shared Decision Making}
 \label{subsec: SDM}
  The traditional model of medical decision-making, in which doctors make decisions on treatment has no longer used in updated health care.
  The role of the patient, instead, in the consultation has been highlighted, mainly through introducing‘patient-centred’ strategies.
@@ -148,23 +235,21 @@ Privacy of that network is also a critical point worth considerations.
 
 Pharmer as social network facilitates shared decision making through the connection amongst patient and physician on one hand and pharmacist on the other hand. According to Charles et al. model, Pharmer not only connects patients and physicians but also pharmacist as third party has an supervisory role on medication choice.
 
-\subsection{Fast Diagnostic Tool}
+\subsubsection{Fast Diagnostic Tool}
 
 Free access to LODD enables Pharmer to not only linked to e-prescribing systems but also to further assist physicians in diagnosis and treatment. Pharmer with direct connection to up-to-date information enables physicians to reconfirm their diagnosis and help them in finding proper treatment approaches.
 Physician, after general examination, enters the observed symptoms in Pharmer system and there, with the wealth of data available, Pharmer assists in diagnosis followed by therapies.
 
-\subsection{Privacy}
+\subsubsection{Privacy}
  Systems containing patient treatment history profiles, such as Pharmer, are required to be considered about privacy issues.
  This issue is solved by providing different users, with different views which is password protected.
  In such a protection, patient has only access to his profile while physician has access to all data of his patients, the same holds true for pharmacists and insurance companies.
  Other organisations(e.g. research institutes or pharma companies) can access to patients information as statistical data and only if the patient agrees.
  This protection helps Pharmer users to ensure data privacy.
 
-\section{Example Scenario}
-\label{es}
+\subsection{Example Scenario}
+\label{sec:example}
 
-\section{Outlook}
-\label{outlook}
 
 \section{Conclusion}
 \label{sec:conclusion}
