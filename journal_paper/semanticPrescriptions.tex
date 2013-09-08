@@ -163,15 +163,141 @@ One of the use cases of LODD datasets addressed in this paper is authoring of \e
 \section{Semantic Content Authoring}
 \label{sec:sca}
 
-\section{WYSIWYM Interface}
+A \emph{Semantic Document} is an intelligent document (with explicit semantic structure) which ``knows about" its own content so that it can be automatically processed in unforeseen ways.
+Semantic documents facilitate a number of important aspects of information management~\cite{rdface}.
+For \emph{search and retrieval}, they provide more efficient and effective search interfaces, such as faceted search~\cite{tunkenlang2009faceted} or question answering~\cite{Lopez2011}.
+In \emph{information presentation}, they support more sophisticated ways of flexibly visualizing information, such as by means of semantic overlays as described in~\cite{Burel2009}.
+In \emph{information integration}, they provide unified views on heterogeneous data stored in different applications by creating composite applications such as semantic mashups~\cite{Ankolekar2007}.
+For \emph{personalization}, they provide customized and context-specific information which better fits user needs and will
+result in delivering customized applications such as personalized semantic portals~\cite{ecs2007}.
+For \emph{reusability} and \emph{interoperability}, they facilitate exchanging content between disparate systems and enabling applications such as executable papers~\cite{Muller2011}.
+
+
+The above benefits, however, come at the cost of increased authoring effort. %~\cite{hasida2007,uren2006}
+A \emph{Semantic Authoring User Interface} is a human accessible interface with capabilities for writing and modifying semantic documents which are either.
+\emph{Semantic Content Authoring} (SCA) is a tool-supported manual composition process aiming at the creation of semantic documents which are either:
+\begin{itemize}
+	\item fully semantic in the sense that their original data model uses a semantic knowledge representation formalism (such as RDF, RDF-Schema or OWL) or
+	\item based on a non-semantic representation form (e.g. text or hypertext), which is enriched with semantic representations during the authoring process.\\
+\end{itemize}
+
+With an ontology and a user interface appropriate for the type of content, semantic authoring can be easier than traditional composition of content and the resulting content can be of higher quality~\cite{hasida2007}.
+
+
+\section{WYSIWYM User Interface}
 \label{sec:wysiwym}
+
+The term \emph{WYSIWYG} as an acronym for What-You-See-Is-What-You-Get is used in computing to describe a system in which content (text and graphics) displayed on-screen during editing appears in a form closely corresponding to its appearance when printed or displayed as a finished product.
+WYSIWYG text authoring is meanwhile ubiquitous on the Web and part of most content creation and management workflows.
+It is part of content management cystems (CMS), weblogs, wikis, fora, product data management systems and online shops, just to mention a few.
+However, the WYSIWYG model has been criticized, primarily for the verbosity, poor support of semantics and low quality of the generated code and there have been voices advocating a change towards a \emph{WYSIWYM} (What-You-See-Is-What-You-Mean) model~\cite{Spiesser2004,Sauer2006}.
+
+Similar to the WYSIWYG UI, the WYSIWYM term as defined in \cite{khaliliWISE2013} targets the novel aspect of integrated visualization, exploration and authoring of unstructured and semantic content.
+The rationale of our WYSIWYM concept is to enrich the existing WYSIWYG presentational view of the content with UI components revealing the \emph{semantics} embedded in the content and enable the exploration and authoring of semantic content.
+Instead of separating presentation, content and meaning, our WYSIWYM approach aims to integrate these aspects to facilitate the process of \emph{Semantic Content Authoring}.
 
 \section{Semantic E-Prescribing}
 \label{sec:sep}
 
+E-health has evolved and emerged recently in many forms.
+E-prescription is one of those forms and defined as a computer-generated prescription utilized by health-care providers.
+E-prescribing as it is commonly called, is the use of an automated data entry system to generate a prescription that is then transmitted through a special network to a pharmacy in such a way that the data goes directly into the pharmacy’s computer system.
+It plays an important role in improving the quality of patient care.
+For the prescriber, e-prescribing happens when a physician uses a computer or handheld device with a software that allows him or her to (with the patient’s consent) electronically access information regarding a patient’s drug benefit coverage and medication history; electronically transmit the prescription to the patient’s pharmacy of choice; and, when the patient runs out of refills, his or her pharmacist can also electronically send a renewal request to the physician’s office for approval.
+
+One of the main challenges of the current e-prescription systems is the heterogeneity and evolving nature of available information sources.
+There exist already different sources of information addressing different aspects of pharmaceutical research.
+Recruiting available e-prescription systems in order to connect the existing dynamic pharmaceutical information is a challenging task.
+Linked Open Data when combined with existing e-prescribing systems, proposes a solution to tackle this challenge.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1.0\columnwidth]{images/approaches.pdf}
+	\caption{Bottom-up semantic enrichment of prescriptions.}
+	\label{fig:botup}
+\end{figure}
+
+We define \emph{Semantic Medical Prescriptions} as intelligent e-prescription documents enriched by dynamic drug-related meta-data thereby know about their content and the possible interactions.
+As depicted in \autoref{fig:botup}, semantic prescriptions are created based on a bottom-up process~\cite{khalili2012} in which normal e-prescriptions (unstructured or semi-structured with lower level of expressiveness) are enriched with semantic metadata coming from a set of predefined ontologies (with upper level of expressiveness).
+
 \subsection{Architecture}
 
+The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers:
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1\columnwidth]{images/architecture.pdf}
+	\caption{Architecture of the Pharmer system.}
+	\label{fig:arch}
+\end{figure}
+
+\paragraph{Document Layer} This layer includes the traditional e-prescription document plus two components as \emph{Drug Detection} and \emph{Drug Information Collector}.
+Drug detection component performs the natural language processing (NLP) of the e-prescription document to detect the terms referring to a drug in the prescription.
+The component uses \emph{DBpedia Spotlight}~\cite{dbspotlight} and \emph{BioPortal annotator}~\cite{bioportal} NLP services to parse and analyze the text looking for known drugs.
+DBpedia Spotlight is a tool for automatically annotating mentions of DBpedia resources in text (i.e. Named Entity Recognition).
+BioPortal annotator is an ontology-based Web service that annotates public datasets with biomedical ontology concepts based on their textual metadata.
+%describing NLP APIs
+
+Automatic drug detection component is configurable so that users can easily add other existing NLP services for drug detection.
+When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
+
+Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodd}) by sending federated SPARQL queries.
+
+\paragraph{Semantic Layer}
+There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
+The \emph{annotator} component handles the automatic annotation and embeds the general information of the drugs as meta-data into the e-prescription.
+Annotator adopts the RDFa format. \emph{RDFa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
+RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability.
+
+The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
+
+\paragraph{Application Layer}
+This layer provides a set of applications on top of the generated semantic prescriptions.
+\emph{Interaction Finder} checks the possible interactions between the prescribed drugs and warn the prescriber about them.
+\emph{Visualizer} is responsible for graphically representing the embedded semantics of a prescription (e.g. as depicted in \autoref{fig:graphview}).
+The \emph{Fact Extractor} generates the RDF/Turtle representation of the semantic prescriptions.
+
 \subsection{Features}
+The main features of Pharmer can be summarized as:
+\begin{itemize}
+    \item \emph{WYSIWYM User Interface}.
+    Pharmer employs the WYSIWYM (What-You-See-Is-What-You-Mean) concept for integrated visualization, exploration and authoring of un-structured and semantic content.
+    In Pharmer, users are able to directly manipulate the conventional e-prescriptions in order to enrich them with semantics.
+    The generated annotations can be viewed by different sets of user interfaces with are configurable by users.
+    For example, users can select specific border/background colors to distinguish the annotated drugs in a prescription.
+	\item \emph{Providing Different Semantic Views}.
+	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
+	Pharmer suggests two types of views: generic and domain specific views.
+	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view in \autoref{fig:graphview}).
+	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
+	\item \emph{Real-time Drug Tagging.}
+	Real-time tagging means creating drug annotations while the user is typing.
+	This will significantly increase the annotation speed~\cite{OCA}.
+	Users are not distracted since they do not have to interrupt their current authoring task.
+	Pharmer has a client-side component which interacts with the server asynchronously to make real-time tagging possible.
+	\item \emph{Drug Suggestion.}
+		When searching for a drug, Pharmer suggests the similar drugs by taking into account the history of search terms.
+    \item \emph{Automatic Drug Annotation.}
+    Automatic annotation means the provision of facilities for automatic mark-up of prescriptions.
+    The automatic process of annotating in Pharmer is composed basically of finding drug terms in prescription using an NLP service, mapping them against an ontology, and disambiguating common terms.
+\end{itemize}
+
+
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=0.95\columnwidth]{images/screenshot.jpg}
+	\caption{Screenshot of the Pharmer application (general view, drug information view and prescription authoring view).}
+	\label{fig:screenshot}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=1\columnwidth]{images/sc2.png}
+	\caption{Graph view in Pharmer.}
+	\label{fig:graphview}
+\end{figure}
 
 \section{Use cases}
 \label{sec:usecases}
@@ -254,9 +380,20 @@ Physician, after general examination, enters the observed symptoms in Pharmer sy
 \section{Conclusion}
 \label{sec:conclusion}
 
+Providing a consistent connection between patients, physicians, pharmacists, pharmaceutical researchers and pharma companies is a crucial step towards enhancing the quality of knowledge management and thereby e-health services in the pharmaceutical domain.
+With Pharmer, we presented in this article an approach for user-friendly implementation of \emph{Semantic Prescriptions} as intelligent medical prescriptions to improve the integration and interoperability of e-prescribing systems with other e-health services.
+
+We see the work presented in this article as an initial step in a larger research agenda aiming at promoting the authoring and annotation of semantically enriched medical documents.
+Regarding future work, we envision to extend the Pharmer application towards different modalities, such that the annotation of images and other medical objects is supported.
+Furthermore, we aim to integrate the other existing linked open datasets (e.g. related to publications, laboratories or insurance documents) into the Pharmer to extend its stakeholders.
+
+\section*{Acknowledgments}
+We would like to thank our colleagues from the AKSW research group (\url{http://aksw.org}) for their helpful comments and inspiring discussions during the development of the WYSIWYM model for authoring of semantic medical prescriptions.
+This work was partially supported by a grant from the German Academic Exchange Service (DAAD).
+
 \begin{spacing}{0.3}
 \bibliographystyle{IEEEtran}
-\bibliography{refs}
+\bibliography{refs1,refs2,refs3}
 \end{spacing}
 
 % that's all folks
