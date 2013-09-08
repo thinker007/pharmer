@@ -149,13 +149,13 @@ There exists few approaches that address the medical and pharmaceutical applicat
 \emph{TripleMap}\footnote{\url{http://www.triplemap.com}} is a project connecting widespread distribution of journal articles, patents and numerous databases in pharmaceutics research.
 TripleMap as a web-based application provides a dynamic visual interface to integrate RDF datasets such as the LODD.
 Showing an unexpected associations between entities related to researcher's interest is main advantage of TripleMap inspired  by the broad interconnected data available in the LODD data sets.
-The goal of the TripleMap project is to deliver and sustain an ‘open pharmacological space’ by using and enhancing the state-of-the-art semantic web standards and technologies\cite{TripleMap}.
+The goal of the TripleMap project is to deliver and sustain an ‘open pharmacological space’ by using and enhancing the state-of-the-art semantic web standards and technologies\cite{TripleMap}.\\
 
  Another related project is the Open Pharmacological Space (OPS), \emph{Open PHACTS} (Pharmacological Concept Triple Store) \footnote{\url{http://www.openphacts.org}} project under the European Innovative Medicines Initiative (IMI) \footnote{\url{http://www.imi.europa.eu/}}.
- The goal of this project is integration of chemical and biological data using Linked Data standards to support drug discovery~\cite{Openphacts}.
+ The goal of this project is integration of chemical and biological data using Linked Data standards to support drug discovery~\cite{Openphacts}.\\
 
 \emph{Linked Cancer Genome Atlas Database}\cite{SAL13} as another Linked Data project aims to create an atlas of genetic mutations responsible for cancer.
-The project provides an infrastructure for making the cancer related data publicly accessible and to enable cancer researchers anywhere around the world to make and validate important discoveries.
+The project provides an infrastructure for making the cancer related data publicly accessible and to enable cancer researchers anywhere around the world to make and validate important discoveries.\\
 
 Although these projects address the backend side of creating LODD applications, there has been a clear lack of applications with user-friendly, efficient and effective interfaces to make Linked Data resources accessible to end-users outside the biomedical community.
 One of the use cases of LODD datasets addressed in this paper is authoring of \emph{Semantic Prescriptions} which are prescriptions enriched by Linked Open Data.
@@ -201,7 +201,7 @@ However, the WYSIWYG model has been criticized, primarily for the verbosity, poo
 
 Similar to the WYSIWYG UI, the WYSIWYM term as defined in \cite{khaliliWISE2013} targets the novel aspect of integrated visualization, exploration and authoring of unstructured and semantic content.
 The rationale of our WYSIWYM concept is to enrich the existing WYSIWYG presentational view of the content with UI components revealing the \emph{semantics} embedded in the content and enable the exploration and authoring of semantic content.
-Instead of separating presentation, content and meaning, our WYSIWYM approach aims to integrate these aspects to facilitate the process of \emph{Semantic Content Authoring}.
+Instead of separating presentation, content and meaning, our WYSIWYM approach aims to integrate these aspects to facilitate the process of \emph{Semantic Content Authoring}.\\
 
 WYSIWYM model as depicted in \autoref{fig:wysiwym}, is defined by:
 \begin{itemize}
@@ -210,7 +210,7 @@ WYSIWYM model as depicted in \autoref{fig:wysiwym}, is defined by:
 	\item a set of exploration techniques (e.g. faceted browsing based on the type of entities) and a set of possible configurations for them;
 	\item a set of authoring techniques (e.g. form editing, inline edit) and a set of possible configurations for them;
 	\item a set of bindings to map each element of a semantic representation model to a visualization/exploration/authoring technique;
-	\item a set of helper components (e.g. automation, real-time tagging, recommendation).
+	\item a set of helper components (e.g. automation, real-time tagging, recommendation).\\
 \end{itemize}
 
 Medical prescriptions are a good candidate to be enriched by the WYSIWYM semantic annotations interface.
@@ -243,7 +243,7 @@ As depicted in \autoref{fig:botup}, semantic prescriptions are created based on 
 
 \subsection{Architecture}
 
-The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers:
+The Pharmer system architecture is depicted in \autoref{fig:arch} and consists of three layers:\\
 
 \begin{figure}[tb]
 	\centering
@@ -263,7 +263,7 @@ Automatic drug detection component is configurable so that users can easily add 
 When user is writing the prescription, this component asynchronously performs the drug recognition and adds the related annotations as real-time semantic tagging.
 
 Another component in this layer is drug information collector which grabs all the information regarding a specific drug from Linked Open Data.
-To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodd}) by sending federated SPARQL queries.
+To pursue this, it utilizes datasets such as DrugBank, DailyMed and RxNorm (available at \cite{lodd}) by sending federated SPARQL queries.\\
 
 \paragraph{Semantic Layer}
 There are two main components in this layer namely \emph{Annotator} and \emph{Authoring UI}.
@@ -271,7 +271,7 @@ The \emph{annotator} component handles the automatic annotation and embeds the g
 Annotator adopts the RDFa format. \emph{RDFa} (Resource Description Framework in attributes) is a W3C Recommendation that adds a set of attribute level extensions to XHTML for embedding RDF metadata within web documents.
 RDFa fulfills the principles of interoperable metadata such as publisher independence, data reuse, self containment, schema modularity and evolvability.
 
-The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.
+The \emph{authoring UI} component provides users with a set of input forms to manually embed the meta-data related to prescription instructions into the prescription document.\\
 
 \paragraph{Application Layer}
 This layer provides a set of applications on top of the generated semantic prescriptions.
@@ -286,19 +286,19 @@ The main features of Pharmer can be summarized as:
     Pharmer employs the WYSIWYM (What-You-See-Is-What-You-Mean) concept for integrated visualization, exploration and authoring of un-structured and semantic content.
     In Pharmer, users are able to directly manipulate the conventional e-prescriptions in order to enrich them with semantics.
     The generated annotations can be viewed by different sets of user interfaces with are configurable by users.
-    For example, users can select specific border/background colors to distinguish the annotated drugs in a prescription.
+    For example, users can select specific border/background colors to distinguish the annotated drugs in a prescription.\\
 	\item \emph{Providing Different Semantic Views}.
 	Semantic views allow the generation of different views on the same metadata schema and aggregations of the knowledge base based on the roles, personal preferences, and local policies of the intended users.
 	Pharmer suggests two types of views: generic and domain specific views.
 	Generic views provide visual representations of drug information (e.g. as information view depicted in \autoref{fig:screenshot} or graph view in \autoref{fig:graphview}).
-	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).
+	Domain specific views address the requirements of a particular domain user (e.g. a researcher need specific views for visualizing the atomic structure of chemical compounds).\\
 	\item \emph{Real-time Drug Tagging.}
 	Real-time tagging means creating drug annotations while the user is typing.
 	This will significantly increase the annotation speed~\cite{OCA}.
 	Users are not distracted since they do not have to interrupt their current authoring task.
-	Pharmer has a client-side component which interacts with the server asynchronously to make real-time tagging possible.
+	Pharmer has a client-side component which interacts with the server asynchronously to make real-time tagging possible.\\
 	\item \emph{Drug Suggestion.}
-		When searching for a drug, Pharmer suggests the similar drugs by taking into account the history of search terms.
+		When searching for a drug, Pharmer suggests the similar drugs by taking into account the history of search terms.\\
     \item \emph{Automatic Drug Annotation.}
     Automatic annotation means the provision of facilities for automatic mark-up of prescriptions.
     The automatic process of annotating in Pharmer is composed basically of finding drug terms in prescription using an NLP service, mapping them against an ontology, and disambiguating common terms.
@@ -363,7 +363,7 @@ It further facilitates relations between patients and health care professionals 
 
 As information source, the network accesses LODD, where diagnostic and prescribing data has been located as well.
 Accessing such pieces of information, Pharmer is able to be used as a tool for diagnosis and prescribing in assistance to physicians.
-Privacy of that network is also a critical point worth considerations.
+Privacy of that network is also a critical point worth considerations.\\
 
 \subsubsection{Shared Decision Making}
 \label{subsec: SDM}
@@ -371,7 +371,7 @@ Privacy of that network is also a critical point worth considerations.
  The role of the patient, instead, in the consultation has been highlighted, mainly through introducing‘patient-centred’ strategies.
  Therefor, nowadays the models promoting patients active involvement in the decision-making procedure becoming developed.
  
- A model introduced by Charles et al. defines shared decision making only under the following four key characteristics.
+ A model introduced by Charles et al.\cite{Charles1997} defines shared decision making only under the following four key characteristics.
  These keys are:
  \begin{itemize}
    \item both the patient and the doctor are involved
@@ -380,23 +380,91 @@ Privacy of that network is also a critical point worth considerations.
    \item an agreement is reached on the treatment to implement
  \end{itemize}
 
-Pharmer as social network facilitates shared decision making through the connection amongst patient and physician on one hand and pharmacist on the other hand. According to Charles et al. model, Pharmer not only connects patients and physicians but also pharmacist as third party has an supervisory role on medication choice.
+Pharmer as social network facilitates shared decision making through the connection amongst patient and physician on one hand and pharmacist on the other hand. According to Charles et al. model, Pharmer not only connects patients and physicians but also pharmacist as third party has an supervisory role on medication choice.\\
 
 \subsubsection{Fast Diagnostic Tool}
 
 Free access to LODD enables Pharmer to not only linked to e-prescribing systems but also to further assist physicians in diagnosis and treatment. Pharmer with direct connection to up-to-date information enables physicians to reconfirm their diagnosis and help them in finding proper treatment approaches.
-Physician, after general examination, enters the observed symptoms in Pharmer system and there, with the wealth of data available, Pharmer assists in diagnosis followed by therapies.
+Physician, after general examination, enters the observed symptoms in Pharmer system and there, with the wealth of data available, Pharmer assists in diagnosis followed by therapies.\\
 
 \subsubsection{Privacy}
  Systems containing patient treatment history profiles, such as Pharmer, are required to be considered about privacy issues.
  This issue is solved by providing different users, with different views which is password protected.
  In such a protection, patient has only access to his profile while physician has access to all data of his patients, the same holds true for pharmacists and insurance companies.
  Other organisations(e.g. research institutes or pharma companies) can access to patients information as statistical data and only if the patient agrees.
- This protection helps Pharmer users to ensure data privacy.
+ This protection helps Pharmer users to ensure data privacy.\\
 
 \subsection{Example Scenario}
 \label{sec:example}
 
+\begin{figure*}[tb]
+	\centering
+		\includegraphics[width=1.5\columnwidth]{images/stake.jpg}
+	\caption{Pharmer ecosystem.}
+	\label{fig:system}
+\end{figure*}
+
+As depicted in \autoref{fig:system}, Pharmer approach is very versatile and can be applied in a vast number of use cases by different stakeholders.
+The arrows in the figure can be summarized as the following:
+\begin{enumerate}
+\item The physician diagnoses the disease and writes the corresponding semantic prescription using the Pharmer, where patient's medication history is available.
+\item The patient accesses to drug information, food interactions and adverse drug reactions via Pharmer.
+\item The pharmacist verifies the prescription and considers alternative options suggested by Pharmer.
+\item Pharma companies utilize the Pharmer data store in order to balance their production and distribution according to the market taste and demand
+\item The Researchesrs easily access to the abundant data source and prescription statistical data.
+\item Pharmer informs insurance companies to perform fair coverage plans according to covered drugs and patient's medication history.
+\end{enumerate}
+All the above stakeholders utilize Linked Open Data as their integrated information source.
+
+As a scenario; a 63 year old man with the history of MI (Myocardial Infarction) and type 2 diabetes visits a heart and coronary specialist complaining about frequent headaches and heavy head feeling. The specialist, after general inspection and monitoring vital signs, asks for a blood test.
+He then considers symptoms including high blood pressure (sys/dias:158/95 mmHg) and high Fasting Blood Sugar (150 mg/dl).
+He diagnoses high blood pressure and severe type 2 diabetes.
+Thereby, The patient profile is defined in Pharmer by patient's information besides diagnosis.
+``no weight loss" is mentioned as a preference in the patient's profile.
+Regardless of the patient's preferences, the physician would prescribe \texttt{Metformin} as a drug of choice.
+However, since the major side effect of \texttt{Metformin} is weight loss, the physician replaces \texttt{Metformin} with \texttt{Rosiglitazone}.
+
+Considering the medication that the patient took before (\texttt{Glibenclamide} only), The specialist dispenses a new semantic prescription by entering the following drugs:
+
+\begin{itemize}
+\item \textbf{Rosiglitazone} 4 mg Oral Tablet once daily
+\item \textbf{Glibenclamide} 5 mg Oral Tablet bid
+\item \textbf{Atenolol} 50 mg Oral Tablet once daily
+\end{itemize}
+
+He then checks for the possible drug interactions by clicking the attributed button in the Pharmer software.
+As the Pharmer is connected to Linked Open Data it is capable of recognizing the most recent updated drug interactions.
+He finds out that Sulfunyl Urea class drugs (here \texttt{Glibenclamide}) are not compatible to be coadministrated with beta-blockers (here \texttt{Atenolol}).
+So, he needs to replace it with another drug.
+Using the Pharmer and its connection to Linked Open Data, the physician can find the possible alternatives.
+Then he decides to choose \texttt{Captopril} as replacement.
+
+The semantic prescription is then sent to the patient's pharmacy of choice.
+There, pharmacist is able to review the semantic prescription and comments on that directly in the system so that the physician is also aware of the corresponding changes.
+Pharmacist comments may cause minor or major modifications in the semantic prescription.
+For instance, using the Pharmer she is able to check the appropriate dose of each medicine or suggest cheaper alternatives (if possible).
+In this case, as the \texttt{Rosiglitazone} elevates cardiovascular risks, the pharmacist suggests \texttt{Rosiglitazone} to be replaced by \texttt{Pioglitazone}.
+This change happens as a realization of the shared decision making between physision, pharmacist and patient.
+Thereafter, patient who was referred to the pharmacy takes the prescribed drugs.
+
+Before he starts taking the tablets, he enters in Pharmer system with his ID as patient.
+There, he is able to observe drug information embedded in the error free semantic prescription besides the preferred time and drug intake instructions.
+He is also informed about the possible food interactions.
+The patient's profile completes as he visits physicians or ask for refills.
+Furthermore he is followed up by the physician and the pharmacist via the Pharmer.
+After 2 months the patient visits another specialist for his recurrent symptoms of diabetes.
+The specialist via the Pharmer accesses to the patient's medical profile and increases the anti-diabetic drug dose.
+
+A researcher in an academy research institution investigates \texttt{Captopril} (as an Angiotansion II antagonist) effect on preventing diabetes recurrence.
+Having the data from the aforementioned patient follow up along with other similar patients allows investigator to lead her goal.
+In this case, for example, the \texttt{Captopril} along with anti-diabetic drugs led to diabetes recurrence.
+Observing all the corresponding patient profiles will either confirm or reject the research assumption.
+
+ A pharma company manager requires to determine the compliance rate of \texttt{Captopril} in the market in order to balance the production based on market demand.
+ Applying the Pharmer allows him to simply access to these data and decide how to go on with this product.
+ He is also able to collect the evidence which may prevent further dispense of \texttt{Captopril} by physicians or consumption among patients.
+ Pharmer allows insurance companies to customize and individualize their services based on patient's medical records. Recruiting Pharmer which contains information on insured drugs, the physician can choose the drugs accordingly.
+ In the scenario,insurance company checks the dispensed medication with the disease and patient's insurance status therefore decides to refund the patient.
 
 \section{Conclusion}
 \label{sec:conclusion}
